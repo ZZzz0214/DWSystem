@@ -4,7 +4,8 @@
 
 <script>
 export default {
-  name: "wasaige"
+  name: "wasaige",
+  age:18
 }
 </script>
 
