@@ -1,7 +1,15 @@
+/**
+* @program: DWSystem
+* @author: Wasaige0828
+**/
 <template>
   <div class="login">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form">
-      <h3 class="title">若依后台管理系统</h3>
+      <div class="login_div">
+      <img src="../assets/logo/logo.png">
+        <h2 class="title">帝王团购管理系统</h2>
+      </div>
+      <span :style="{ color: '#1890ff' ,fontSize:'12px',textAlign:'center',margin:'10px'}">未经授权的用户不得登录本系统，忘记密码请与管理员联系</span>
       <el-form-item prop="username">
         <el-input
           v-model="loginForm.username"
@@ -28,7 +36,7 @@
           v-model="loginForm.code"
           auto-complete="off"
           placeholder="验证码"
-          style="width: 63%"
+          style="width: 65%"
           @keyup.enter.native="handleLogin"
         >
           <svg-icon slot="prefix" icon-class="validCode" class="el-input__icon input-icon" />
@@ -54,10 +62,6 @@
         </div>
       </el-form-item>
     </el-form>
-    <!--  底部  -->
-    <div class="el-login-footer">
-      <span>Copyright © 2018-2024 ruoyi.vip All Rights Reserved.</span>
-    </div>
   </div>
 </template>
 
@@ -72,8 +76,8 @@ export default {
     return {
       codeUrl: "",
       loginForm: {
-        username: "admin",
-        password: "admin123",
+        username: "",
+        password: "",
         rememberMe: false,
         code: "",
         uuid: ""
@@ -91,7 +95,7 @@ export default {
       // 验证码开关
       captchaEnabled: true,
       // 注册开关
-      register: false,
+      register: true,
       redirect: undefined
     };
   },
@@ -156,6 +160,12 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
+.login_div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .login {
   display: flex;
   justify-content: center;
@@ -165,16 +175,22 @@ export default {
   background-size: cover;
 }
 .title {
-  margin: 0px auto 30px auto;
+  margin: 0px 0px 15px 0px;
   text-align: center;
   color: #707070;
 }
-
+.el-form-item{
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
 .login-form {
-  border-radius: 6px;
-  background: #ffffff;
-  width: 400px;
-  padding: 25px 25px 5px 25px;
+  width: auto;
+  height: auto;
+  position: absolute;
+  padding: 30px 30px 30px 30px;
+  border-radius: 8px;
+  background: #fff;
+
   .el-input {
     height: 38px;
     input {
@@ -193,25 +209,13 @@ export default {
   color: #bfbfbf;
 }
 .login-code {
-  width: 33%;
+  width: 30%;
   height: 38px;
   float: right;
   img {
     cursor: pointer;
     vertical-align: middle;
   }
-}
-.el-login-footer {
-  height: 40px;
-  line-height: 40px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  color: #fff;
-  font-family: Arial;
-  font-size: 12px;
-  letter-spacing: 1px;
 }
 .login-code-img {
   height: 38px;
