@@ -4,14 +4,85 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e46e3b0b-2b88-4f5d-b8c7-1ae0ef89e502" name="更改" comment="前端版本">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/___.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/___.xml" afterDir="false" />
+    <list default="true" id="e46e3b0b-2b88-4f5d-b8c7-1ae0ef89e502" name="更改" comment="删了wo.txt">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/tool/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/tool/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-common/src/main/java/com/ruoyi/common/core/domain/newEntity/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-common/src/main/java/com/ruoyi/common/core/domain/newEntity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/newService/LoginService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/newService/PasswordService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/newService/SSysPermissionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/newService/TokenService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/mapper/RoleMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/mapper/RoleMenuMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/mapper/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/mapper/UserRoleMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/RoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/impl/RoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/RoleMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/RoleMenuMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/UserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/UserRoleMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDeptController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDeptController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysLoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/application-druid.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/application-druid.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/application-druid.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/application-druid.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/monitor/SysUserOnlineController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/monitor/SysUserOnlineController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/system/SysDeptController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/system/SysLoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/system/SysProfileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/system/SysProfileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/system/SysRoleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/system/SysRoleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/system/SysUserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-common/src/main/java/com/ruoyi/common/core/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/src/main/java/com/ruoyi/common/core/controller/BaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-common/src/main/java/com/ruoyi/common/core/domain/model/LoginUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/src/main/java/com/ruoyi/common/core/domain/model/LoginUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-common/src/main/java/com/ruoyi/common/utils/SecurityUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/src/main/java/com/ruoyi/common/utils/SecurityUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/config/serializer/SensitiveJsonSerializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/config/serializer/SensitiveJsonSerializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/core/controller/BaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/core/controller/BaseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/core/domain/model/LoginUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/core/domain/model/LoginUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/utils/SecurityUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/utils/SecurityUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/aspectj/DataScopeAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/aspectj/DataScopeAspect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/aspectj/LogAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/aspectj/LogAspect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/security/filter/JwtAuthenticationTokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/security/filter/JwtAuthenticationTokenFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/security/handle/LogoutSuccessHandlerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/security/handle/LogoutSuccessHandlerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/service/PermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/service/PermissionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/service/SysLoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/service/SysLoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/service/SysPermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/service/SysPermissionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/service/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/service/TokenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/service/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/service/UserDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/aspectj/DataScopeAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/aspectj/DataScopeAspect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/aspectj/LogAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/aspectj/LogAspect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/security/filter/JwtAuthenticationTokenFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/security/filter/JwtAuthenticationTokenFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/security/handle/LogoutSuccessHandlerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/security/handle/LogoutSuccessHandlerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/web/service/PermissionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/web/service/PermissionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/web/service/SysLoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/web/service/SysLoginService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/web/service/SysPermissionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/web/service/SysPermissionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/web/service/TokenService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/web/service/UserDetailsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/web/service/UserDetailsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysUserOnlineServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysUserOnlineServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/system/SysRoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/system/SysRoleMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/com/ruoyi/system/service/impl/SysUserOnlineServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/com/ruoyi/system/service/impl/SysUserOnlineServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/system/SysRoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/system/SysRoleMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="spring-beans.schema" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PUSH_TAGS">
@@ -32,17 +103,21 @@
     &quot;state&quot;: &quot;OPEN&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="71de4b18-a3ab-4b0a-8155-b81beacf0cdd" />
-        <option name="url" value="https://github.com/ZZzz0214/DWSystem.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:ZZzz0214/DWSystem.git&quot;,
+    &quot;accountId&quot;: &quot;60cc1741-aaed-490f-8b21-8a0c4236bad5&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2gRsAnkogBnubQRRi3WwYETytms" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -53,6 +128,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Maven.ruoyi [clean].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -60,20 +136,39 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.RuoYiApplication.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "#2 on first",
+    "git-widget-placeholder": "first",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Mrzth/Desktop/DWSystem",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/项目文件/DWSystem/ruoyi-system/src/main/resources/mapper/newSystem",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "ssh.settings",
+    "npm.dev.executor": "Run",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "spring.configuration.checksum": "79d6ce39730bcb0bc093948bea475e34",
+    "ts.external.directory.path": "E:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\项目文件\DWSystem\ruoyi-system\src\main\resources\mapper\newSystem" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\项目文件\DWSystem\ruoyi-admin\src\main\java" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ruoyi.system.mapper" />
+      <recent name="com.ruoyi.web.controller.tool" />
+      <recent name="com.ruoyi.framework.web.newService" />
+      <recent name="com.ruoyi.system.newService.impl" />
+      <recent name="com.ruoyi.system.newService" />
+    </key>
+  </component>
   <component name="RunManager" selected="Spring Boot.RuoYiApplication">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="RuoYi-Vue" />
@@ -111,6 +206,14 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
@@ -122,6 +225,13 @@
       <workItem from="1715671589356" duration="1054000" />
       <workItem from="1715672744964" duration="921000" />
       <workItem from="1715750136970" duration="2911000" />
+      <workItem from="1715840927167" duration="5244000" />
+      <workItem from="1715865202955" duration="6286000" />
+      <workItem from="1715925888088" duration="21482000" />
+      <workItem from="1716005543535" duration="95000" />
+      <workItem from="1716005646626" duration="836000" />
+      <workItem from="1716039847121" duration="1275000" />
+      <workItem from="1716102224367" duration="18149000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1715672587273</created>
@@ -144,7 +254,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715751285474</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="删了wo.txt">
+      <option name="closed" value="true" />
+      <created>1715757176183</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715757176183</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,7 +279,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="second" />
+                        <option value="first" />
                       </list>
                     </value>
                   </entry>
@@ -176,6 +294,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1" />
     <MESSAGE value="前端版本" />
-    <option name="LAST_COMMIT_MESSAGE" value="前端版本" />
+    <MESSAGE value="删了wo.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="删了wo.txt" />
   </component>
 </project>

@@ -1,5 +1,6 @@
 package com.ruoyi.web.controller.system;
 
+import com.ruoyi.system.newService.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,14 +14,14 @@ import com.ruoyi.common.annotation.Log;
 import com.ruoyi.common.config.RuoYiConfig;
 import com.ruoyi.common.core.controller.BaseController;
 import com.ruoyi.common.core.domain.AjaxResult;
-import com.ruoyi.common.core.domain.entity.SysUser;
+import com.ruoyi.common.core.domain.newEntity.User;
 import com.ruoyi.common.core.domain.model.LoginUser;
 import com.ruoyi.common.enums.BusinessType;
 import com.ruoyi.common.utils.SecurityUtils;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.file.FileUploadUtils;
 import com.ruoyi.common.utils.file.MimeTypeUtils;
-import com.ruoyi.framework.web.service.TokenService;
+import com.ruoyi.framework.web.newService.TokenService;
 import com.ruoyi.system.service.ISysUserService;
 
 /**
@@ -33,7 +34,7 @@ import com.ruoyi.system.service.ISysUserService;
 public class SysProfileController extends BaseController
 {
     @Autowired
-    private ISysUserService userService;
+    private UserService userService;
 
     @Autowired
     private TokenService tokenService;
@@ -45,10 +46,10 @@ public class SysProfileController extends BaseController
     public AjaxResult profile()
     {
         LoginUser loginUser = getLoginUser();
-        SysUser user = loginUser.getUser();
+        User user = loginUser.getUser();
         AjaxResult ajax = AjaxResult.success(user);
         ajax.put("roleGroup", userService.selectUserRoleGroup(loginUser.getUsername()));
-        ajax.put("postGroup", userService.selectUserPostGroup(loginUser.getUsername()));
+//        ajax.put("postGroup", userService.selectUserPostGroup(loginUser.getUsername()));
         return ajax;
     }
 
@@ -57,22 +58,22 @@ public class SysProfileController extends BaseController
      */
     @Log(title = "个人信息", businessType = BusinessType.UPDATE)
     @PutMapping
-    public AjaxResult updateProfile(@RequestBody SysUser user)
+    public AjaxResult updateProfile(@RequestBody User user)
     {
         LoginUser loginUser = getLoginUser();
-        SysUser currentUser = loginUser.getUser();
+        User currentUser = loginUser.getUser();
         currentUser.setNickName(user.getNickName());
-        currentUser.setEmail(user.getEmail());
-        currentUser.setPhonenumber(user.getPhonenumber());
+//        currentUser.setEmail(user.getEmail());
+//        currentUser.setPhonenumber(user.getPhonenumber());
         currentUser.setSex(user.getSex());
-        if (StringUtils.isNotEmpty(user.getPhonenumber()) && !userService.checkPhoneUnique(currentUser))
-        {
-            return error("修改用户'" + loginUser.getUsername() + "'失败，手机号码已存在");
-        }
-        if (StringUtils.isNotEmpty(user.getEmail()) && !userService.checkEmailUnique(currentUser))
-        {
-            return error("修改用户'" + loginUser.getUsername() + "'失败，邮箱账号已存在");
-        }
+//        if (StringUtils.isNotEmpty(user.getPhonenumber()) && !userService.checkPhoneUnique(currentUser))
+//        {
+//            return error("修改用户'" + loginUser.getUsername() + "'失败，手机号码已存在");
+//        }
+//        if (StringUtils.isNotEmpty(user.getEmail()) && !userService.checkEmailUnique(currentUser))
+//        {
+//            return error("修改用户'" + loginUser.getUsername() + "'失败，邮箱账号已存在");
+//        }
         if (userService.updateUserProfile(currentUser) > 0)
         {
             // 更新缓存用户信息

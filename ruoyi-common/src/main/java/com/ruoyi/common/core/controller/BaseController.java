@@ -187,10 +187,10 @@ public class BaseController
     /**
      * 获取登录部门id
      */
-    public Long getDeptId()
-    {
-        return getLoginUser().getDeptId();
-    }
+//    public Long getDeptId()
+//    {
+//        return getLoginUser().getDeptId();
+//    }
 
     /**
      * 获取登录用户名
