@@ -104,9 +104,12 @@ export default {
 </script>
 
 <style scoped>
+
 .pagination-container {
-  background: #fff;
-  padding: 32px 16px;
+  position: fixed;
+  bottom: 20px; /* 距离底部的距离 */
+  right: 20px; /* 距离右侧的距离 */
+  z-index: 999; /* 确保在其他元素上方 */
 }
 .pagination-container.hidden {
   display: none;

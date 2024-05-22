@@ -1,7 +1,7 @@
 package com.ruoyi.common.core.domain.model;
 
 import com.alibaba.fastjson2.annotation.JSONField;
-import com.ruoyi.common.core.domain.entity.SysUser;
+import com.ruoyi.common.core.domain.newEntity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
@@ -24,7 +24,7 @@ public class LoginUser implements UserDetails
     /**
      * 部门ID
      */
-    private Long deptId;
+//    private Long deptId;
 
     /**
      * 用户唯一标识
@@ -69,22 +69,21 @@ public class LoginUser implements UserDetails
     /**
      * 用户信息
      */
-    private SysUser user;
+    private User user;
 
     public LoginUser()
     {
     }
 
-    public LoginUser(SysUser user, Set<String> permissions)
+    public LoginUser(User user, Set<String> permissions)
     {
         this.user = user;
         this.permissions = permissions;
     }
 
-    public LoginUser(Long userId, Long deptId, SysUser user, Set<String> permissions)
+    public LoginUser(Long userId, User user, Set<String> permissions)
     {
         this.userId = userId;
-        this.deptId = deptId;
         this.user = user;
         this.permissions = permissions;
     }
@@ -99,15 +98,7 @@ public class LoginUser implements UserDetails
         this.userId = userId;
     }
 
-    public Long getDeptId()
-    {
-        return deptId;
-    }
 
-    public void setDeptId(Long deptId)
-    {
-        this.deptId = deptId;
-    }
 
     public String getToken()
     {
@@ -248,12 +239,12 @@ public class LoginUser implements UserDetails
         this.permissions = permissions;
     }
 
-    public SysUser getUser()
+    public User getUser()
     {
         return user;
     }
 
-    public void setUser(SysUser user)
+    public void setUser(User user)
     {
         this.user = user;
     }

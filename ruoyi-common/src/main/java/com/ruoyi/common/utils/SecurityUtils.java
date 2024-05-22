@@ -9,7 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.util.PatternMatchUtils;
 import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.constant.HttpStatus;
-import com.ruoyi.common.core.domain.entity.SysRole;
+import com.ruoyi.common.core.domain.newEntity.Role;
 import com.ruoyi.common.core.domain.model.LoginUser;
 import com.ruoyi.common.exception.ServiceException;
 
@@ -39,17 +39,17 @@ public class SecurityUtils
     /**
      * 获取部门ID
      **/
-    public static Long getDeptId()
-    {
-        try
-        {
-            return getLoginUser().getDeptId();
-        }
-        catch (Exception e)
-        {
-            throw new ServiceException("获取部门ID异常", HttpStatus.UNAUTHORIZED);
-        }
-    }
+//    public static Long getDeptId()
+//    {
+//        try
+//        {
+//            return getLoginUser().getDeptId();
+//        }
+//        catch (Exception e)
+//        {
+//            throw new ServiceException("获取部门ID异常", HttpStatus.UNAUTHORIZED);
+//        }
+//    }
 
     /**
      * 获取用户账户
@@ -157,8 +157,8 @@ public class SecurityUtils
      */
     public static boolean hasRole(String role)
     {
-        List<SysRole> roleList = getLoginUser().getUser().getRoles();
-        Collection<String> roles = roleList.stream().map(SysRole::getRoleKey).collect(Collectors.toSet());
+        List<Role> roleList = getLoginUser().getUser().getRoles();
+        Collection<String> roles = roleList.stream().map(Role::getRoleKey).collect(Collectors.toSet());
         return hasRole(roles, role);
     }
 

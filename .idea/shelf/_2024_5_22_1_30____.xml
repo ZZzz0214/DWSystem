@@ -1,0 +1,49 @@
+<changelist name="在进行合并之前于_2024_5_22_1_30_取消提交了更改_[更改]" date="1716312623141" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/在进行合并之前于_2024_5_22_1_30_取消提交了更改_[更改]/shelved.patch" />
+  <option name="DESCRIPTION" value="在进行合并之前于 2024/5/22 1:30 取消提交了更改 [更改]" />
+  <binary>
+    <option name="BEFORE_PATH" value="ruoyi-framework/target/classes/com/ruoyi/framework/web/service/SysLoginService.class" />
+    <option name="AFTER_PATH" value="ruoyi-framework/target/classes/com/ruoyi/framework/web/service/SysLoginService.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/在进行合并之前于_2024_5_22_1_30_取消提交了更改_[更改]/SysLoginService.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="ruoyi-framework/target/classes/com/ruoyi/framework/web/service/PermissionService.class" />
+    <option name="AFTER_PATH" value="ruoyi-framework/target/classes/com/ruoyi/framework/web/service/PermissionService.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/在进行合并之前于_2024_5_22_1_30_取消提交了更改_[更改]/PermissionService.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="ruoyi-framework/target/classes/com/ruoyi/framework/aspectj/LogAspect.class" />
+    <option name="AFTER_PATH" value="ruoyi-framework/target/classes/com/ruoyi/framework/aspectj/LogAspect.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/在进行合并之前于_2024_5_22_1_30_取消提交了更改_[更改]/LogAspect.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="ruoyi-framework/target/classes/com/ruoyi/framework/web/service/SysPermissionService.class" />
+    <option name="AFTER_PATH" value="ruoyi-framework/target/classes/com/ruoyi/framework/web/service/SysPermissionService.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/在进行合并之前于_2024_5_22_1_30_取消提交了更改_[更改]/SysPermissionService.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="ruoyi-framework/target/classes/com/ruoyi/framework/aspectj/DataScopeAspect.class" />
+    <option name="AFTER_PATH" value="ruoyi-framework/target/classes/com/ruoyi/framework/aspectj/DataScopeAspect.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/在进行合并之前于_2024_5_22_1_30_取消提交了更改_[更改]/DataScopeAspect.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="ruoyi-framework/target/classes/com/ruoyi/framework/web/service/UserDetailsServiceImpl.class" />
+    <option name="AFTER_PATH" value="ruoyi-framework/target/classes/com/ruoyi/framework/web/service/UserDetailsServiceImpl.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/在进行合并之前于_2024_5_22_1_30_取消提交了更改_[更改]/UserDetailsServiceImpl.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="ruoyi-framework/target/classes/com/ruoyi/framework/web/service/TokenService.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="ruoyi-framework/target/classes/com/ruoyi/framework/security/handle/LogoutSuccessHandlerImpl.class" />
+    <option name="AFTER_PATH" value="ruoyi-framework/target/classes/com/ruoyi/framework/security/handle/LogoutSuccessHandlerImpl.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/在进行合并之前于_2024_5_22_1_30_取消提交了更改_[更改]/LogoutSuccessHandlerImpl.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="ruoyi-framework/target/classes/com/ruoyi/framework/security/filter/JwtAuthenticationTokenFilter.class" />
+    <option name="AFTER_PATH" value="ruoyi-framework/target/classes/com/ruoyi/framework/security/filter/JwtAuthenticationTokenFilter.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/在进行合并之前于_2024_5_22_1_30_取消提交了更改_[更改]/JwtAuthenticationTokenFilter.class" />
+  </binary>
+</changelist>
