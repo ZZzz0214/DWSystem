@@ -33,6 +33,10 @@ import java.util.stream.Collectors;
  * 
  * @author ruoyi
  */
+
+//@PreAuthorize：这个注解表示在执行被注解的方法之前进行权限验证。
+//@ss：这是一个 Spring 表达式语言（SpEL）表达式，它引用了一个名为 ss 的 Spring bean。
+//hasPermi('system:user:list')：这是一个自定义的方法，通常用于检查当前用户是否具有特定的权限。这里检查的权限是 'system:user:list'。
 @RestController
 @RequestMapping("/system/user")
 public class UserController extends BaseController
@@ -61,7 +65,7 @@ public class UserController extends BaseController
         return getDataTable(list);
     }
 
-    @Log(title = "我草泥马", businessType = BusinessType.EXPORT)
+    @Log(title = "用户管理", businessType = BusinessType.EXPORT)
     @PreAuthorize("@ss.hasPermi('system:user:export')")
     @PostMapping("/export")
     public void export(HttpServletResponse response, User user)
@@ -71,7 +75,7 @@ public class UserController extends BaseController
         util.exportExcel(response, list, "用户数据");
     }
 
-    @Log(title = "我草泥马", businessType = BusinessType.IMPORT)
+    @Log(title = "用户管理", businessType = BusinessType.IMPORT)
     @PreAuthorize("@ss.hasPermi('system:user:import')")
     @PostMapping("/importData")
     public AjaxResult importData(MultipartFile file, boolean updateSupport) throws Exception
@@ -116,7 +120,7 @@ public class UserController extends BaseController
      * 新增用户
      */
     @PreAuthorize("@ss.hasPermi('system:user:add')")
-    @Log(title = "我草泥马", businessType = BusinessType.INSERT)
+    @Log(title = "用户管理", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@Validated @RequestBody User user)
     {
@@ -141,7 +145,7 @@ public class UserController extends BaseController
      * 修改用户
      */
     @PreAuthorize("@ss.hasPermi('system:user:edit')")
-    @Log(title = "我草泥马", businessType = BusinessType.UPDATE)
+    @Log(title = "用户管理", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@Validated @RequestBody User user)
     {
@@ -167,7 +171,7 @@ public class UserController extends BaseController
      * 删除用户
      */
     @PreAuthorize("@ss.hasPermi('system:user:remove')")
-    @Log(title = "我草泥马", businessType = BusinessType.DELETE)
+    @Log(title = "用户管理", businessType = BusinessType.DELETE)
     @DeleteMapping("/{userIds}")
     public AjaxResult remove(@PathVariable Long[] userIds)
     {
@@ -182,7 +186,7 @@ public class UserController extends BaseController
      * 重置密码
      */
     @PreAuthorize("@ss.hasPermi('system:user:resetPwd')")
-    @Log(title = "我草泥马", businessType = BusinessType.UPDATE)
+    @Log(title = "用户管理", businessType = BusinessType.UPDATE)
     @PutMapping("/resetPwd")
     public AjaxResult resetPwd(@RequestBody User user)
     {
@@ -197,7 +201,7 @@ public class UserController extends BaseController
      * 状态修改
      */
     @PreAuthorize("@ss.hasPermi('system:user:edit')")
-    @Log(title = "我草泥马", businessType = BusinessType.UPDATE)
+    @Log(title = "用户管理", businessType = BusinessType.UPDATE)
     @PutMapping("/changeStatus")
     public AjaxResult changeStatus(@RequestBody User user)
     {
@@ -226,7 +230,7 @@ public class UserController extends BaseController
      * 用户授权角色
      */
     @PreAuthorize("@ss.hasPermi('system:user:edit')")
-    @Log(title = "我草泥马", businessType = BusinessType.GRANT)
+    @Log(title = "用户管理", businessType = BusinessType.GRANT)
     @PutMapping("/authRole")
     public AjaxResult insertAuthRole(Long userId, Long[] roleIds)
     {

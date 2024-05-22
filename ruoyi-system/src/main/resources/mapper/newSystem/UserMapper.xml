@@ -41,7 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</sql>
 
 	<select id="selectUserList" parameterType="com.ruoyi.common.core.domain.newEntity.User" resultMap="UserResultMap">
-	select user_id,user_name,password,nick_name,sex,avatar,status,del_flag,login_ip,login_date,bei_zhu from sys_user u
+	select user_id,user_name,password,nick_name,sex,avatar,status,del_flag,login_ip,login_date,bei_zhu,create_by,create_time from sys_user u
 	where u.del_flag='0'
 		<if test="userId != null and userId != 0">
 			AND u.user_id = #{userId}
