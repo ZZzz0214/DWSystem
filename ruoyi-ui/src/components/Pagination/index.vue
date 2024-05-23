@@ -1,19 +1,22 @@
 <template>
   <div :class="{'hidden':hidden}" class="pagination-container">
-    <el-pagination
-      :background="background"
-      :current-page.sync="currentPage"
-      :page-size.sync="pageSize"
-      :layout="layout"
-      :page-sizes="pageSizes"
-      :pager-count="pagerCount"
-      :total="total"
-      v-bind="$attrs"
-      @size-change="handleSizeChange"
-      @current-change="handleCurrentChange"
-    />
+    <keep-alive>
+      <el-pagination
+        :background="background"
+        :current-page.sync="currentPage"
+        :page-size.sync="pageSize"
+        :layout="layout"
+        :page-sizes="pageSizes"
+        :pager-count="pagerCount"
+        :total="total"
+        v-bind="$attrs"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      />
+    </keep-alive>
   </div>
 </template>
+
 
 <script>
 import { scrollTo } from '@/utils/scroll-to'

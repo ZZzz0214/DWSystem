@@ -1,5 +1,6 @@
 <template>
   <div class="app-container" >
+
     <el-row :gutter="20" >
       <!--用户数据-->
       <el-col >
@@ -8,15 +9,6 @@
             <el-input
               v-model="queryParams.userName"
               placeholder="请输入用户名称"
-              clearable
-              style="width: 240px"
-              @keyup.enter.native="handleQuery"
-            />
-          </el-form-item>
-          <el-form-item label="手机号码" prop="phonenumber">
-            <el-input
-              v-model="queryParams.phonenumber"
-              placeholder="请输入手机号码"
               clearable
               style="width: 240px"
               @keyup.enter.native="handleQuery"
@@ -170,12 +162,14 @@
       </el-col>
     </el-row>
 
-    <div class="pagination-container" v-show="showPagination">
+    <div class="pagination-container">
       <pagination
+        v-show="total>0"
         :total="total"
         :page.sync="queryParams.pageNum"
         :limit.sync="queryParams.pageSize"
-        @pagination="getList" />
+        @pagination="getList"
+      />
     </div>
 
     <!-- 添加或修改用户配置对话框 -->
@@ -189,16 +183,6 @@
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="12">
-            <el-form-item label="手机号码" prop="phonenumber">
-              <el-input v-model="form.phonenumber" placeholder="请输入手机号码" maxlength="11" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="邮箱" prop="email">
-              <el-input v-model="form.email" placeholder="请输入邮箱" maxlength="50" />
-            </el-form-item>
-          </el-col>
         </el-row>
         <el-row>
           <el-col :span="12">
@@ -309,8 +293,6 @@
       </div>
     </el-dialog>
 
-
-
   </div>
 </template>
 
@@ -328,7 +310,6 @@ export default {
   components: { Treeselect },
   data() {
     return {
-      showPagination: true, // 是否显示pagination组件
       // 遮罩层
       loading: true,
       // 选中数组
@@ -383,7 +364,6 @@ export default {
         pageNum: 1,
         pageSize: 10,
         userName: undefined,
-        phonenumber: undefined,
         status: undefined,
         deptId: undefined
       },
@@ -408,20 +388,6 @@ export default {
           { required: true, message: "用户密码不能为空", trigger: "blur" },
           { min: 5, max: 20, message: '用户密码长度必须介于 5 和 20 之间', trigger: 'blur' },
           { pattern: /^[^<>"'|\\]+$/, message: "不能包含非法字符：< > \" ' \\\ |", trigger: "blur" }
-        ],
-        email: [
-          {
-            type: "email",
-            message: "请输入正确的邮箱地址",
-            trigger: ["blur", "change"]
-          }
-        ],
-        phonenumber: [
-          {
-            pattern: /^1[3|4|5|6|7|8|9][0-9]\d{8}$/,
-            message: "请输入正确的手机号码",
-            trigger: "blur"
-          }
         ]
       }
     };
@@ -432,60 +398,11 @@ export default {
       this.initPassword = response.msg;
     });
   },
-  mounted() {
-    window.addEventListener('scroll', this.handleScroll);
-    // 监听pagination组件的mounted生命周期钩子
-    this.$nextTick(() => {
-      this.showPagination = true;
-    });
-  },
-  updated() {
-    // 当pagination组件更新时，调整位置
-    this.$nextTick(() => {
-      this.handlePaginationShow();
-    });
-  },
+
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll);
   },
   methods: {
-
-    handleScroll() {
-      const scrollHeight = document.documentElement.scrollHeight;
-      const clientHeight = document.documentElement.clientHeight;
-      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-
-      // 当滚动到底部时
-      if (scrollHeight - clientHeight - scrollTop < 100) { // 这里的 100 可以根据需要调整
-        this.fixPagination();
-      } else {
-        this.resetPagination();
-      }
-    },
-
-    fixPagination() {
-      const paginationContainer = document.querySelector('.pagination-container');
-      paginationContainer.style.position = 'fixed';
-      paginationContainer.style.bottom = '20px';
-      paginationContainer.style.right = '20px';
-    },
-
-    resetPagination() {
-      const paginationContainer = document.querySelector('.pagination-container');
-      paginationContainer.style.position = 'relative';
-      paginationContainer.style.bottom = 'auto';
-      paginationContainer.style.right = 'auto';
-    },
-
-
-
-    // 当pagination组件显示时触发的方法
-    handlePaginationShow() {
-      // 将pagination组件定位到右下角
-      document.querySelector('.pagination-container').style.position = 'fixed';
-      document.querySelector('.pagination-container').style.bottom = '20px';
-      document.querySelector('.pagination-container').style.right = '20px';
-    },
 
     /** 查询用户列表 */
     getList() {
@@ -522,8 +439,6 @@ export default {
         userName: undefined,
         nickName: undefined,
         password: undefined,
-        phonenumber: undefined,
-        email: undefined,
         sex: undefined,
         status: "0",
         remark: undefined,

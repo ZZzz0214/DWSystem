@@ -12446,7 +12446,7 @@ job_group</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="2100" parent="427" name="info_id">
-      <AutoIncrement>127</AutoIncrement>
+      <AutoIncrement>149</AutoIncrement>
       <Comment>访问ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -12518,7 +12518,7 @@ job_group</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="2113" parent="428" name="menu_id">
-      <AutoIncrement>1061</AutoIncrement>
+      <AutoIncrement>1066</AutoIncrement>
       <Comment>菜单ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -12638,7 +12638,7 @@ job_group</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="2134" parent="429" name="oper_id">
-      <AutoIncrement>124</AutoIncrement>
+      <AutoIncrement>164</AutoIncrement>
       <Comment>日志主键</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -12762,7 +12762,7 @@ job_group</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="2156" parent="430" name="role_id">
-      <AutoIncrement>5</AutoIncrement>
+      <AutoIncrement>6</AutoIncrement>
       <Comment>角色ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -12877,7 +12877,7 @@ menu_id</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="2176" parent="432" name="user_id">
-      <AutoIncrement>105</AutoIncrement>
+      <AutoIncrement>127</AutoIncrement>
       <Comment>用户ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -21899,7 +21899,7 @@ job_group</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="4008" parent="557" name="config_id">
-      <AutoIncrement>99</AutoIncrement>
+      <AutoIncrement>100</AutoIncrement>
       <Comment>参数主键</Comment>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
@@ -21967,7 +21967,7 @@ job_group</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="4020" parent="558" name="dept_id">
-      <AutoIncrement>199</AutoIncrement>
+      <AutoIncrement>200</AutoIncrement>
       <Comment>部门id</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -22057,7 +22057,7 @@ job_group</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="4036" parent="559" name="dict_code">
-      <AutoIncrement>99</AutoIncrement>
+      <AutoIncrement>100</AutoIncrement>
       <Comment>字典编码</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -22147,7 +22147,7 @@ job_group</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="4052" parent="560" name="dict_id">
-      <AutoIncrement>99</AutoIncrement>
+      <AutoIncrement>100</AutoIncrement>
       <Comment>字典主键</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -22217,7 +22217,7 @@ job_group</ColNames>
       <UnderlyingIndexName>dict_type</UnderlyingIndexName>
     </key>
     <column id="4065" parent="561" name="job_id">
-      <AutoIncrement>99</AutoIncrement>
+      <AutoIncrement>100</AutoIncrement>
       <Comment>任务ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -22365,7 +22365,7 @@ job_group</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="4090" parent="563" name="info_id">
-      <AutoIncrement>123</AutoIncrement>
+      <AutoIncrement>124</AutoIncrement>
       <Comment>访问ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -22437,7 +22437,7 @@ job_group</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="4103" parent="564" name="menu_id">
-      <AutoIncrement>1999</AutoIncrement>
+      <AutoIncrement>2000</AutoIncrement>
       <Comment>菜单ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -22557,7 +22557,7 @@ job_group</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="4124" parent="565" name="notice_id">
-      <AutoIncrement>9</AutoIncrement>
+      <AutoIncrement>10</AutoIncrement>
       <Comment>公告ID</Comment>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
@@ -22624,7 +22624,7 @@ job_group</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="4136" parent="566" name="oper_id">
-      <AutoIncrement>109</AutoIncrement>
+      <AutoIncrement>110</AutoIncrement>
       <Comment>日志主键</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -22748,7 +22748,7 @@ job_group</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="4158" parent="567" name="post_id">
-      <AutoIncrement>4</AutoIncrement>
+      <AutoIncrement>5</AutoIncrement>
       <Comment>岗位ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -22816,7 +22816,7 @@ job_group</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="4170" parent="568" name="role_id">
-      <AutoIncrement>100</AutoIncrement>
+      <AutoIncrement>101</AutoIncrement>
       <Comment>角色ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -22954,7 +22954,7 @@ menu_id</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="4194" parent="571" name="user_id">
-      <AutoIncrement>99</AutoIncrement>
+      <AutoIncrement>100</AutoIncrement>
       <Comment>用户ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -23393,7 +23393,7 @@ role_id</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="4278" parent="585" name="customer_id">
-      <AutoIncrement>599</AutoIncrement>
+      <AutoIncrement>600</AutoIncrement>
       <DasType>smallint unsigned|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -23480,7 +23480,7 @@ role_id</ColNames>
       <Turn>before-row</Turn>
     </trigger>
     <column id="4295" parent="586" name="film_id">
-      <AutoIncrement>1000</AutoIncrement>
+      <AutoIncrement>1001</AutoIncrement>
       <DasType>smallint unsigned|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -23797,7 +23797,7 @@ film_id</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="4355" parent="592" name="payment_id">
-      <AutoIncrement>16049</AutoIncrement>
+      <AutoIncrement>16050</AutoIncrement>
       <DasType>smallint unsigned|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -23880,7 +23880,7 @@ film_id</ColNames>
       <Turn>before-row</Turn>
     </trigger>
     <column id="4371" parent="593" name="rental_id">
-      <AutoIncrement>16049</AutoIncrement>
+      <AutoIncrement>16050</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>

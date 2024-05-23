@@ -4,121 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e46e3b0b-2b88-4f5d-b8c7-1ae0ef89e502" name="更改" comment="修改了登录框以及首页内容">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/tool/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/tool/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-common/src/main/java/com/ruoyi/common/core/domain/newEntity/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-common/src/main/java/com/ruoyi/common/core/domain/newEntity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/newService/LoginService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/newService/PasswordService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/newService/SSysPermissionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/newService/TokenService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/mapper/RoleMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/mapper/RoleMenuMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/mapper/UserRoleMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/RoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/impl/RoleServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/RoleMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/RoleMenuMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/UserRoleMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sql/financial_records.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[更改]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase___.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2024_5_15_14_50____.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2024_5_15_14_52____.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2024_5_15_15_19____.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2024_5_15_15_30____.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/___.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/___1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/___2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/___3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/___4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/___5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/___6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[更改]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[更改]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[更改]2/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[更改]3/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[更改]4/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[更改]5/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[更改]6/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2024_5_15_14_50_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2024_5_15_14_52_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2024_5_15_15_19_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2024_5_15_15_30_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
+    <list default="true" id="e46e3b0b-2b88-4f5d-b8c7-1ae0ef89e502" name="更改" comment="基本上实现了列表以及分页组件的全局修改以及内容的定位">
+      <change afterPath="$PROJECT_DIR$/ruoyi-ui/src/api/manage/financialRecord.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-ui/src/views/manage/FinancialRecord/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sql/sys_menu.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/df557cbe-8179-4ba7-a65d-03eb2e33e8a2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/df557cbe-8179-4ba7-a65d-03eb2e33e8a2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysConfigController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysConfigController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDeptController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDeptController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictDataController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictTypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictTypeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysIndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysIndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysNoticeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysNoticeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysPostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysPostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/application-druid.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/application-druid.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/application-druid.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/application-druid.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/monitor/SysUserOnlineController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/monitor/SysUserOnlineController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/system/SysDeptController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/system/SysLoginController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/system/SysProfileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/system/SysProfileController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/system/SysRoleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/system/SysRoleController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/system/SysUserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-common/src/main/java/com/ruoyi/common/core/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/src/main/java/com/ruoyi/common/core/controller/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-common/src/main/java/com/ruoyi/common/core/domain/model/LoginUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/src/main/java/com/ruoyi/common/core/domain/model/LoginUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-common/src/main/java/com/ruoyi/common/utils/SecurityUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/src/main/java/com/ruoyi/common/utils/SecurityUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/config/serializer/SensitiveJsonSerializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/config/serializer/SensitiveJsonSerializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/core/controller/BaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/core/controller/BaseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/core/domain/model/LoginUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/core/domain/model/LoginUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/utils/SecurityUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/utils/SecurityUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/aspectj/DataScopeAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/aspectj/DataScopeAspect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/aspectj/LogAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/aspectj/LogAspect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/security/filter/JwtAuthenticationTokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/security/filter/JwtAuthenticationTokenFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/security/handle/LogoutSuccessHandlerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/security/handle/LogoutSuccessHandlerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/service/PermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/service/PermissionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/service/SysLoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/service/SysLoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/service/SysPermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/service/SysPermissionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/service/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/service/TokenService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/service/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/src/main/java/com/ruoyi/framework/web/service/UserDetailsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/aspectj/DataScopeAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/aspectj/DataScopeAspect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/aspectj/LogAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/aspectj/LogAspect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/config/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/security/filter/JwtAuthenticationTokenFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/security/filter/JwtAuthenticationTokenFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/security/handle/LogoutSuccessHandlerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/security/handle/LogoutSuccessHandlerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/web/service/PermissionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/web/service/PermissionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/web/service/SysLoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/web/service/SysLoginService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/web/service/SysPermissionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/web/service/SysPermissionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/web/service/TokenService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/web/service/UserDetailsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/web/service/UserDetailsServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysUserOnlineServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysUserOnlineServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/system/SysRoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/system/SysRoleMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/com/ruoyi/system/service/impl/SysUserOnlineServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/com/ruoyi/system/service/impl/SysUserOnlineServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/system/SysRoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/system/SysRoleMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/tool/FinancialRecordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/tool/FinancialRecordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/tool/FinancialRecordController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/tool/FinancialRecordController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/FinancialRecordMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/FinancialRecordMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/newSystem/FinancialRecordMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/newSystem/FinancialRecordMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/0c0fb6689afb18bf7328ab7e902bb7e8.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/0c0fb6689afb18bf7328ab7e902bb7e8.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/8016da58625d8b34e1852f8d69bc1a95.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/8016da58625d8b34e1852f8d69bc1a95.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/0b92761a4e42e2ddfc4eb5ac67ef5698.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/0b92761a4e42e2ddfc4eb5ac67ef5698.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/41c3cebbd946ed849c11750e9299dc09.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/41c3cebbd946ed849c11750e9299dc09.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/20b790be809771290cf1a61fca8bdb5f.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/20b790be809771290cf1a61fca8bdb5f.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/689298a9e2075ccde38250964c7b9698.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/689298a9e2075ccde38250964c7b9698.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/c8fa90e24d41a0f1e895ab32c352737a.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/c8fa90e24d41a0f1e895ab32c352737a.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/42cc6a37d1e11ffa0d0d1b5fe9e47021.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/42cc6a37d1e11ffa0d0d1b5fe9e47021.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/4cdcc7e333d9b559d1b9e2bd4b97385e.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/4cdcc7e333d9b559d1b9e2bd4b97385e.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/4d5a57882361088d01b4d6f7180c572c.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/4d5a57882361088d01b4d6f7180c572c.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/96b9e1b010a3a0bf27863262a505fdda.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/96b9e1b010a3a0bf27863262a505fdda.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/4e717103998b6d19df969b444773fa9f.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/4e717103998b6d19df969b444773fa9f.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/56e59b5acd8aeb51c477a5908ca02255.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/56e59b5acd8aeb51c477a5908ca02255.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/573bcac7191c0953a7d64dc2725b6195.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/573bcac7191c0953a7d64dc2725b6195.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/687100aa160efb19b1c7d3d610018c33.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/687100aa160efb19b1c7d3d610018c33.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/69f90d0c34116121c5e0f6a66f432af6.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/69f90d0c34116121c5e0f6a66f432af6.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/76001171e30a4f7a832eb5743ecd04ca.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/76001171e30a4f7a832eb5743ecd04ca.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/a2868989b7c9c2001a87beb8f3c2ea53.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/a2868989b7c9c2001a87beb8f3c2ea53.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/b86c80c8f71203d77993356b49778f8f.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/b86c80c8f71203d77993356b49778f8f.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/api/system/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/api/system/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/assets/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/assets/styles/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/cd2f16b8287db00603dba804cdc1d1b3.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/cd2f16b8287db00603dba804cdc1d1b3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/d38e59453894971f451d4928cb68d427.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/d38e59453894971f451d4928cb68d427.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/dd1d195e0369158bc912a8d506561be2.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/dd1d195e0369158bc912a8d506561be2.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/components/Pagination/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/components/Pagination/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/views/system/role/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/views/system/role/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/utils/ruoyi.js" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/utils/ruoyi.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/views/system/user/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/views/system/user/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/views/system/user/index_yuanlai.vue" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +46,7 @@
       <list>
         <option value="HTML File" />
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -165,7 +82,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "#2 on first",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "F:/学科作业存放/学科作业存放 大三上/employeemanager/employeemanager",
+    "last_opened_file_path": "C:/Users/Mrzth/Desktop/DWSystem/ruoyi-ui/src/api",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -182,11 +99,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Mrzth\Desktop\DWSystem\ruoyi-ui\src\api" />
       <recent name="C:\Users\Mrzth\Desktop\DWSystem\sql" />
       <recent name="C:\Users\Mrzth\Desktop\DWSystem\ruoyi-ui\src\views\system\user" />
       <recent name="C:\Users\Mrzth\Desktop\DWSystem\ruoyi-ui\src\assets\images" />
       <recent name="C:\Users\Mrzth\Desktop\DWSystem\ruoyi-ui\src\assets\logo" />
-      <recent name="C:\Users\Mrzth\Desktop\DWSystem\ruoyi-ui\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Mrzth\Desktop\DWSystem\ruoyi-ui\src\assets\logo" />
@@ -244,7 +161,7 @@
       <workItem from="1715883086157" duration="8892000" />
       <workItem from="1716313351311" duration="3359000" />
       <workItem from="1716316842528" duration="2942000" />
-      <workItem from="1716319813668" duration="25945000" />
+      <workItem from="1716319813668" duration="39923000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1715672587273</created>
@@ -289,7 +206,21 @@
       <option name="project" value="LOCAL" />
       <updated>1715758685714</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="基本上实现了列表以及分页组件的全局修改以及内容的定位">
+      <created>1716413195423</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1716413195423</updated>
+    </task>
+    <task id="LOCAL-00008" summary="基本上实现了列表以及分页组件的全局修改以及内容的定位">
+      <created>1716413201986</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1716413201986</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,6 +258,7 @@
     <MESSAGE value="111" />
     <MESSAGE value="初始版本" />
     <MESSAGE value="修改了登录框以及首页内容" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改了登录框以及首页内容" />
+    <MESSAGE value="基本上实现了列表以及分页组件的全局修改以及内容的定位" />
+    <option name="LAST_COMMIT_MESSAGE" value="基本上实现了列表以及分页组件的全局修改以及内容的定位" />
   </component>
 </project>
