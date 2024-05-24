@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.KttShipmentMapper">
+	<!-- 定义结果映射 -->
+	<resultMap id="KttShipmentMap" type="com.ruoyi.common.core.domain.newEntity.KttShipment">
+		<id property="recordId" column="record_id" />
+		<result property="productCode" column="product_code" />
+		<result property="groupLeader" column="group_leader" />
+		<result property="productName" column="product_name" />
+		<result property="supplyPrice" column="supply_price" />
+		<result property="quantity" column="quantity" />
+		<result property="productType" column="product_type" />
+		<result property="internalProductCode" column="internal_product_code" />
+		<result property="brandOwner" column="brand_owner" />
+		<result property="remarks" column="remarks" />
+		<result property="createBy"     column="create_by"    />
+		<result property="createTime"   column="create_time"  />
+		<result property="updateBy"     column="update_by"    />
+		<result property="updateTime"   column="update_time"  />
+	</resultMap>
+
+	<!-- SQL 查询语句 -->
+	<sql id="selectKttShipment">
+		SELECT
+			record_id,
+			product_code,
+			group_leader,
+			product_name,
+			supply_price,
+			quantity,
+			product_type,
+			internal_product_code,
+			brand_owner,
+			remarks
+		FROM ktt_shipment
+	</sql>
+
+	<!-- 根据条件查询所有KttShipment -->
+	<select id="selectAllKttShipments" resultMap="KttShipmentMap">
+		<include refid="selectKttShipment"/>
+		WHERE 1=1
+		<if test="productCode != null and productCode != ''">
+			AND product_code = #{productCode}
+		</if>
+		<if test="groupLeader != null and groupLeader != ''">
+			AND group_leader = #{groupLeader}
+		</if>
+		<if test="productName != null and productName != ''">
+			AND product_name = #{productName}
+		</if>
+		<if test="supplyPrice != null">
+			AND supply_price = #{supplyPrice}
+		</if>
+		<if test="quantity != null">
+			AND quantity = #{quantity}
+		</if>
+		<if test="productType != null and productType != ''">
+			AND product_type = #{productType}
+		</if>
+		<if test="internalProductCode != null and internalProductCode != ''">
+			AND internal_product_code = #{internalProductCode}
+		</if>
+		<if test="brandOwner != null and brandOwner != ''">
+			AND brand_owner = #{brandOwner}
+		</if>
+		<if test="remarks != null and remarks != ''">
+			AND remarks = #{remarks}
+		</if>
+	</select>
+
+	<!-- 根据ID查询单个KttShipment -->
+	<select id="selectKttShipmentById" parameterType="Long" resultMap="KttShipmentMap">
+		<include refid="selectKttShipment"/> WHERE record_id = #{recordId}
+	</select>
+
+	<!-- 插入KttShipment -->
+	<insert id="insertKttShipment" parameterType="com.ruoyi.common.core.domain.newEntity.KttShipment">
+		INSERT INTO ktt_shipment (
+		<if test="productCode != null">product_code,</if>
+		<if test="groupLeader != null">group_leader,</if>
+		<if test="productName != null">product_name,</if>
+		<if test="supplyPrice != null">supply_price,</if>
+		<if test="quantity != null">quantity,</if>
+		<if test="productType != null">product_type,</if>
+		<if test="internalProductCode != null">internal_product_code,</if>
+		<if test="brandOwner != null">brand_owner,</if>
+		<if test="remarks != null">remarks,</if>
+		create_time
+		) VALUES (
+		<if test="productCode != null">#{productCode},</if>
+		<if test="groupLeader != null">#{groupLeader},</if>
+		<if test="productName != null">#{productName},</if>
+		<if test="supplyPrice != null">#{supplyPrice},</if>
+		<if test="quantity != null">#{quantity},</if>
+		<if test="productType != null">#{productType},</if>
+		<if test="internalProductCode != null">#{internalProductCode},</if>
+		<if test="brandOwner != null">#{brandOwner},</if>
+		<if test="remarks != null">#{remarks},</if>
+		sysdate()
+		)
+	</insert>
+
+	<!-- 更新KttShipment -->
+	<update id="updateKttShipment" parameterType="com.ruoyi.common.core.domain.newEntity.KttShipment">
+		UPDATE ktt_shipment
+		<set>
+			<if test="productCode != null">product_code = #{productCode},</if>
+			<if test="groupLeader != null">group_leader = #{groupLeader},</if>
+			<if test="productName != null">product_name = #{productName},</if>
+			<if test="supplyPrice != null">supply_price = #{supplyPrice},</if>
+			<if test="quantity != null">quantity = #{quantity},</if>
+			<if test="productType != null">product_type = #{productType},</if>
+			<if test="internalProductCode != null">internal_product_code = #{internalProductCode},</if>
+			<if test="brandOwner != null">brand_owner = #{brandOwner},</if>
+			<if test="remarks != null">remarks = #{remarks},</if>
+			update_time = sysdate()
+		</set>
+		WHERE record_id = #{recordId}
+	</update>
+
+	<!-- 删除KttShipment -->
+	<delete id="deleteKttShipmentById" parameterType="Long">
+		DELETE FROM ktt_shipment WHERE record_id = #{recordId}
+	</delete>
+
+	<!-- 根据多个ID删除KttShipment -->
+	<delete id="deleteKttShipmentsByIds" parameterType="Long">
+		DELETE FROM ktt_shipment WHERE record_id IN
+		<foreach collection="array" item="recordId" open="(" separator="," close=")">
+			#{recordId}
+		</foreach>
+	</delete>
+
+</mapper> 

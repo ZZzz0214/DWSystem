@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.ProductMapper">
+	<resultMap id="ProductMap" type="com.ruoyi.common.core.domain.newEntity.Product">
+		<id property="productId" column="product_id" />
+		<result property="productName" column="product_name" />
+		<result property="internalProductCode" column="internal_product_code" />
+		<result property="shipmentCode" column="shipment_code" />
+		<result property="specifications" column="specifications" />
+		<result property="tmallListingPrice" column="tmall_listing_price" />
+		<result property="productionDate" column="production_date" />
+		<result property="productSellingPoints" column="product_selling_points" />
+		<result property="currentStock" column="current_stock" />
+		<result property="actualOrderTime" column="actual_order_time" />
+		<result property="promotionPriceControl" column="promotion_price_control" />
+		<result property="returnAddress" column="return_address" />
+		<result property="shippingDetails" column="shipping_details" />
+		<result property="otherPlatformPrice" column="other_platform_price" />
+		<result property="link" column="link" />
+		<result property="status" column="status" />
+		<result property="brand" column="brand" />
+		<result property="filter" column="filter" />
+		<result property="category" column="category" />
+		<result property="remainingStock" column="remaining_stock" />
+		<result property="afterSalesQuantity" column="after_sales_quantity" />
+		<result property="brandOwner" column="brand_owner" />
+		<result property="productStatus" column="product_status" />
+		<result property="purchasePrice" column="purchase_price" />
+		<result property="shippingCost" column="shipping_cost" />
+		<result property="shippingPriceChain" column="shipping_price_chain" />
+		<result property="shippingPriceDropship" column="shipping_price_dropship" />
+		<result property="shippingPriceDetailedDropship" column="shipping_price_detailed_dropship" />
+		<result property="purchaseNotes" column="purchase_notes" />
+		<result property="shippingNotes" column="shipping_notes" />
+		<result property="publicListingPriceTmallTaobaoJd" column="public_listing_price_tmall_taobao_jd" />
+		<result property="pinduoduoListingPrice" column="pinduoduo_listing_price" />
+		<result property="privateGroupBuyPrice" column="private_group_buy_price" />
+		<result property="liveStreamPrice" column="live_stream_price" />
+		<result property="shippingPriceTier1" column="shipping_price_tier1" />
+		<result property="shippingPriceTier2" column="shipping_price_tier2" />
+		<result property="dropshipShippingPrice" column="dropship_shipping_price" />
+		<result property="alibabaListingPrice" column="alibaba_listing_price" />
+		<result property="entryTime" column="entry_time" />
+		<result property="createBy"     column="create_by"    />
+		<result property="createTime"   column="create_time"  />
+		<result property="updateBy"     column="update_by"    />
+		<result property="updateTime"   column="update_time"  />
+	</resultMap>
+	<sql id="selectFinacialVo">
+		SELECT
+			product_id,
+			product_name,
+			internal_product_code,
+			shipment_code,
+			specifications,
+			tmall_listing_price,
+			production_date,
+			product_selling_points,
+			current_stock,
+			actual_order_time,
+			promotion_price_control,
+			return_address,
+			shipping_details,
+			other_platform_price,
+			link,
+			status,
+			brand,
+			filter,
+			category,
+			remaining_stock,
+			after_sales_quantity,
+			brand_owner,
+			product_status,
+			purchase_price,
+			shipping_cost,
+			shipping_price_chain,
+			shipping_price_dropship,
+			shipping_price_detailed_dropship,
+			purchase_notes,
+			shipping_notes,
+			public_listing_price_tmall_taobao_jd,
+			pinduoduo_listing_price,
+			private_group_buy_price,
+			live_stream_price,
+			shipping_price_tier1,
+			shipping_price_tier2,
+			dropship_shipping_price,
+			alibaba_listing_price,
+			entry_time,
+			create_by,
+			create_time,
+			update_by,
+			update_time
+		FROM product_information
+	</sql>
+
+	<select id="selectAll" resultMap="ProductMap">
+		<include refid="selectFinacialVo"/>
+		WHERE 1=1
+		<if test="productId != null and productId != 0">
+			AND product_id = #{productId}
+		</if>
+		<if test="productName != null and productName != ''">
+			AND product_name = #{productName}
+		</if>
+		<if test="internalProductCode != null and internalProductCode != ''">
+			AND internal_product_code = #{internalProductCode}
+		</if>
+		<if test="shipmentCode != null and shipmentCode != ''">
+			AND shipment_code = #{shipmentCode}
+		</if>
+		<if test="specifications != null and specifications != ''">
+			AND specifications = #{specifications}
+		</if>
+		<if test="tmallListingPrice != null">
+			AND tmall_listing_price = #{tmallListingPrice}
+		</if>
+		<if test="productionDate != null">
+			AND data_format(production_date, '%Y-%m-%d')= date_format(#{productionDate},'%Y-%m-%d')
+		</if>
+		<if test="productSellingPoints != null and productSellingPoints != ''">
+			AND product_selling_points = #{productSellingPoints}
+		</if>
+		<if test="currentStock != null">
+			AND current_stock = #{currentStock}
+		</if>
+		<if test="actualOrderTime != null">
+			AND actual_order_time = #{actualOrderTime}
+		</if>
+		<if test="promotionPriceControl != null">
+			AND promotion_price_control = #{promotionPriceControl}
+		</if>
+		<if test="returnAddress != null and returnAddress != ''">
+			AND return_address = #{returnAddress}
+		</if>
+		<if test="shippingDetails != null and shippingDetails != ''">
+			AND shipping_details = #{shippingDetails}
+		</if>
+		<if test="otherPlatformPrice != null">
+			AND other_platform_price = #{otherPlatformPrice}
+		</if>
+		<if test="link != null and link != ''">
+			AND link = #{link}
+		</if>
+		<if test="status != null and status != ''">
+			AND status = #{status}
+		</if>
+		<if test="brand != null and brand != ''">
+			AND brand = #{brand}
+		</if>
+		<if test="filter != null and filter != ''">
+			AND filter = #{filter}
+		</if>
+		<if test="category != null and category != ''">
+			AND category = #{category}
+		</if>
+		<if test="remainingStock != null">
+			AND remaining_stock = #{remainingStock}
+		</if>
+		<if test="afterSalesQuantity != null">
+			AND after_sales_quantity = #{afterSalesQuantity}
+		</if>
+		<if test="brandOwner != null and brandOwner != ''">
+			AND brand_owner = #{brandOwner}
+		</if>
+		<if test="productStatus != null and productStatus != ''">
+			AND product_status = #{productStatus}
+		</if>
+		<if test="purchasePrice != null">
+			AND purchase_price = #{purchasePrice}
+		</if>
+		<if test="shippingCost != null">
+			AND shipping_cost = #{shippingCost}
+		</if>
+		<if test="shippingPriceChain != null">
+			AND shipping_price_chain = #{shippingPriceChain}
+		</if>
+		<if test="shippingPriceDropship != null">
+			AND shipping_price_dropship = #{shippingPriceDropship}
+		</if>
+		<if test="shippingPriceDetailedDropship != null">
+			AND shipping_price_detailed_dropship = #{shippingPriceDetailedDropship}
+		</if>
+		<if test="purchaseNotes != null and purchaseNotes != ''">
+			AND purchase_notes = #{purchaseNotes}
+		</if>
+		<if test="shippingNotes != null and shippingNotes != ''">
+			AND shipping_notes = #{shippingNotes}
+		</if>
+		<if test="publicListingPriceTmallTaobaoJd != null">
+			AND public_listing_price_tmall_taobao_jd = #{publicListingPriceTmallTaobaoJd}
+		</if>
+		<if test="pinduoduoListingPrice != null">
+			AND pinduoduo_listing_price = #{pinduoduoListingPrice}
+		</if>
+		<if test="privateGroupBuyPrice != null">
+			AND private_group_buy_price = #{privateGroupBuyPrice}
+		</if>
+		<if test="liveStreamPrice != null">
+			AND live_stream_price = #{liveStreamPrice}
+		</if>
+		<if test="shippingPriceTier1 != null">
+			AND shipping_price_tier1 = #{shippingPriceTier1}
+		</if>
+		<if test="shippingPriceTier2 != null">
+			AND shipping_price_tier2 = #{shippingPriceTier2}
+		</if>
+		<if test="dropshipShippingPrice != null">
+			AND dropship_shipping_price = #{dropshipShippingPrice}
+		</if>
+		<if test="alibabaListingPrice != null">
+			AND alibaba_listing_price = #{alibabaListingPrice}
+		</if>
+		<if test="entryTime != null">
+			AND data_format(entry_time, '%Y-%m-%d') = data_format(#{entryTime}, '%Y-%m-%d')
+		</if>
+		<if test="createBy != null and createBy != ''">
+			AND create_by = #{createBy}
+		</if>
+		<if test="createTime != null">
+			AND data_format(create_time, '%Y-%m-%d') = data_format(#{createTime}, '%Y-%m-%d')
+		</if>
+		<if test="updateBy != null and updateBy != ''">
+			AND update_by = #{updateBy}
+		</if>
+		<if test="updateTime != null">
+			AND data_format(update_time, '%Y-%m-%d') = data_format(#{updateTime}, '%Y-%m-%d')
+		</if>
+	</select>
+	<select id="selectById" parameterType="Long" resultMap="ProductMap">
+		<include refid="selectFinacialVo"/> WHERE product_id = #{productId}
+	</select>
+	<insert id="insert" parameterType="com.ruoyi.common.core.domain.newEntity.Product" useGeneratedKeys="true" keyProperty="productId">
+
+			INSERT INTO product_information (
+			<if test="productId != null">product_id,</if>
+			<if test="productName != null and productName != ''">product_name,</if>
+			<if test="internalProductCode != null and internalProductCode != ''">internal_product_code,</if>
+			<if test="shipmentCode != null and shipmentCode != ''">shipment_code,</if>
+			<if test="specifications != null and specifications != ''">specifications,</if>
+			<if test="tmallListingPrice != null">tmall_listing_price,</if>
+			<if test="productionDate != null">production_date,</if>
+			<if test="productSellingPoints != null and productSellingPoints != ''">product_selling_points,</if>
+			<if test="currentStock != null">current_stock,</if>
+			<if test="actualOrderTime != null">actual_order_time,</if>
+			<if test="promotionPriceControl != null">promotion_price_control,</if>
+			<if test="returnAddress != null and returnAddress != ''">return_address,</if>
+			<if test="shippingDetails != null and shippingDetails != ''">shipping_details,</if>
+			<if test="otherPlatformPrice != null">other_platform_price,</if>
+			<if test="link != null and link != ''">link,</if>
+			<if test="status != null and status != ''">status,</if>
+			<if test="brand != null and brand != ''">brand,</if>
+			<if test="filter != null and filter != ''">filter,</if>
+			<if test="category != null and category != ''">category,</if>
+			<if test="remainingStock != null">remaining_stock,</if>
+			<if test="afterSalesQuantity != null">after_sales_quantity,</if>
+			<if test="brandOwner != null and brandOwner != ''">brand_owner,</if>
+			<if test="productStatus != null and productStatus != ''">product_status,</if>
+			<if test="purchasePrice != null">purchase_price,</if>
+			<if test="shippingCost != null">shipping_cost,</if>
+			<if test="shippingPriceChain != null">shipping_price_chain,</if>
+			<if test="shippingPriceDropship != null">shipping_price_dropship,</if>
+			<if test="shippingPriceDetailedDropship != null">shipping_price_detailed_dropship,</if>
+			<if test="purchaseNotes != null and purchaseNotes != ''">purchase_notes,</if>
+			<if test="shippingNotes != null and shippingNotes != ''">shipping_notes,</if>
+			<if test="publicListingPriceTmallTaobaoJd != null">public_listing_price_tmall_taobao_jd,</if>
+			<if test="pinduoduoListingPrice != null">pinduoduo_listing_price,</if>
+			<if test="privateGroupBuyPrice != null">private_group_buy_price,</if>
+			<if test="liveStreamPrice != null">live_stream_price,</if>
+			<if test="shippingPriceTier1 != null">shipping_price_tier1,</if>
+			<if test="shippingPriceTier2 != null">shipping_price_tier2,</if>
+			<if test="dropshipShippingPrice != null">dropship_shipping_price,</if>
+			<if test="alibabaListingPrice != null">alibaba_listing_price,</if>
+			<if test="entryTime != null">entry_time,</if>
+			<if test="createBy != null and createBy != ''">create_by,</if>
+			create_time
+			) VALUES (
+			<if test="productId != null">#{productId},</if>
+			<if test="productName != null and productName != ''">#{productName},</if>
+			<if test="internalProductCode != null and internalProductCode != ''">#{internalProductCode},</if>
+			<if test="shipmentCode != null and shipmentCode != ''">#{shipmentCode},</if>
+			<if test="specifications != null and specifications != ''">#{specifications},</if>
+			<if test="tmallListingPrice != null">#{tmallListingPrice},</if>
+			<if test="productionDate != null">#{productionDate},</if>
+			<if test="productSellingPoints != null and productSellingPoints != ''">#{productSellingPoints},</if>
+			<if test="currentStock != null">#{currentStock},</if>
+			<if test="actualOrderTime != null">#{actualOrderTime},</if>
+			<if test="promotionPriceControl != null">#{promotionPriceControl},</if>
+			<if test="returnAddress != null and returnAddress != ''">#{returnAddress},</if>
+			<if test="shippingDetails != null and shippingDetails != ''">#{shippingDetails},</if>
+			<if test="otherPlatformPrice != null">#{otherPlatformPrice},</if>
+			<if test="link != null and link != ''">#{link},</if>
+			<if test="status != null and status != ''">#{status},</if>
+			<if test="brand != null and brand != ''">#{brand},</if>
+			<if test="filter != null and filter != ''">#{filter},</if>
+			<if test="category != null and category != ''">#{category},</if>
+			<if test="remainingStock != null">#{remainingStock},</if>
+			<if test="afterSalesQuantity != null">#{afterSalesQuantity},</if>
+			<if test="brandOwner != null and brandOwner != ''">#{brandOwner},</if>
+			<if test="productStatus != null and productStatus != ''">#{productStatus},</if>
+			<if test="purchasePrice != null">#{purchasePrice},</if>
+			<if test="shippingCost != null">#{shippingCost},</if>
+			<if test="shippingPriceChain != null">#{shippingPriceChain},</if>
+			<if test="shippingPriceDropship != null">#{shippingPriceDropship},</if>
+			<if test="shippingPriceDetailedDropship != null">#{shippingPriceDetailedDropship},</if>
+			<if test="purchaseNotes != null and purchaseNotes != ''">#{purchaseNotes},</if>
+			<if test="shippingNotes != null and shippingNotes != ''">#{shippingNotes},</if>
+			<if test="publicListingPriceTmallTaobaoJd != null">#{publicListingPriceTmallTaobaoJd},</if>
+			<if test="pinduoduoListingPrice != null">#{pinduoduoListingPrice},</if>
+			<if test="privateGroupBuyPrice != null">#{privateGroupBuyPrice},</if>
+			<if test="liveStreamPrice != null">#{liveStreamPrice},</if>
+			<if test="shippingPriceTier1 != null">#{shippingPriceTier1},</if>
+			<if test="shippingPriceTier2 != null">#{shippingPriceTier2},</if>
+			<if test="dropshipShippingPrice != null">#{dropshipShippingPrice},</if>
+			<if test="alibabaListingPrice != null">#{alibabaListingPrice},</if>
+			<if test="entryTime != null">#{entryTime},</if>
+			<if test="createBy != null and createBy != ''">#{createBy},</if>
+			sysdate()
+			)
+	</insert>
+	<update id="updateProduct" parameterType="com.ruoyi.common.core.domain.newEntity.Product">
+		UPDATE product_information
+		<set>
+			<if test="productName != null and productName != ''">product_name = #{productName},</if>
+			<if test="internalProductCode != null and internalProductCode != ''">internal_product_code = #{internalProductCode},</if>
+			<if test="shipmentCode != null and shipmentCode != ''">shipment_code = #{shipmentCode},</if>
+			<if test="specifications != null and specifications != ''">specifications = #{specifications},</if>
+			<if test="tmallListingPrice != null">tmall_listing_price = #{tmallListingPrice},</if>
+			<if test="productionDate != null">production_date = #{productionDate},</if>
+			<if test="productSellingPoints != null and productSellingPoints != ''">product_selling_points = #{productSellingPoints},</if>
+			<if test="currentStock != null">current_stock = #{currentStock},</if>
+			<if test="actualOrderTime != null">actual_order_time = #{actualOrderTime},</if>
+			<if test="promotionPriceControl != null">promotion_price_control = #{promotionPriceControl},</if>
+			<if test="returnAddress != null and returnAddress != ''">return_address = #{returnAddress},</if>
+			<if test="shippingDetails != null and shippingDetails != ''">shipping_details = #{shippingDetails},</if>
+			<if test="otherPlatformPrice != null">other_platform_price = #{otherPlatformPrice},</if>
+			<if test="link != null and link != ''">link = #{link},</if>
+			<if test="status != null and status != ''">status = #{status},</if>
+			<if test="brand != null and brand != ''">brand = #{brand},</if>
+			<if test="filter != null and filter != ''">filter = #{filter},</if>
+			<if test="category != null and category != ''">category = #{category},</if>
+			<if test="remainingStock != null">remaining_stock = #{remainingStock},</if>
+			<if test="afterSalesQuantity != null">after_sales_quantity = #{afterSalesQuantity},</if>
+			<if test="brandOwner != null and brandOwner != ''">brand_owner = #{brandOwner},</if>
+			<if test="productStatus != null and productStatus != ''">product_status = #{productStatus},</if>
+			<if test="purchasePrice != null">purchase_price = #{purchasePrice},</if>
+			<if test="shippingCost != null">shipping_cost = #{shippingCost},</if>
+			<if test="shippingPriceChain != null">shipping_price_chain = #{shippingPriceChain},</if>
+			<if test="shippingPriceDropship != null">shipping_price_dropship = #{shippingPriceDropship},</if>
+			<if test="shippingPriceDetailedDropship != null">shipping_price_detailed_dropship = #{shippingPriceDetailedDropship},</if>
+			<if test="purchaseNotes != null and purchaseNotes != ''">purchase_notes = #{purchaseNotes},</if>
+			<if test="shippingNotes != null and shippingNotes != ''">shipping_notes = #{shippingNotes},</if>
+			<if test="publicListingPriceTmallTaobaoJd != null">public_listing_price_tmall_taobao_jd = #{publicListingPriceTmallTaobaoJd},</if>
+			<if test="pinduoduoListingPrice != null">pinduoduo_listing_price = #{pinduoduoListingPrice},</if>
+			<if test="privateGroupBuyPrice != null">private_group_buy_price = #{privateGroupBuyPrice},</if>
+			<if test="liveStreamPrice != null">live_stream_price = #{liveStreamPrice},</if>
+			<if test="shippingPriceTier1 != null">shipping_price_tier1 = #{shippingPriceTier1},</if>
+			<if test="shippingPriceTier2 != null">shipping_price_tier2 = #{shippingPriceTier2},</if>
+			<if test="dropshipShippingPrice != null">dropship_shipping_price = #{dropshipShippingPrice},</if>
+			<if test="alibabaListingPrice != null">alibaba_listing_price = #{alibabaListingPrice},</if>
+			<if test="entryTime != null">entry_time = #{entryTime},</if>
+			<if test="createBy != null and createBy != ''">create_by = #{createBy},</if>
+			update_time = sysdate()
+		</set>
+		WHERE product_id = #{productId}
+	</update>
+	<delete id="deleteProductById" parameterType="Long">
+		DELETE FROM product_information
+		WHERE product_id = #{productId}
+	</delete>
+
+	<!-- Delete multiple products by IDs -->
+	<delete id="deleteProductByIds" parameterType="Long">
+		DELETE FROM product_information
+		WHERE product_id IN
+		<foreach collection="list" item="productId" open="(" separator="," close=")">
+			#{productId}
+		</foreach>
+	</delete>
+</mapper> 

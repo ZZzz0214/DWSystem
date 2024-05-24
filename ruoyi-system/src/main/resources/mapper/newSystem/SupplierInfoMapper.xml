@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SupplierInfoMapper">
+
+
+
+	<!-- 定义结果映射 -->
+	<resultMap id="SupplierInfoMap" type="com.ruoyi.common.core.domain.newEntity.SupplierInfo">
+		<!-- 根据SupplierInfo的属性和数据库字段进行映射 -->
+		<id property="supplierId" column="supplier_id"/>
+		<result property="supplierNumber" column="supplier_number"/>
+		<result property="shipper" column="shipper"/>
+		<result property="recipientName" column="recipient_name"/>
+		<result property="recipientPhone" column="recipient_phone"/>
+		<result property="address" column="address"/>
+		<result property="wechatAccount" column="wechat_account"/>
+		<result property="alipayAccount" column="alipay_account"/>
+		<result property="bankAccount" column="bank_account"/>
+		<result property="creationDate" column="creation_date"/>
+		<result property="totalShipment" column="total_shipment"/>
+		<result property="remarks" column="remarks"/>
+		<result property="createBy"     column="create_by"    />
+		<result property="createTime"   column="create_time"  />
+		<result property="updateBy"     column="update_by"    />
+		<result property="updateTime"   column="update_time"  />
+	</resultMap>
+
+	<sql id="selectSupplierInfo">
+		SELECT
+			supplier_id,
+			supplier_number,
+			shipper,
+			recipient_name,
+			recipient_phone,
+			address,
+			wechat_account,
+			alipay_account,
+			bank_account,
+			creation_date,
+			total_shipment,
+			remarks
+		FROM SupplierInfo
+	</sql>
+	<!-- 根据条件查询所有SupplierInfo -->
+	<select id="selectAllSupplierInfos" resultMap="SupplierInfoMap">
+		<include refid="selectSupplierInfo"/>
+		<!-- 添加你的条件 -->
+		WHERE
+		<if test="supplierNumber != null">supplier_number = #{supplierNumber} AND</if>
+		<if test="shipper != null">shipper = #{shipper} AND</if>
+		<if test="recipientName != null">recipient_name = #{recipientName} AND</if>
+		<if test="recipientPhone != null">recipient_phone = #{recipientPhone} AND</if>
+		<if test="address != null">address = #{address} AND</if>
+		<if test="wechatAccount != null">wechat_account = #{wechatAccount} AND</if>
+		<if test="alipayAccount != null">alipay_account = #{alipayAccount} AND</if>
+		<if test="bankAccount != null">bank_account = #{bankAccount} AND</if>
+		<if test="creationDate != null">creation_date = #{creationDate} AND</if>
+		<if test="totalShipment != null">total_shipment = #{totalShipment} AND</if>
+		<if test="remarks != null">remarks = #{remarks} AND</if>
+		1=1 <!-- 占位符，确保至少有一个条件 -->
+	</select>
+
+	<!-- 根据ID查询单个SupplierInfo -->
+	<select id="selectSupplierInfoById" parameterType="Long" resultMap="SupplierInfoMap">
+		<include refid="selectSupplierInfo"/> WHERE supplier_id = #{supplierId}
+	</select>
+
+	<!-- 插入SupplierInfo -->
+	<insert id="insertSupplierInfo" parameterType="com.ruoyi.common.core.domain.newEntity.SupplierInfo" useGeneratedKeys="true" keyProperty="supplierId">
+		INSERT INTO SupplierInfo (
+		<if test="supplierNumber != null">supplier_number,</if>
+		<if test="shipper != null">shipper,</if>
+		<if test="recipientName != null">recipient_name,</if>
+		<if test="recipientPhone != null">recipient_phone,</if>
+		<if test="address != null">address,</if>
+		<if test="wechatAccount != null">wechat_account,</if>
+		<if test="alipayAccount != null">alipay_account,</if>
+		<if test="bankAccount != null">bank_account,</if>
+		<if test="creationDate != null">creation_date,</if>
+		<if test="totalShipment != null">total_shipment,</if>
+		<if test="remarks != null">remarks,</if>
+		create_time
+		) VALUES (
+		<if test="supplierNumber != null">#{supplierNumber},</if>
+		<if test="shipper != null">#{shipper},</if>
+		<if test="recipientName != null">#{recipientName},</if>
+		<if test="recipientPhone != null">#{recipientPhone},</if>
+		<if test="address != null">#{address},</if>
+		<if test="wechatAccount != null">#{wechatAccount},</if>
+		<if test="alipayAccount != null">#{alipayAccount},</if>
+		<if test="bankAccount != null">#{bankAccount},</if>
+		<if test="creationDate != null">#{creationDate},</if>
+		<if test="totalShipment != null">#{totalShipment},</if>
+		<if test="remarks != null">#{remarks},</if>
+		sysdate()
+		)
+	</insert>
+
+	<!-- 更新SupplierInfo -->
+	<update id="updateSupplierInfo" parameterType="com.ruoyi.common.core.domain.newEntity.SupplierInfo">
+		UPDATE SupplierInfo
+		<set>
+			<if test="supplierNumber != null">supplier_number = #{supplierNumber},</if>
+			<if test="shipper != null">shipper = #{shipper},</if>
+			<if test="recipientName != null">recipient_name = #{recipientName},</if>
+			<if test="recipientPhone != null">recipient_phone = #{recipientPhone},</if>
+			<if test="address != null">address = #{address},</if>
+			<if test="wechatAccount != null">wechat_account = #{wechatAccount},</if>
+			<if test="alipayAccount != null">alipay_account = #{alipayAccount},</if>
+			<if test="bankAccount != null">bank_account = #{bankAccount},</if>
+			<if test="creationDate != null">creation_date = #{creationDate},</if>
+			<if test="totalShipment != null">total_shipment = #{totalShipment},</if>
+			<if test="remarks != null">remarks = #{remarks},</if>
+			update_time = sysdate()
+		</set>
+		WHERE supplier_id = #{supplierId}
+	</update>
+
+	<!-- 删除SupplierInfo -->
+	<delete id="deleteSupplierInfoById" parameterType="Long">
+		DELETE FROM SupplierInfo WHERE supplier_id = #{supplierId}
+	</delete>
+
+	<!-- 根据多个ID删除SupplierInfo -->
+	<delete id="deleteSupplierInfosByIds" parameterType="Long">
+		DELETE FROM SupplierInfo WHERE supplier_id IN
+		<foreach collection="array" item="supplierId" open="(" separator="," close=")">
+			#{supplierId}
+		</foreach>
+	</delete>
+
+</mapper> 

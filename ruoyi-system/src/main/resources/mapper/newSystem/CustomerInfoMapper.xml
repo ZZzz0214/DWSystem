@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.CustomerInfoMapper">
+	<!-- 定义结果映射 -->
+	<resultMap id="CustomerInfoMap" type="com.ruoyi.common.core.domain.newEntity.CustomerInfo">
+		<id property="kehuId" column="kehu_id" />
+		<result property="customerNumber" column="customer_number" />
+		<result property="name" column="name" />
+		<result property="taxNumber" column="tax_number" />
+		<result property="address" column="address" />
+		<result property="remarks" column="remarks" />
+		<result property="creationDate" column="creation_date" />
+		<result property="createBy"     column="create_by"    />
+		<result property="createTime"   column="create_time"  />
+		<result property="updateBy"     column="update_by"    />
+		<result property="updateTime"   column="update_time"  />
+	</resultMap>
+	<!-- SQL 查询语句 -->
+	<sql id="selectCustomerInfo">
+		SELECT
+			kehu_id,
+			customer_number,
+			name,
+			tax_number,
+			address,
+			remarks,
+			creation_date
+		FROM customer_info
+	</sql>
+	<!-- 根据条件查询所有CustomerInfo -->
+	<select id="selectAllCustomerInfos" resultMap="CustomerInfoMap">
+		<include refid="selectCustomerInfo"/>
+		<where> 1=1
+			<if test="kehuId != null">
+				AND kehu_id = #{kehuId}
+			</if>
+			<if test="customerNumber != null and customerNumber != ''">
+				AND customer_number = #{customerNumber}
+			</if>
+			<if test="name != null and name != ''">
+				AND name = #{name}
+			</if>
+			<if test="taxNumber != null and taxNumber != ''">
+				AND tax_number = #{taxNumber}
+			</if>
+			<if test="address != null and address != ''">
+				AND address = #{address}
+			</if>
+			<if test="remarks != null and remarks != ''">
+				AND remarks = #{remarks}
+			</if>
+			<if test="creationDate != null">
+				AND date_format(creation_date, '%Y-%m-%d') = date_format(#{creationDate}, '%Y-%m-%d')
+			</if>
+		</where>
+	</select>
+	<!-- 根据ID查询单个CustomerInfo -->
+	<select id="selectCustomerInfoById" parameterType="Long" resultMap="CustomerInfoMap">
+		<include refid="selectCustomerInfo"/> WHERE kehu_id = #{kehuId}
+	</select>
+
+	<insert id="insertCustomerInfo" parameterType="com.ruoyi.common.core.domain.newEntity.CustomerInfo" useGeneratedKeys="true" keyProperty="kehuId">
+		INSERT INTO customer_info (
+		<if test="kehuId != null">kehu_id,</if>
+		<if test="customerNumber != null">customer_number,</if>
+		<if test="name != null">name,</if>
+		<if test="taxNumber != null">tax_number,</if>
+		<if test="address != null">address,</if>
+		<if test="remarks != null">remarks,</if>
+		<if test="creationDate != null">creation_date,</if>
+		creation_time
+		) VALUES (
+		<if test="kehuId != null">#{kehuId},</if>
+		<if test="customerNumber != null">#{customerNumber},</if>
+		<if test="name != null">#{name},</if>
+		<if test="taxNumber != null">#{taxNumber},</if>
+		<if test="address != null">#{address},</if>
+		<if test="remarks != null">#{remarks},</if>
+		<if test="creationDate != null">#{creationDate},</if>
+		sysdate()
+		)
+	</insert>
+
+	<!-- Update -->
+	<update id="updateCustomerInfo" parameterType="com.ruoyi.common.core.domain.newEntity.CustomerInfo">
+		UPDATE customer_info
+		<set>
+			<if test="customerNumber != null">customer_number = #{customerNumber},</if>
+			<if test="name != null">name = #{name},</if>
+			<if test="taxNumber != null">tax_number = #{taxNumber},</if>
+			<if test="address != null">address = #{address},</if>
+			<if test="remarks != null">remarks = #{remarks},</if>
+			<if test="creationDate != null">creation_date = #{creationDate},</if>
+			update_time = sysdate()
+		</set>
+		WHERE kehu_id = #{kehuId}
+	</update>
+	<!-- 删除CustomerInfo -->
+	<delete id="deleteCustomerInfoById" parameterType="Long">
+		DELETE FROM customer_info WHERE kehu_id = #{kehuId}
+	</delete>
+
+	<!-- 根据多个ID删除CustomerInfo -->
+	<delete id="deleteCustomerInfosByIds" parameterType="Long">
+		DELETE FROM customer_info WHERE kehu_id IN
+		<foreach collection="array" item="kehuId" open="(" separator="," close=")">
+			#{kehuId}
+		</foreach>
+	</delete>
+ 	
+</mapper> 

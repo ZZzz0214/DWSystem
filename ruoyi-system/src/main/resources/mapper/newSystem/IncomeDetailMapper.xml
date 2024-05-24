@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.IncomeDetailMapper">
+
+	<!-- 定义结果映射 -->
+	<resultMap id="IncomeDetailMap" type="com.ruoyi.common.core.domain.newEntity.IncomeDetail">
+		<!-- 根据 IncomeDetail 的属性和数据库字段进行映射 -->
+		<id property="incomeDetailId" column="income_detail_id" />
+		<result property="orderSerialNumber" column="order_serial_number" />
+		<result property="invoiceDate" column="invoice_date" />
+		<result property="invoiceNumber" column="invoice_number" />
+		<result property="customerName" column="customer_name" />
+		<result property="internationalOrDomestic" column="international_or_domestic" />
+		<result property="salesAmount" column="sales_amount" />
+		<result property="paymentMethod" column="payment_method" />
+		<result property="paymentDate" column="payment_date" />
+		<result property="paymentAmount" column="payment_amount" />
+		<result property="remarks" column="remarks" />
+		<result property="salesOffice" column="sales_office" />
+		<result property="handler" column="handler" />
+		<result property="attachment" column="attachment" />
+	</resultMap>
+
+	<!-- SQL 查询语句 -->
+	<sql id="selectIncomeDetail">
+		SELECT
+			income_detail_id,
+			order_serial_number,
+			invoice_date,
+			invoice_number,
+			customer_name,
+			international_or_domestic,
+			sales_amount,
+			payment_method,
+			payment_date,
+			payment_amount,
+			remarks,
+			sales_office,
+			handler,
+			attachment
+		FROM income_detail
+	</sql>
+	<!-- 根据条件查询所有 IncomeDetail -->
+	<select id="selectAllIncomeDetails" resultMap="IncomeDetailMap">
+		<include refid="selectIncomeDetail"/>
+		<where> 1=1
+			<!-- 添加你的条件 -->
+			<if test="incomeDetailId != null and incomeDetailId != 0">
+				AND income_detail_id = #{incomeDetailId}
+			</if>
+			<if test="orderSerialNumber != null and orderSerialNumber != ''">
+				AND order_serial_number LIKE CONCAT('%', #{orderSerialNumber}, '%')
+			</if>
+			<if test="invoiceDate != null">
+				AND invoice_date = #{invoiceDate}
+			</if>
+			<if test="invoiceNumber != null and invoiceNumber != ''">
+				AND invoice_number LIKE CONCAT('%', #{invoiceNumber}, '%')
+			</if>
+			<if test="customerName != null and customerName != ''">
+				AND customer_name LIKE CONCAT('%', #{customerName}, '%')
+			</if>
+			<if test="internationalOrDomestic != null and internationalOrDomestic != ''">
+				AND international_or_domestic LIKE CONCAT('%', #{internationalOrDomestic}, '%')
+			</if>
+			<if test="salesAmount != null">
+				AND sales_amount = #{salesAmount}
+			</if>
+			<if test="paymentMethod != null and paymentMethod != ''">
+				AND payment_method LIKE CONCAT('%', #{paymentMethod}, '%')
+			</if>
+			<if test="paymentDate != null">
+				AND payment_date = #{paymentDate}
+			</if>
+			<if test="paymentAmount != null">
+				AND payment_amount = #{paymentAmount}
+			</if>
+			<if test="remarks != null and remarks != ''">
+				AND remarks LIKE CONCAT('%', #{remarks}, '%')
+			</if>
+			<if test="salesOffice != null and salesOffice != ''">
+				AND sales_office LIKE CONCAT('%', #{salesOffice}, '%')
+			</if>
+			<if test="handler != null and handler != ''">
+				AND handler LIKE CONCAT('%', #{handler}, '%')
+			</if>
+			<if test="attachment != null and attachment != ''">
+				AND attachment LIKE CONCAT('%', #{attachment}, '%')
+			</if>
+		</where>
+	</select>
+
+	<!-- 根据 ID 查询单个 IncomeDetail -->
+	<select id="selectIncomeDetailById" parameterType="Long" resultMap="IncomeDetailMap">
+		<include refid="selectIncomeDetail"/> WHERE income_detail_id = #{incomeDetailId}
+	</select>
+
+	<!-- Insert IncomeDetail -->
+	<insert id="insertIncomeDetail" parameterType="com.ruoyi.common.core.domain.newEntity.IncomeDetail" useGeneratedKeys="true" keyProperty="incomeDetailId">
+		INSERT INTO income_detail (
+		<if test="incomeDetailId != null">income_detail_id,</if>
+		<if test="orderSerialNumber != null">order_serial_number,</if>
+		<if test="invoiceDate != null">invoice_date,</if>
+		<if test="invoiceNumber != null">invoice_number,</if>
+		<if test="customerName != null">customer_name,</if>
+		<if test="internationalOrDomestic != null">international_or_domestic,</if>
+		<if test="salesAmount != null">sales_amount,</if>
+		<if test="paymentMethod != null">payment_method,</if>
+		<if test="paymentDate != null">payment_date,</if>
+		<if test="paymentAmount != null">payment_amount,</if>
+		<if test="remarks != null">remarks,</if>
+		<if test="salesOffice != null">sales_office,</if>
+		<if test="handler != null">handler,</if>
+		<if test="attachment != null">attachment,</if>
+		create_time
+		) VALUES (
+		<if test="incomeDetailId != null">#{incomeDetailId},</if>
+		<if test="orderSerialNumber != null">#{orderSerialNumber},</if>
+		<if test="invoiceDate != null">#{invoiceDate},</if>
+		<if test="invoiceNumber != null">#{invoiceNumber},</if>
+		<if test="customerName != null">#{customerName},</if>
+		<if test="internationalOrDomestic != null">#{internationalOrDomestic},</if>
+		<if test="salesAmount != null">#{salesAmount},</if>
+		<if test="paymentMethod != null">#{paymentMethod},</if>
+		<if test="paymentDate != null">#{paymentDate},</if>
+		<if test="paymentAmount != null">#{paymentAmount},</if>
+		<if test="remarks != null">#{remarks},</if>
+		<if test="salesOffice != null">#{salesOffice},</if>
+		<if test="handler != null">#{handler},</if>
+		<if test="attachment != null">#{attachment},</if>
+		sysdate()
+		)
+	</insert>
+
+	<!-- Update IncomeDetail -->
+	<update id="updateIncomeDetail" parameterType="com.example.entity.IncomeDetail">
+		UPDATE income_detail
+		<set>
+			<if test="orderSerialNumber != null">order_serial_number = #{orderSerialNumber},</if>
+			<if test="invoiceDate != null">invoice_date = #{invoiceDate},</if>
+			<if test="invoiceNumber != null">invoice_number = #{invoiceNumber},</if>
+			<if test="customerName != null">customer_name = #{customerName},</if>
+			<if test="internationalOrDomestic != null">international_or_domestic = #{internationalOrDomestic},</if>
+			<if test="salesAmount != null">sales_amount = #{salesAmount},</if>
+			<if test="paymentMethod != null">payment_method = #{paymentMethod},</if>
+			<if test="paymentDate != null">payment_date = #{paymentDate},</if>
+			<if test="paymentAmount != null">payment_amount = #{paymentAmount},</if>
+			<if test="remarks != null">remarks = #{remarks},</if>
+			<if test="salesOffice != null">sales_office = #{salesOffice},</if>
+			<if test="handler != null">handler = #{handler},</if>
+			<if test="attachment != null">attachment = #{attachment},</if>
+			update_time = sysdate()
+		</set>
+		WHERE income_detail_id = #{incomeDetailId}
+	</update>
+
+
+
+	<!-- 删除 IncomeDetail -->
+	<delete id="deleteIncomeDetailById" parameterType="Long">
+		DELETE FROM income_detail WHERE income_detail_id = #{incomeDetailId}
+	</delete>
+
+	<!-- 根据多个 ID 删除 IncomeDetail -->
+	<delete id="deleteIncomeDetailsByIds" parameterType="Long">
+		DELETE FROM income_detail WHERE income_detail_id IN
+		<foreach collection="array" item="incomeDetailId" open="(" separator="," close=")">
+			#{incomeDetailId}
+		</foreach>
+	</delete>
+
+
+
+
+
+</mapper> 

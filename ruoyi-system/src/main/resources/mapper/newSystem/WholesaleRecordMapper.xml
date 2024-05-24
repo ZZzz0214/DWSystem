@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.WholesaleRecordMapper">
+	<!-- 定义结果映射 -->
+	<resultMap id="WholesaleRecordMap" type="com.ruoyi.common.core.domain.newEntity.WholesaleRecord">
+		<id property="wholesaleRecordId" column="wholesale_record_id"/>
+		<result property="orderNumber" column="order_number"/>
+		<result property="productName" column="product_name"/>
+		<result property="internalProductCode" column="internal_product_code"/>
+		<result property="quantity" column="quantity"/>
+		<result property="consignee" column="consignee"/>
+		<result property="contactNumber" column="contact_number"/>
+		<result property="detailedAddress" column="detailed_address"/>
+		<result property="date" column="date"/>
+		<result property="remarks" column="remarks"/>
+		<result property="expressFee" column="express_fee"/>
+		<result property="logisticsCost" column="logistics_cost"/>
+		<result property="brandOwner" column="brand_owner"/>
+		<result property="orderingParty" column="ordering_party"/>
+		<result property="purchasePrice" column="purchase_price"/>
+		<result property="purchaseFreight" column="purchase_freight"/>
+		<result property="purchaseOtherCosts" column="purchase_other_costs"/>
+		<result property="purchaseTotal" column="purchase_total"/>
+		<result property="purchaseInspection" column="purchase_inspection"/>
+		<result property="purchaseStatus" column="purchase_status"/>
+		<result property="purchaseRemarks" column="purchase_remarks"/>
+		<result property="deliveryPrice" column="delivery_price"/>
+		<result property="deliveryFreight" column="delivery_freight"/>
+		<result property="deliveryOtherCosts" column="delivery_other_costs"/>
+		<result property="deliveryTotal" column="delivery_total"/>
+		<result property="deliveryInspection" column="delivery_inspection"/>
+		<result property="deliveryStatus" column="delivery_status"/>
+		<result property="deliveryRemarks" column="delivery_remarks"/>
+		<result property="profit" column="profit"/>
+		<result property="shipmentCode" column="shipment_code"/>
+		<result property="createBy"     column="create_by"    />
+		<result property="createTime"   column="create_time"  />
+		<result property="updateBy"     column="update_by"    />
+		<result property="updateTime"   column="update_time"  />
+	</resultMap>
+	<!-- SQL 查询语句 -->
+	<sql id="selectWholesaleRecord">
+		SELECT
+			wholesale_record_id,
+			order_number,
+			product_name,
+			internal_product_code,
+			quantity,
+			consignee,
+			contact_number,
+			detailed_address,
+			date,
+			remarks,
+			express_fee,
+			logistics_cost,
+			brand_owner,
+			ordering_party,
+			purchase_price,
+			purchase_freight,
+			purchase_other_costs,
+			purchase_total,
+			purchase_inspection,
+			purchase_status,
+			purchase_remarks,
+			delivery_price,
+			delivery_freight,
+			delivery_other_costs,
+			delivery_total,
+			delivery_inspection,
+			delivery_status,
+			delivery_remarks,
+			profit,
+			shipment_code
+		FROM wholesale_record
+	</sql>
+
+	<!-- 根据条件查询所有WholesaleRecord -->
+	<select id="selectAllWholesaleRecords" parameterType="com.ruoyi.common.core.domain.newEntity.WholesaleRecord" resultMap="WholesaleRecordMap">
+		<include refid="selectWholesaleRecord"/>
+		WHERE 1=1
+		<if test="orderNumber != null and orderNumber != ''">
+			AND order_number = #{orderNumber}
+		</if>
+		<if test="productName != null and productName != ''">
+			AND product_name = #{productName}
+		</if>
+		<if test="internalProductCode != null and internalProductCode != ''">
+			AND internal_product_code = #{internalProductCode}
+		</if>
+		<if test="quantity != null">
+			AND quantity = #{quantity}
+		</if>
+		<if test="consignee != null and consignee != ''">
+			AND consignee = #{consignee}
+		</if>
+		<if test="contactNumber != null and contactNumber != ''">
+			AND contact_number = #{contactNumber}
+		</if>
+		<if test="detailedAddress != null and detailedAddress != ''">
+			AND detailed_address = #{detailedAddress}
+		</if>
+		<if test="date != null">
+			AND date = #{date}
+		</if>
+		<if test="remarks != null and remarks != ''">
+			AND remarks = #{remarks}
+		</if>
+		<if test="expressFee != null">
+			AND express_fee = #{expressFee}
+		</if>
+		<if test="logisticsCost != null">
+			AND logistics_cost = #{logisticsCost}
+		</if>
+		<if test="brandOwner != null and brandOwner != ''">
+			AND brand_owner = #{brandOwner}
+		</if>
+		<if test="orderingParty != null and orderingParty != ''">
+			AND ordering_party = #{orderingParty}
+		</if>
+		<if test="purchasePrice != null">
+			AND purchase_price = #{purchasePrice}
+		</if>
+		<if test="purchaseFreight != null">
+			AND purchase_freight = #{purchaseFreight}
+		</if>
+		<if test="purchaseOtherCosts != null">
+			AND purchase_other_costs = #{purchaseOtherCosts}
+		</if>
+		<if test="purchaseTotal != null">
+			AND purchase_total = #{purchaseTotal}
+		</if>
+		<if test="purchaseInspection != null and purchaseInspection != ''">
+			AND purchase_inspection = #{purchaseInspection}
+		</if>
+		<if test="purchaseStatus != null and purchaseStatus != ''">
+			AND purchase_status = #{purchaseStatus}
+		</if>
+		<if test="purchaseRemarks != null and purchaseRemarks != ''">
+			AND purchase_remarks = #{purchaseRemarks}
+		</if>
+		<if test="deliveryPrice != null">
+			AND delivery_price = #{deliveryPrice}
+		</if>
+		<if test="deliveryFreight != null">
+			AND delivery_freight = #{deliveryFreight}
+		</if>
+		<if test="deliveryOtherCosts != null">
+			AND delivery_other_costs = #{deliveryOtherCosts}
+		</if>
+		<if test="deliveryTotal != null">
+			AND delivery_total = #{deliveryTotal}
+		</if>
+		<if test="deliveryInspection != null and deliveryInspection != ''">
+			AND delivery_inspection = #{deliveryInspection}
+		</if>
+		<if test="deliveryStatus != null and deliveryStatus != ''">
+			AND delivery_status = #{deliveryStatus}
+		</if>
+		<if test="deliveryRemarks != null and deliveryRemarks != ''">
+			AND delivery_remarks = #{deliveryRemarks}
+		</if>
+		<if test="profit != null">
+			AND profit = #{profit}
+		</if>
+		<if test="shipmentCode != null and shipmentCode != ''">
+			AND shipment_code = #{shipmentCode}
+		</if>
+	</select>
+
+	<!-- 根据ID查询单个WholesaleRecord -->
+	<select id="selectWholesaleRecordById" parameterType="Long" resultMap="WholesaleRecordMap">
+		<include refid="selectWholesaleRecord"/> WHERE wholesale_record_id = #{wholesaleRecordId}
+	</select>
+	<insert id="insertWholesaleRecord" parameterType="com.ruoyi.common.core.domain.newEntity.WholesaleRecord" useGeneratedKeys="true" keyProperty="wholesaleRecordId">
+		INSERT INTO wholesale_record (
+		<if test="orderNumber != null">order_number,</if>
+		<if test="productName != null">product_name,</if>
+		<if test="internalProductCode != null">internal_product_code,</if>
+		<if test="quantity != null">quantity,</if>
+		<if test="consignee != null">consignee,</if>
+		<if test="contactNumber != null">contact_number,</if>
+		<if test="detailedAddress != null">detailed_address,</if>
+		<if test="date != null">date,</if>
+		<if test="remarks != null">remarks,</if>
+		<if test="expressFee != null">express_fee,</if>
+		<if test="logisticsCost != null">logistics_cost,</if>
+		<if test="brandOwner != null">brand_owner,</if>
+		<if test="orderingParty != null">ordering_party,</if>
+		<if test="purchasePrice != null">purchase_price,</if>
+		<if test="purchaseFreight != null">purchase_freight,</if>
+		<if test="purchaseOtherCosts != null">purchase_other_costs,</if>
+		<if test="purchaseTotal != null">purchase_total,</if>
+		<if test="purchaseInspection != null">purchase_inspection,</if>
+		<if test="purchaseStatus != null">purchase_status,</if>
+		<if test="purchaseRemarks != null">purchase_remarks,</if>
+		<if test="deliveryPrice != null">delivery_price,</if>
+		<if test="deliveryFreight != null">delivery_freight,</if>
+		<if test="deliveryOtherCosts != null">delivery_other_costs,</if>
+		<if test="deliveryTotal != null">delivery_total,</if>
+		<if test="deliveryInspection != null">delivery_inspection,</if>
+		<if test="deliveryStatus != null">delivery_status,</if>
+		<if test="deliveryRemarks != null">delivery_remarks,</if>
+		<if test="profit != null">profit,</if>
+		<if test="shipmentCode != null">shipment_code,</if>
+		create_time
+		) VALUES (
+		<if test="orderNumber != null">#{orderNumber},</if>
+		<if test="productName != null">#{productName},</if>
+		<if test="internalProductCode != null">#{internalProductCode},</if>
+		<if test="quantity != null">#{quantity},</if>
+		<if test="consignee != null">#{consignee},</if>
+		<if test="contactNumber != null">#{contactNumber},</if>
+		<if test="detailedAddress != null">#{detailedAddress},</if>
+		<if test="date != null">#{date},</if>
+		<if test="remarks != null">#{remarks},</if>
+		<if test="expressFee != null">#{expressFee},</if>
+		<if test="logisticsCost != null">#{logisticsCost},</if>
+		<if test="brandOwner != null">#{brandOwner},</if>
+		<if test="orderingParty != null">#{orderingParty},</if>
+		<if test="purchasePrice != null">#{purchasePrice},</if>
+		<if test="purchaseFreight != null">#{purchaseFreight},</if>
+		<if test="purchaseOtherCosts != null">#{purchaseOtherCosts},</if>
+		<if test="purchaseTotal != null">#{purchaseTotal},</if>
+		<if test="purchaseInspection != null">#{purchaseInspection},</if>
+		<if test="purchaseStatus != null">#{purchaseStatus},</if>
+		<if test="purchaseRemarks != null">#{purchaseRemarks},</if>
+		<if test="deliveryPrice != null">#{deliveryPrice},</if>
+		<if test="deliveryFreight != null">#{deliveryFreight},</if>
+		<if test="deliveryOtherCosts != null">#{deliveryOtherCosts},</if>
+		<if test="deliveryTotal != null">#{deliveryTotal},</if>
+		<if test="deliveryInspection != null">#{deliveryInspection},</if>
+		<if test="deliveryStatus != null">#{deliveryStatus},</if>
+		<if test="deliveryRemarks != null">#{deliveryRemarks},</if>
+		<if test="profit != null">#{profit},</if>
+		<if test="shipmentCode != null">#{shipmentCode},</if>
+		sysdate()
+		)
+	</insert>
+
+	<update id="updateWholesaleRecord" parameterType="com.ruoyi.common.core.domain.newEntity.WholesaleRecord">
+		UPDATE wholesale_record
+		<set>
+			<if test="orderNumber != null">order_number = #{orderNumber},</if>
+			<if test="productName != null">product_name = #{productName},</if>
+			<if test="internalProductCode != null">internal_product_code = #{internalProductCode},</if>
+			<if test="quantity != null">quantity = #{quantity},</if>
+			<if test="consignee != null">consignee = #{consignee},</if>
+			<if test="contactNumber != null">contact_number = #{contactNumber},</if>
+			<if test="detailedAddress != null">detailed_address = #{detailedAddress},</if>
+			<if test="date != null">date = #{date},</if>
+			<if test="remarks != null">remarks = #{remarks},</if>
+			<if test="expressFee != null">express_fee = #{expressFee},</if>
+			<if test="logisticsCost != null">logistics_cost = #{logisticsCost},</if>
+			<if test="brandOwner != null">brand_owner = #{brandOwner},</if>
+			<if test="orderingParty != null">ordering_party = #{orderingParty},</if>
+			<if test="purchasePrice != null">purchase_price = #{purchasePrice},</if>
+			<if test="purchaseFreight != null">purchase_freight = #{purchaseFreight},</if>
+			<if test="purchaseOtherCosts != null">purchase_other_costs = #{purchaseOtherCosts},</if>
+			<if test="purchaseTotal != null">purchase_total = #{purchaseTotal},</if>
+			<if test="purchaseInspection != null">purchase_inspection = #{purchaseInspection},</if>
+			<if test="purchaseStatus != null">purchase_status = #{purchaseStatus},</if>
+			<if test="purchaseRemarks != null">purchase_remarks = #{purchaseRemarks},</if>
+			<if test="deliveryPrice != null">delivery_price = #{deliveryPrice},</if>
+			<if test="deliveryFreight != null">delivery_freight = #{deliveryFreight},</if>
+			<if test="deliveryOtherCosts != null">delivery_other_costs = #{deliveryOtherCosts},</if>
+			<if test="deliveryTotal != null">delivery_total = #{deliveryTotal},</if>
+			<if test="deliveryInspection != null">delivery_inspection = #{deliveryInspection},</if>
+			<if test="deliveryStatus != null">delivery_status = #{deliveryStatus},</if>
+			<if test="deliveryRemarks != null">delivery_remarks = #{deliveryRemarks},</if>
+			<if test="profit != null">profit = #{profit},</if>
+			<if test="shipmentCode != null">shipment_code = #{shipmentCode},</if>
+			update_time = sysdate()
+		</set>
+		WHERE wholesale_record_id = #{wholesaleRecordId}
+	</update>
+
+	<!-- 删除WholesaleRecord -->
+	<delete id="deleteWholesaleRecordById" parameterType="Long">
+		DELETE FROM wholesale_record WHERE wholesale_record_id = #{wholesaleRecordId}
+	</delete>
+
+	<!-- 根据多个ID删除WholesaleRecord -->
+	<delete id="deleteWholesaleRecordsByIds" parameterType="Long">
+		DELETE FROM wholesale_record WHERE wholesale_record_id IN
+		<foreach collection="array" item="wholesaleRecordId" open="(" separator="," close=")">
+			#{wholesaleRecordId}
+		</foreach>
+	</delete>
+
+
+
+
+</mapper> 
