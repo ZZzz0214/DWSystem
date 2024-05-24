@@ -135,7 +135,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 
 	<!-- Update IncomeDetail -->
-	<update id="updateIncomeDetail" parameterType="com.example.entity.IncomeDetail">
+	<update id="updateIncomeDetail" parameterType="com.ruoyi.common.core.domain.newEntity.IncomeDetail">
 		UPDATE income_detail
 		<set>
 			<if test="orderSerialNumber != null">order_serial_number = #{orderSerialNumber},</if>

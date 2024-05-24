@@ -217,7 +217,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 
 	<!-- Update -->
-	<update id="updateAfterSalesBatch" parameterType="com.example.entity.AfterSalesBatch">
+	<update id="updateAfterSalesBatch" parameterType="com.ruoyi.common.core.domain.newEntity.AfterSalesBatch">
 		UPDATE after_sales_batch
 		<set>
 			<if test="orderNumber != null">order_number = #{orderNumber},</if>
