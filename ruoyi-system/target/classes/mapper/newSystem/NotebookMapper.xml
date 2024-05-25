@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.NotebookMapper">
+
+	<!-- 定义结果映射 -->
+	<resultMap id="NotebookMap" type="com.ruoyi.common.core.domain.newEntity.Notebook">
+		<!-- 根据Notebook的属性和数据库字段进行映射 -->
+		<id property="recordId" column="record_id" />
+		<result property="recordDate" column="record_date" />
+		<result property="recordInfo" column="record_info" />
+		<result property="resolutionInfo" column="resolution_info" />
+		<result property="afterSalesParty" column="after_sales_party" />
+		<result property="remarks" column="remarks" />
+		<result property="createBy"     column="create_by"    />
+		<result property="createTime"   column="create_time"  />
+		<result property="updateBy"     column="update_by"    />
+		<result property="updateTime"   column="update_time"  />
+	</resultMap>
+	<!-- SQL 查询语句 -->
+	<sql id="selectNotebook">
+		SELECT
+			record_id,
+			record_date,
+			record_info,
+			resolution_info,
+			after_sales_party,
+			remarks
+		FROM notebook
+	</sql>
+
+	<!-- 根据条件查询所有Notebook -->
+	<select id="selectAllNotebooks" resultMap="NotebookMap">
+		<include refid="selectNotebook"/>
+		WHERE 1=1
+		<if test="recordDate != null">
+			record_date = #{recordDate}
+		</if>
+		<if test="recordInfo != null">
+			AND record_info = #{recordInfo}
+		</if>
+		<if test="resolutionInfo != null">
+			AND resolution_info = #{resolutionInfo}
+		</if>
+		<if test="afterSalesParty != null">
+			AND after_sales_party = #{afterSalesParty}
+		</if>
+		<if test="remarks != null">
+			AND remarks = #{remarks}
+		</if>
+	</select>
+
+	<!-- 根据ID查询单个Notebook -->
+	<select id="selectNotebookById" parameterType="Long" resultMap="NotebookMap">
+		<include refid="selectNotebook"/> WHERE record_id = #{recordId}
+	</select>
+
+	<!-- 插入Notebook -->
+	<insert id="insertNotebook" parameterType="com.ruoyi.common.core.domain.newEntity.Notebook" useGeneratedKeys="true" keyProperty="recordId">
+		INSERT INTO notebook (
+		record_date,
+		record_info,
+		resolution_info,
+		after_sales_party,
+		remarks,
+		create_time
+		) VALUES (
+		<if test="recordDate != null">#{recordDate},</if>
+		<if test="recordInfo != null">#{recordInfo},</if>
+		<if test="resolutionInfo != null">#{resolutionInfo},</if>
+		<if test="afterSalesParty != null">#{afterSalesParty},</if>
+		<if test="remarks != null">#{remarks},</if>
+		sysdate()
+		)
+	</insert>
+	<!-- 更新Notebook -->
+	<update id="updateNotebook" parameterType="com.ruoyi.common.core.domain.newEntity.Notebook">
+		UPDATE notebook
+		<set>
+			<if test="recordDate != null">record_date = #{recordDate},</if>
+			<if test="recordInfo != null">record_info = #{recordInfo},</if>
+			<if test="resolutionInfo != null">resolution_info = #{resolutionInfo},</if>
+			<if test="afterSalesParty != null">after_sales_party = #{afterSalesParty},</if>
+			<if test="remarks != null">remarks = #{remarks},</if>
+			update_time = sysdate()
+		</set>
+		WHERE record_id = #{recordId}
+	</update>
+	<!-- 删除Notebook -->
+	<delete id="deleteNotebookById" parameterType="Long">
+		DELETE FROM notebook WHERE record_id = #{recordId}
+	</delete>
+
+	<!-- 根据多个ID删除Notebook -->
+	<delete id="deleteNotebooksByIds" parameterType="Long">
+		DELETE FROM notebook WHERE record_id IN
+		<foreach collection="array" item="recordId" open="(" separator="," close=")">
+			#{recordId}
+		</foreach>
+	</delete>
+</mapper> 

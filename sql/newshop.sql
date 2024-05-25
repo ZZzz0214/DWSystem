@@ -11,11 +11,369 @@
  Target Server Version : 80013
  File Encoding         : 65001
 
- Date: 20/05/2024 15:27:34
+ Date: 24/05/2024 21:46:01
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for after_sales_batch
+-- ----------------------------
+DROP TABLE IF EXISTS `after_sales_batch`;
+CREATE TABLE `after_sales_batch`  (
+  `after_sales_batch_id` bigint(255) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `order_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '订单编号',
+  `product_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '产品名称',
+  `internal_product_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '内部商品编号',
+  `quantity` bigint(255) NULL DEFAULT NULL COMMENT '货数',
+  `recipient` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '收货人',
+  `contact_phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '联系电话',
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '详细地址',
+  `date` datetime NULL DEFAULT NULL COMMENT '日期',
+  `remarks` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
+  `brand` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '品牌方',
+  `return_and_after_sales` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '退货和售后方',
+  `purchase_price` decimal(65, 2) NULL DEFAULT NULL COMMENT '采购价',
+  `purchase_other_cost` decimal(65, 2) NULL DEFAULT NULL COMMENT '采购_其他费',
+  `purchase_total_amount` decimal(65, 2) NULL DEFAULT NULL COMMENT '采购_总额',
+  `purchase_inspection` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '采购_检查',
+  `purchase_status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '采购_状况',
+  `purchase_remarks` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '采购_备注',
+  `selling_price` decimal(65, 2) NULL DEFAULT NULL COMMENT '出货价',
+  `selling_other_cost` decimal(65, 2) NULL DEFAULT NULL COMMENT '出货_其他费',
+  `selling_total_amount` decimal(65, 2) NULL DEFAULT NULL COMMENT '出货_总额',
+  `selling_inspection` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '出货_检查',
+  `selling_status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '出货_状况',
+  `selling_remarks` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '出货_备注',
+  `loss` decimal(65, 2) NULL DEFAULT NULL COMMENT '损耗',
+  `shipment_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '发货编码',
+  PRIMARY KEY (`after_sales_batch_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of after_sales_batch
+-- ----------------------------
+INSERT INTO `after_sales_batch` VALUES (1, 'SH_20231222_000001', 'TTD白鸡蛋防晒霜乳', 'DW00000001', 1000, '', '', '', '2023-12-22 00:00:00', '', '欧', '狼腾信息技术', 4.50, NULL, 4500.00, '60', '', '', 3.00, NULL, 3000.00, '80', '', '', 20.00, 'NT40410');
+INSERT INTO `after_sales_batch` VALUES (5, 'SH_20240107_000001', '', '', NULL, '', '', '', '2024-01-07 00:00:00', '', '', '', NULL, NULL, 0.00, '', '', '', NULL, NULL, 0.00, '', '', '', NULL, '');
+INSERT INTO `after_sales_batch` VALUES (6, 'SH_20240107_000002', '', '', NULL, '', '', '', '2024-01-07 00:00:00', '', '', '', NULL, NULL, 0.00, '', '', '', NULL, NULL, 0.00, '', '', '', NULL, '');
+INSERT INTO `after_sales_batch` VALUES (10, 'SH_20240112_000001', 'TTD白鸡蛋防晒霜乳', 'DW00000001', NULL, '', '', '', '2024-01-12 19:12:01', '', '欧', '', 4.50, NULL, 0.00, '', '', '', 3.00, NULL, 0.00, '', '', '', 0.00, 'NT40410');
+INSERT INTO `after_sales_batch` VALUES (15, 'SH_20240225_192034_000001', '', '', NULL, '', '', '', '2024-02-25 19:20:34', '', '', '', NULL, NULL, NULL, '', '', '', NULL, NULL, NULL, '', '', '', NULL, '');
+
+-- ----------------------------
+-- Table structure for customer_info
+-- ----------------------------
+DROP TABLE IF EXISTS `customer_info`;
+CREATE TABLE `customer_info`  (
+  `kehu_id` bigint(255) NOT NULL AUTO_INCREMENT COMMENT '序号',
+  `customer_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '编号NO',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '名称NOMBRE',
+  `tax_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '税号CIF/NIE',
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '地址DIRECION',
+  `remarks` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
+  `creation_date` datetime NULL DEFAULT NULL COMMENT '创建日期',
+  PRIMARY KEY (`kehu_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of customer_info
+-- ----------------------------
+INSERT INTO `customer_info` VALUES (1, 'K-0001', '狼腾信息技术', '56565476778', '重庆市渝北区', '测试', '2023-12-16 00:00:00');
+INSERT INTO `customer_info` VALUES (3, 'K-0002', '北京旅行社', '4154274547240420', '北京市宣武区', '测试', '2023-12-16 00:00:00');
+
+-- ----------------------------
+-- Table structure for dropshiprecords
+-- ----------------------------
+DROP TABLE IF EXISTS `dropshiprecords`;
+CREATE TABLE `dropshiprecords`  (
+  `record_id` bigint(255) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `order_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '订单编号',
+  `order_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '订单号',
+  `logistics_company` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '物流公司',
+  `tracking_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '物流单号',
+  `recipient_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '收货人',
+  `recipient_phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '联系电话',
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '详细地址',
+  `product_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '商品名称',
+  `specifications` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '规格',
+  `quantity` bigint(255) NULL DEFAULT NULL COMMENT '数量',
+  `product_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '商品编码',
+  `member_remarks` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '团员备注',
+  `leader` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '团长',
+  `filter` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '筛选',
+  `date` datetime NULL DEFAULT NULL COMMENT '日期',
+  `product_name_details` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '产品名称',
+  `multiplier` bigint(255) NULL DEFAULT NULL COMMENT '倍数',
+  `after_sales_status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '售后状况',
+  `remarks` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
+  `internal_product_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '内部商品编号',
+  `stock_quantity` bigint(255) NULL DEFAULT NULL COMMENT '货数',
+  `brand` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '品牌方',
+  `purchase_price` decimal(65, 2) NULL DEFAULT NULL COMMENT '采购价',
+  `purchase_shipping_fee` decimal(65, 2) NULL DEFAULT NULL COMMENT '采购_运费',
+  `purchase_other_fee` decimal(65, 2) NULL DEFAULT NULL COMMENT '采购_其他费',
+  `purchase_total_amount` decimal(65, 2) NULL DEFAULT NULL COMMENT '采购_总额',
+  `purchase_inspection` decimal(65, 2) NULL DEFAULT NULL COMMENT '采购_检查',
+  `purchase_status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '采购_状况',
+  `purchase_remarks` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '采购_备注',
+  `selling_price` decimal(65, 2) NULL DEFAULT NULL COMMENT '出货价',
+  `selling_shipping_fee` decimal(65, 2) NULL DEFAULT NULL COMMENT '出货_运费',
+  `selling_other_fee` decimal(65, 2) NULL DEFAULT NULL COMMENT '出货_其他费',
+  `selling_total_amount` decimal(65, 2) NULL DEFAULT NULL COMMENT '出货_总额',
+  `selling_inspection` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '出货_检查',
+  `selling_status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '出货_状况',
+  `selling_remarks` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '出货_备注',
+  `profit` decimal(65, 2) NULL DEFAULT NULL COMMENT '利润',
+  PRIMARY KEY (`record_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 51 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of dropshiprecords
+-- ----------------------------
+INSERT INTO `dropshiprecords` VALUES (39, 'DF_20240120_000002', '240120-015518944102775', '', '', '钱\'S', '18652384925', '江苏省泰州市海陵区春晖花苑2号楼104', 'TTD白鸡蛋防晒霜乳', '1', 1, 'NT40410', '', '3', 'NT', '2024-01-20 00:00:00', 'TTD白鸡蛋防晒霜乳', 1, '', '', 'DW00000001', 1, '欧', 5.00, 4.00, NULL, 8.00, NULL, '', '', 6.00, 4.00, NULL, 4.00, NULL, '', '', 0.00);
+INSERT INTO `dropshiprecords` VALUES (40, 'DF_20240120_000107', '2402000018681296', '', '', '李雪婷', '16687222088', '云南省大理白族自治州大理市大理镇人民路493号一只酸奶牛古城洱海门店', '2', '', 2, '', '', '2', '1', '2024-01-20 00:00:00', '2', 1, '', '', 'DW00000308', 2, '1', 4.00, 4.00, NULL, 11.00, NULL, '', '', 6.00, 4.00, NULL, 15.00, NULL, '', '', NULL);
+INSERT INTO `dropshiprecords` VALUES (41, 'DF_20240120_000108', '2402000024885318', '', '', '姜倩倩', '18375273361', '贵州省黔东南苗族侗族自治州剑河县仰阿莎街道剑河县二小背后153号', '3', '', 2, '', '', '2', '1', '2024-01-20 00:00:00', '3', 1, '', '', 'DW00000308', 2, '1', 4.00, 4.00, NULL, 11.00, NULL, '', '', 6.00, 4.00, NULL, 15.00, NULL, '', '', NULL);
+INSERT INTO `dropshiprecords` VALUES (42, 'DF_20240120_000109', '2402000030169538', '', '', '杨奥雪', '15335370268', '山东省济宁市梁山县拳铺镇拳铺镇老步行街盛雅窗饰家纺', '4', '', 2, '', '', '2', '1', '2024-01-20 00:00:00', '4', 1, '', '', 'DW00000308', 2, '1', 4.00, 4.00, NULL, 11.00, NULL, '', '', 6.00, 4.00, NULL, 15.00, NULL, '', '', NULL);
+INSERT INTO `dropshiprecords` VALUES (43, 'DF_20240120_000110', '2402000031394964', '', '', '杨雨洁', '16685207054', '贵州省铜仁市德江县煎茶镇贵州省铜仁市德江县煎茶镇贸易街', '5', '', 2, '', '', '2', '1', '2024-01-20 00:00:00', '5', 1, '', '', 'DW00000308', 2, '1', 4.00, 4.00, NULL, 11.00, NULL, '', '', 6.00, 4.00, NULL, 15.00, NULL, '', '', NULL);
+INSERT INTO `dropshiprecords` VALUES (50, 'DF_20240225_192012_000001', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '2024-02-25 19:20:12', '', NULL, '', '', '', NULL, '', NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', '', NULL);
+
+-- ----------------------------
+-- Table structure for filtertable
+-- ----------------------------
+DROP TABLE IF EXISTS `filtertable`;
+CREATE TABLE `filtertable`  (
+  `order_number` bigint(255) NOT NULL COMMENT '订单编号',
+  `product_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '商品名称',
+  `specification` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '规格',
+  `quantity` bigint(255) NULL DEFAULT NULL COMMENT '数量',
+  `product_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '商品编码',
+  `member_remarks` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '团员备注',
+  `group_leader` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '团长',
+  `filter` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '筛选',
+  `date` datetime NULL DEFAULT NULL COMMENT '日期',
+  `item_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '产品名称',
+  `multiple` bigint(255) NULL DEFAULT NULL COMMENT '倍数',
+  `after_sales_status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '售后状况',
+  `remarks` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
+  `internal_product_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '内部商品编号',
+  PRIMARY KEY (`order_number`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of filtertable
+-- ----------------------------
+INSERT INTO `filtertable` VALUES (5, 'TTD白鸡蛋防晒霜乳', '', 2, '56465', '', '不知', 'NT', '2023-05-30 00:00:00', 'TTD白鸡蛋防晒霜乳', NULL, '', '首次登记，无法统计货款', 'DW00000001');
+
+-- ----------------------------
+-- Table structure for financial_records
+-- ----------------------------
+DROP TABLE IF EXISTS `financial_records`;
+CREATE TABLE `financial_records`  (
+  `ID` bigint(255) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `settlement_date` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '结算日期',
+  `date` datetime NULL DEFAULT NULL COMMENT '日期',
+  `order_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '订单号',
+  `product_name_details` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '产品名称_详细信息',
+  `amount` decimal(65, 2) NULL DEFAULT NULL COMMENT '账款',
+  `is_completed` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '是否完成',
+  `income_expense` varchar(65) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '支出收入',
+  `payment_item` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '付款项目',
+  `remarks` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
+  `brand` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '品牌方',
+  `supplier` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '出货方',
+  `handler` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '处理人',
+  `create by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '\n创建者',
+  `create time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '更新者',
+  `update time` datetime NULL DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`ID`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of financial_records
+-- ----------------------------
+INSERT INTO `financial_records` VALUES (1, '2023年4月', '2024-01-09 00:00:00', '123456', '代刷', 600.00, '', '', '', '', '欧', '', '刘备', NULL, NULL, NULL, NULL);
+INSERT INTO `financial_records` VALUES (4, '', NULL, '', '', NULL, '', '', '', '', '', '', '', NULL, NULL, NULL, NULL);
+INSERT INTO `financial_records` VALUES (5, '', '2024-01-14 10:29:36', '', '', NULL, '', '', '', '', '', '', '', NULL, NULL, NULL, NULL);
+
+-- ----------------------------
+-- Table structure for income_detail
+-- ----------------------------
+DROP TABLE IF EXISTS `income_detail`;
+CREATE TABLE `income_detail`  (
+  `income_detail_id` bigint(255) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `order_serial_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '订单序列号',
+  `invoice_date` datetime NULL DEFAULT NULL COMMENT '发票日期',
+  `invoice_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '发票号',
+  `customer_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '客人姓名',
+  `international_or_domestic` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '国际/国内',
+  `sales_amount` decimal(65, 2) NULL DEFAULT NULL COMMENT '销售金额',
+  `payment_method` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '进账方式',
+  `payment_date` datetime NULL DEFAULT NULL COMMENT '进帐日期',
+  `payment_amount` decimal(65, 2) NULL DEFAULT NULL COMMENT '入帐金额',
+  `remarks` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
+  `sales_office` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '销售办公室',
+  `handler` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '经办人',
+  `attachment` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '附件',
+  PRIMARY KEY (`income_detail_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 46 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of income_detail
+-- ----------------------------
+INSERT INTO `income_detail` VALUES (12, 'TD-00001', '2023-12-20 00:00:00', '', '北京旅行社', 'E', 500.00, '微信', '2023-12-17 00:00:00', 200.00, '测试', 'AMOR', '开发者', 'file_231217095803_屏幕截图 2023-10-25 170719.png');
+INSERT INTO `income_detail` VALUES (16, 'TD-00001', NULL, '', '北京旅行社', 'E', 500.00, '现金', '2023-12-17 00:00:00', 300.00, '测试1', 'AMOR', '开发者', 'file_231217201609_王闯 土建管理岗.pdf');
+INSERT INTO `income_detail` VALUES (37, '', '2023-12-18 00:00:00', 'A/1201/23', 'chen/wei', 'I', 600.00, 'CASH-PMI', '2023-12-19 00:00:00', 300.00, '', 'AMOR', '', '');
+INSERT INTO `income_detail` VALUES (38, '', '2023-12-18 00:00:00', 'A/1201/23', 'chen/wei', 'I', 600.00, 'CASH-PMI', '2023-12-19 00:00:00', 900.00, '', 'AMOR', '开发者', '');
+INSERT INTO `income_detail` VALUES (42, '', '2023-12-19 00:00:00', 'A/0001/23', 'ZHAO REN', 'es', 1500.00, '银行转账', '2023-12-19 00:00:00', 500.00, '', 'SUNSHINE', '开发者', 'file_231219210137_屏幕截图 2023-10-25 170547.png');
+INSERT INTO `income_detail` VALUES (43, '', '2023-12-19 00:00:00', 'A/0001/23', 'ZHAO REN', 'es', 1500.00, '微信', '2023-12-19 00:00:00', 1000.00, '', 'SUNSHINE', '开发者', '');
+INSERT INTO `income_detail` VALUES (45, '', '2023-12-19 00:00:00', 'A/0002/23', 'GUO BAORONG', 'es', 1500.00, '现金', '2023-12-20 00:00:00', 500.00, '', 'SUNSHINE', '开发者', '');
+
+-- ----------------------------
+-- Table structure for inventory_record
+-- ----------------------------
+DROP TABLE IF EXISTS `inventory_record`;
+CREATE TABLE `inventory_record`  (
+  `inventory_record_id` bigint(255) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `entry_date` datetime NULL DEFAULT NULL COMMENT '入库日期',
+  `product_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '产品名称',
+  `internal_product_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '内部商品编号',
+  `entry_quantity` bigint(255) NULL DEFAULT NULL COMMENT '入库数量',
+  `purchase_price` decimal(65, 2) NULL DEFAULT NULL COMMENT '采购价',
+  `remarks` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`inventory_record_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of inventory_record
+-- ----------------------------
+INSERT INTO `inventory_record` VALUES (3, '2023-12-22 00:00:00', 'TTD白鸡蛋防晒霜乳', 'DW00000001', 100, 50.00, '测试');
+
+-- ----------------------------
+-- Table structure for kuatuantuan_shipment
+-- ----------------------------
+DROP TABLE IF EXISTS `kuatuantuan_shipment`;
+CREATE TABLE `kuatuantuan_shipment`  (
+  `record_id` bigint(255) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `product_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '商品编码',
+  `group_leader` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '开团团长',
+  `product_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '商品名称',
+  `supply_price` decimal(65, 2) NULL DEFAULT NULL COMMENT '供货价',
+  `quantity` bigint(255) NULL DEFAULT NULL COMMENT '货数',
+  `product_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '产品名称',
+  `internal_product_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '内部商品编号',
+  `brand_owner` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '品牌方',
+  `remarks` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`record_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of kuatuantuan_shipment
+-- ----------------------------
+INSERT INTO `kuatuantuan_shipment` VALUES (2, 'NO.AH000001', '批发团', 'TTD白鸡蛋防晒霜乳2件', 18.50, 2, 'TTD白鸡蛋防晒霜乳', 'DW00000001', '欧', '');
+
+-- ----------------------------
+-- Table structure for notebook
+-- ----------------------------
+DROP TABLE IF EXISTS `notebook`;
+CREATE TABLE `notebook`  (
+  `record_id` bigint(255) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `record_date` datetime NULL DEFAULT NULL COMMENT '记录日期',
+  `record_info` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '记录信息',
+  `resolution_info` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '解决信息',
+  `after_sales_party` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '售后方',
+  `remarks` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`record_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of notebook
+-- ----------------------------
+INSERT INTO `notebook` VALUES (3, '2024-01-07 20:18:14', '测试记事本', '记事本模块开发完成', '狼腾信息技术', '测试完成再测试');
+
+-- ----------------------------
+-- Table structure for product_information
+-- ----------------------------
+DROP TABLE IF EXISTS `product_information`;
+CREATE TABLE `product_information`  (
+  `ID` bigint(255) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `product_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '产品名称',
+  `internal_product_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '内部商品编号',
+  `shipment_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '发货编码',
+  `specifications` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '规格',
+  `tmall_listing_price` bigint(255) NULL DEFAULT NULL COMMENT '天猫挂价',
+  `production_date` datetime NULL DEFAULT NULL COMMENT '生产日期',
+  `product_selling_points` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '产品卖点',
+  `current_stock` bigint(255) NULL DEFAULT NULL COMMENT '现货库存',
+  `actual_order_time` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '实际返单时效',
+  `promotion_price_control` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '活动控价',
+  `return_address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '退货地址',
+  `shipping_details` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '快递明细',
+  `other_platform_price` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '其他平台客单价',
+  `link` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '链接',
+  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '状态',
+  `brand` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '品牌',
+  `filter` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '筛选',
+  `category` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '品类',
+  `remaining_stock` bigint(255) NULL DEFAULT NULL COMMENT '剩余库存',
+  `after_sales_quantity` bigint(255) NULL DEFAULT NULL COMMENT '售后数量',
+  `brand_owner` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '品牌方',
+  `product_status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '产品状态',
+  `purchase_price` bigint(255) NULL DEFAULT NULL COMMENT '采购价',
+  `shipping_cost` bigint(255) NULL DEFAULT NULL COMMENT '运费',
+  `shipping_price_chain` bigint(255) NULL DEFAULT NULL COMMENT '出货价_链',
+  `shipping_price_dropship` bigint(255) NULL DEFAULT NULL COMMENT '出货价_代发',
+  `shipping_price_detailed_dropship` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '出货价_详细代发',
+  `purchase_notes` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '采购_注意事项',
+  `shipping_notes` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '出货_注意事项',
+  `public_listing_price_tmall_taobao_jd` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '公域挂价_天猫_淘宝_京东',
+  `pinduoduo_listing_price` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '拼多多挂价',
+  `private_group_buy_price` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '私域_团购_快团等',
+  `live_stream_price` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '直播挂价_专属价_日常改原价',
+  `shipping_price_tier_1` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '出货价_1档',
+  `shipping_price_tier_2` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '出货价_2档',
+  `dropship_shipping_price` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '代发出货价',
+  `alibaba_listing_price` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '阿里挂价',
+  `entry_time` datetime NULL DEFAULT NULL COMMENT '录入时间',
+  `create by` varchar(65) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '创建者',
+  `create time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update by` varchar(65) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '更新者',
+  `update time` datetime NULL DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`ID`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 30 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of product_information
+-- ----------------------------
+INSERT INTO `product_information` VALUES (6, 'TTD白鸡蛋防晒霜乳2', 'DW00000001', 'NT40410', '20', 130, '2023-01-01 00:00:00', '联系负责人提供', NULL, '', '29.9两件', '', '', '联系负责人提供', '', '单件', 'NT', 'NT', '防晒', 99, 1000, '欧', '通品', 5, 4, 3, 6, '14.5两个', '', '', '', '', '', '', '2', '3', '1', '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `product_information` VALUES (27, '', 'DW00000002', '', '', NULL, NULL, '', NULL, '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `product_information` VALUES (28, '', 'DW00000003', '', '', NULL, NULL, '', NULL, '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `product_information` VALUES (29, '', 'DW00000004', '', '', NULL, NULL, '', NULL, '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', '', NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL);
+
+-- ----------------------------
+-- Table structure for supplierinfo
+-- ----------------------------
+DROP TABLE IF EXISTS `supplierinfo`;
+CREATE TABLE `supplierinfo`  (
+  `supplier_id` bigint(255) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `supplier_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '编号',
+  `shipper` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '出货商',
+  `recipient_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '收货人',
+  `recipient_phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '联系电话',
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '详细地址',
+  `wechat_account` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '微信账号',
+  `alipay_account` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '支付宝账号',
+  `bank_account` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '银行卡账号',
+  `creation_date` datetime NULL DEFAULT NULL COMMENT '创建日期',
+  `total_shipment` bigint(255) NULL DEFAULT NULL COMMENT '出货总数',
+  `remarks` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`supplier_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of supplierinfo
+-- ----------------------------
+INSERT INTO `supplierinfo` VALUES (27, 'G-000001', '狼腾信息技术', '狼哥', '17830267777', '重庆', 'gulang993721', '785360777@qq.com', '234655547', '2023-12-23 00:00:00', 1001, '');
 
 -- ----------------------------
 -- Table structure for sys_config
@@ -101,6 +459,38 @@ INSERT INTO `sys_dict_data` VALUES (28, 1, '成功', '0', 'sys_common_status', '
 INSERT INTO `sys_dict_data` VALUES (29, 2, '失败', '1', 'sys_common_status', '', 'danger', 'N', '0', 'admin', '2024-05-14 22:17:47', '', NULL, '停用状态');
 
 -- ----------------------------
+-- Table structure for sys_dict_type
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_dict_type`;
+CREATE TABLE `sys_dict_type`  (
+  `dict_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '字典主键',
+  `dict_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '' COMMENT '字典名称',
+  `dict_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '' COMMENT '字典类型',
+  `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '0' COMMENT '状态（0正常 1停用）',
+  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '' COMMENT '创建者',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '' COMMENT '更新者',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
+  `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`dict_id`) USING BTREE,
+  UNIQUE INDEX `dict_type`(`dict_type` ASC) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 101 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '字典类型表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_dict_type
+-- ----------------------------
+INSERT INTO `sys_dict_type` VALUES (1, '用户性别', 'sys_user_sex', '0', 'admin', '2024-05-14 22:17:47', '', NULL, '用户性别列表');
+INSERT INTO `sys_dict_type` VALUES (2, '菜单状态', 'sys_show_hide', '0', 'admin', '2024-05-14 22:17:47', '', NULL, '菜单状态列表');
+INSERT INTO `sys_dict_type` VALUES (3, '系统开关', 'sys_normal_disable', '0', 'admin', '2024-05-14 22:17:47', '', NULL, '系统开关列表');
+INSERT INTO `sys_dict_type` VALUES (4, '任务状态', 'sys_job_status', '0', 'admin', '2024-05-14 22:17:47', '', NULL, '任务状态列表');
+INSERT INTO `sys_dict_type` VALUES (5, '任务分组', 'sys_job_group', '0', 'admin', '2024-05-14 22:17:47', '', NULL, '任务分组列表');
+INSERT INTO `sys_dict_type` VALUES (6, '系统是否', 'sys_yes_no', '0', 'admin', '2024-05-14 22:17:47', '', NULL, '系统是否列表');
+INSERT INTO `sys_dict_type` VALUES (7, '通知类型', 'sys_notice_type', '0', 'admin', '2024-05-14 22:17:47', '', NULL, '通知类型列表');
+INSERT INTO `sys_dict_type` VALUES (8, '通知状态', 'sys_notice_status', '0', 'admin', '2024-05-14 22:17:47', '', NULL, '通知状态列表');
+INSERT INTO `sys_dict_type` VALUES (9, '操作类型', 'sys_oper_type', '0', 'admin', '2024-05-14 22:17:47', '', NULL, '操作类型列表');
+INSERT INTO `sys_dict_type` VALUES (10, '系统状态', 'sys_common_status', '0', 'admin', '2024-05-14 22:17:47', '', NULL, '登录状态列表');
+
+-- ----------------------------
 -- Table structure for sys_job
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_job`;
@@ -145,7 +535,7 @@ CREATE TABLE `sys_logininfor`  (
   PRIMARY KEY (`info_id`) USING BTREE,
   INDEX `idx_sys_logininfor_s`(`status` ASC) USING BTREE,
   INDEX `idx_sys_logininfor_lt`(`login_time` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 113 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '系统访问记录' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 136 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '系统访问记录' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_logininfor
@@ -177,6 +567,15 @@ INSERT INTO `sys_logininfor` VALUES (123, 'xiezheng', '127.0.0.1', '内网IP', '
 INSERT INTO `sys_logininfor` VALUES (124, 'xiezheng', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-05-20 00:52:04');
 INSERT INTO `sys_logininfor` VALUES (125, 'xiezheng', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '退出成功', '2024-05-20 00:52:43');
 INSERT INTO `sys_logininfor` VALUES (126, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-05-20 00:52:58');
+INSERT INTO `sys_logininfor` VALUES (127, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-05-20 15:56:07');
+INSERT INTO `sys_logininfor` VALUES (128, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-05-20 17:53:42');
+INSERT INTO `sys_logininfor` VALUES (129, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-05-20 23:55:59');
+INSERT INTO `sys_logininfor` VALUES (130, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-05-22 14:20:43');
+INSERT INTO `sys_logininfor` VALUES (131, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-05-22 15:53:49');
+INSERT INTO `sys_logininfor` VALUES (132, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-05-22 17:13:04');
+INSERT INTO `sys_logininfor` VALUES (133, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-05-22 23:00:15');
+INSERT INTO `sys_logininfor` VALUES (134, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-05-23 10:42:35');
+INSERT INTO `sys_logininfor` VALUES (135, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-05-23 13:45:13');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -203,7 +602,7 @@ CREATE TABLE `sys_menu`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`menu_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1061 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '菜单权限表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1066 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '菜单权限表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_menu
@@ -283,6 +682,9 @@ INSERT INTO `sys_menu` VALUES (1057, '生成删除', 116, 3, '#', '', '', 1, 0, 
 INSERT INTO `sys_menu` VALUES (1058, '导入代码', 116, 4, '#', '', '', 1, 0, 'F', '0', '0', 'tool:gen:import', '#', 'admin', '2024-05-14 22:17:47', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (1059, '预览代码', 116, 5, '#', '', '', 1, 0, 'F', '0', '0', 'tool:gen:preview', '#', 'admin', '2024-05-14 22:17:47', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (1060, '生成代码', 116, 6, '#', '', '', 1, 0, 'F', '0', '0', 'tool:gen:code', '#', 'admin', '2024-05-14 22:17:47', '', NULL, '');
+INSERT INTO `sys_menu` VALUES (1063, '项目管理', 0, 3, 'manage', NULL, NULL, 1, 0, 'M', '0', '0', NULL, 'table', 'admin', '2024-05-22 14:24:32', '', NULL, '');
+INSERT INTO `sys_menu` VALUES (1064, '财务记录', 1063, 0, 'manage', 'manage/FinancialRecord/index', NULL, 1, 0, 'C', '0', '0', 'manage:FinancialRecord:list', 'date', 'admin', '2024-05-22 14:32:38', '', NULL, '');
+INSERT INTO `sys_menu` VALUES (1065, '产品信息', 1064, 1, 'manage', 'manage/productInformation/index', NULL, 1, 0, 'C', '0', '0', 'manage:productInformation:list', 'date', 'admin', '2024-05-22 14:40:26', '', NULL, '');
 
 -- ----------------------------
 -- Table structure for sys_oper_log
@@ -310,7 +712,7 @@ CREATE TABLE `sys_oper_log`  (
   INDEX `idx_sys_oper_log_bt`(`business_type` ASC) USING BTREE,
   INDEX `idx_sys_oper_log_s`(`status` ASC) USING BTREE,
   INDEX `idx_sys_oper_log_ot`(`oper_time` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 113 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '操作日志记录' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 136 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '操作日志记录' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_oper_log
@@ -338,6 +740,16 @@ INSERT INTO `sys_oper_log` VALUES (120, '菜单管理', 1, 'com.ruoyi.web.contro
 INSERT INTO `sys_oper_log` VALUES (121, '菜单管理', 1, 'com.ruoyi.web.controller.system.SysMenuController.add()', 'POST', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"children\":[],\"component\":\"asd\",\"createBy\":\"admin\",\"icon\":\"build\",\"isCache\":\"0\",\"isFrame\":\"1\",\"menuName\":\"123\",\"menuType\":\"C\",\"orderNum\":1,\"params\":{},\"parentId\":1061,\"path\":\"uu\",\"query\":\"zxc\",\"status\":\"0\",\"visible\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-05-20 02:11:35', 37);
 INSERT INTO `sys_oper_log` VALUES (122, '菜单管理', 3, 'com.ruoyi.web.controller.system.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/1062', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-05-20 02:14:08', 53);
 INSERT INTO `sys_oper_log` VALUES (123, '菜单管理', 3, 'com.ruoyi.web.controller.system.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/1061', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-05-20 02:14:17', 12);
+INSERT INTO `sys_oper_log` VALUES (126, '操作日志', 3, 'com.ruoyi.web.controller.monitor.SysOperlogController.remove()', 'DELETE', 1, 'admin', NULL, '/monitor/operlog/125,124', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-05-20 23:57:01', 89);
+INSERT INTO `sys_oper_log` VALUES (127, '操作日志', 5, 'com.ruoyi.web.controller.monitor.SysOperlogController.export()', 'POST', 1, 'admin', NULL, '/monitor/operlog/export', '127.0.0.1', '内网IP', '{\"pageSize\":\"10\",\"pageNum\":\"1\"}', NULL, 0, NULL, '2024-05-20 23:57:03', 1226);
+INSERT INTO `sys_oper_log` VALUES (128, '菜单管理', 1, 'com.ruoyi.web.controller.tool.MenuController.add()', 'POST', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"children\":[],\"createBy\":\"admin\",\"icon\":\"table\",\"isCache\":\"0\",\"isFrame\":\"1\",\"menuName\":\"项目管理\",\"menuType\":\"M\",\"orderNum\":2,\"params\":{},\"parentId\":0,\"path\":\"mange\",\"status\":\"0\",\"visible\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-05-22 14:24:32', 27);
+INSERT INTO `sys_oper_log` VALUES (129, '菜单管理', 1, 'com.ruoyi.web.controller.tool.MenuController.add()', 'POST', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"children\":[],\"component\":\"manage/FinancialRecord/index\",\"createBy\":\"admin\",\"icon\":\"date\",\"isCache\":\"0\",\"isFrame\":\"1\",\"menuName\":\"财务记录\",\"menuType\":\"C\",\"orderNum\":0,\"params\":{},\"parentId\":1063,\"path\":\"manage\",\"perms\":\"manage:FinancialRecord:list\",\"status\":\"0\",\"visible\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-05-22 14:32:38', 106);
+INSERT INTO `sys_oper_log` VALUES (130, '菜单管理', 1, 'com.ruoyi.web.controller.tool.MenuController.add()', 'POST', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"children\":[],\"component\":\"manage/productInformation/index\",\"createBy\":\"admin\",\"icon\":\"date\",\"isCache\":\"0\",\"isFrame\":\"1\",\"menuName\":\"产品信息\",\"menuType\":\"C\",\"orderNum\":1,\"params\":{},\"parentId\":1063,\"path\":\"manage\",\"perms\":\"manage:productInformation:list\",\"status\":\"0\",\"visible\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-05-22 14:40:26', 104);
+INSERT INTO `sys_oper_log` VALUES (131, '用户管理', 5, 'com.ruoyi.web.controller.tool.UserController.export()', 'POST', 1, 'admin', NULL, '/system/user/export', '127.0.0.1', '内网IP', '{\"pageSize\":\"10\",\"pageNum\":\"1\"}', NULL, 0, NULL, '2024-05-22 15:02:34', 149);
+INSERT INTO `sys_oper_log` VALUES (132, '用户管理', 5, 'com.ruoyi.web.controller.tool.UserController.export()', 'POST', 1, 'admin', NULL, '/system/user/export', '127.0.0.1', '内网IP', '{\"pageSize\":\"10\",\"pageNum\":\"1\"}', NULL, 0, NULL, '2024-05-22 17:13:16', 297);
+INSERT INTO `sys_oper_log` VALUES (133, '用户管理', 5, 'com.ruoyi.web.controller.tool.UserController.export()', 'POST', 1, 'admin', NULL, '/system/user/export', '127.0.0.1', '内网IP', '{\"pageSize\":\"10\",\"pageNum\":\"1\"}', NULL, 0, NULL, '2024-05-23 10:58:06', 101);
+INSERT INTO `sys_oper_log` VALUES (134, '用户管理', 5, 'com.ruoyi.web.controller.tool.UserController.export()', 'POST', 1, 'admin', NULL, '/system/user/export', '127.0.0.1', '内网IP', '{\"pageSize\":\"10\",\"pageNum\":\"1\"}', NULL, 0, NULL, '2024-05-23 11:01:57', 73);
+INSERT INTO `sys_oper_log` VALUES (135, '参数管理', 9, 'com.ruoyi.web.controller.tool.ConfigController.refreshCache()', 'DELETE', 1, 'admin', NULL, '/system/config/refreshCache', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-05-23 11:26:08', 38);
 
 -- ----------------------------
 -- Table structure for sys_role
@@ -502,13 +914,13 @@ CREATE TABLE `sys_user`  (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES (1, 'admin', '若依', '00', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2024-05-20 00:52:58', 'admin', '2024-05-14 22:17:47', '', '2024-05-20 00:52:58', '管理员');
+INSERT INTO `sys_user` VALUES (1, 'admin', '若依', '00', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2024-05-23 13:45:14', 'admin', '2024-05-14 22:17:47', '', '2024-05-23 13:45:13', '管理员');
 INSERT INTO `sys_user` VALUES (2, 'ry', '若依', '00', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2024-05-14 22:17:47', 'admin', '2024-05-14 22:17:47', '', NULL, '测试员');
 INSERT INTO `sys_user` VALUES (100, '123', '123', '00', '0', '', '$2a$10$GUAvjJ96yYbxA5APPpivQuq4IOBvsgZVPzGIzgBs8n7/MYM5DFaO6', '0', '2', '', NULL, 'admin', '2024-05-17 22:48:07', 'admin', '2024-05-17 22:48:27', NULL);
 INSERT INTO `sys_user` VALUES (101, '123123', '123123', '00', '0', '', '$2a$10$VWFgFsvUh4vlY.41nMUJj.rqeI3Zr8CLF0tKDsTodBrhgN7BEdeDa', '0', '2', '', NULL, 'admin', '2024-05-19 16:31:55', '', NULL, NULL);
 INSERT INTO `sys_user` VALUES (102, 'xiezheng', 'woaini', '00', '0', '', '$2a$10$lVXdDnQBd1ibkdIuIUeNC.dvTplrmiBiQNKn29MHubEF5e8GuEmoa', '0', '0', '127.0.0.1', '2024-05-20 00:52:04', 'admin', '2024-05-19 16:33:09', 'admin', '2024-05-20 00:52:04', NULL);
 INSERT INTO `sys_user` VALUES (103, 'cccc', 'cccc', '00', '1', '', '$2a$10$fPksRQh6wD4frABliLS3G.UaCW.j1YadcoqeqHKnWFT0vxrShQKw2', '0', '0', '', NULL, 'admin', '2024-05-19 16:39:12', 'admin', '2024-05-19 16:39:54', NULL);
-INSERT INTO `sys_user` VALUES (104, 'bb', 'bbb', '00', '0', '', '$2a$10$xx7ZLjUf0q30njlUMt6uwO/3vDji2s4CqnDRioHvkr7ie4COEVPRW', '0', '0', '', NULL, 'admin', '2024-05-19 21:50:38', '', NULL, NULL);
+INSERT INTO `sys_user` VALUES (104, 'bb', 'bbb', '00', '0', '', '$2a$10$xx7ZLjUf0q30njlUMt6uwO/3vDji2s4CqnDRioHvkr7ie4COEVPRW', '0', '0', '', NULL, 'admin', '2024-05-19 21:50:38', 'admin', '2024-05-20 18:00:01', NULL);
 
 -- ----------------------------
 -- Table structure for sys_user_role
@@ -527,5 +939,55 @@ INSERT INTO `sys_user_role` VALUES (1, 1);
 INSERT INTO `sys_user_role` VALUES (2, 2);
 INSERT INTO `sys_user_role` VALUES (102, 4);
 INSERT INTO `sys_user_role` VALUES (104, 2);
+
+-- ----------------------------
+-- Table structure for wholesale_record
+-- ----------------------------
+DROP TABLE IF EXISTS `wholesale_record`;
+CREATE TABLE `wholesale_record`  (
+  `wholesale_record_id` bigint(255) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `order_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '订单编号',
+  `product_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '产品名称',
+  `internal_product_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '内部商品编号',
+  `quantity` bigint(255) NULL DEFAULT NULL COMMENT '货数',
+  `consignee` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '收货人',
+  `contact_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '联系电话',
+  `detailed_address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '详细地址',
+  `date` datetime NULL DEFAULT NULL COMMENT '日期',
+  `remarks` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
+  `express_fee` decimal(65, 2) NULL DEFAULT NULL COMMENT '货拉拉费用',
+  `logistics_cost` decimal(65, 2) NULL DEFAULT NULL COMMENT '物流费用',
+  `brand_owner` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '品牌方',
+  `ordering_party` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '订货方',
+  `purchase_price` decimal(65, 2) NULL DEFAULT NULL COMMENT '采购价',
+  `purchase_freight` decimal(65, 2) NULL DEFAULT NULL COMMENT '采购_运费',
+  `purchase_other_costs` varchar(65) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '采购_其他费',
+  `purchase_total` decimal(65, 2) NULL DEFAULT NULL COMMENT '采购_总额',
+  `purchase_inspection` decimal(65, 2) NULL DEFAULT NULL COMMENT '采购_检查',
+  `purchase_status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '采购_状况',
+  `purchase_remarks` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '采购_备注',
+  `delivery_price` decimal(65, 2) NULL DEFAULT NULL COMMENT '出货价',
+  `delivery_freight` decimal(65, 2) NULL DEFAULT NULL COMMENT '出货_运费',
+  `delivery_other_costs` decimal(65, 2) NULL DEFAULT NULL COMMENT '出货_其他费',
+  `delivery_total` decimal(65, 2) NULL DEFAULT NULL COMMENT '出货_总额',
+  `delivery_inspection` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '出货_检查',
+  `delivery_status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '出货_状况',
+  `delivery_remarks` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '出货_备注',
+  `profit` decimal(65, 2) NULL DEFAULT NULL COMMENT '利润',
+  `shipment_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '发货编码',
+  PRIMARY KEY (`wholesale_record_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 39 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of wholesale_record
+-- ----------------------------
+INSERT INTO `wholesale_record` VALUES (1, 'PF_20231222_000001', 'TTD白鸡蛋防晒霜乳', 'DW00000001', 1, '星辰', '', '', '2024-01-10 00:00:00', '首批录入系统，可能有误差', NULL, 2501.50, '欧', '狼腾信息', 5.00, 2502.00, '', 2506.00, NULL, '', '', 3.00, 2501.50, NULL, 2504.50, NULL, '', '', 0.00, 'NT40410');
+INSERT INTO `wholesale_record` VALUES (21, 'PF_20231227_000001', '', '', NULL, '', '', '', '2023-12-27 00:00:00', '', NULL, NULL, '', '', NULL, NULL, '', 0.00, NULL, '', '', NULL, NULL, NULL, 0.00, NULL, '', '', NULL, '');
+INSERT INTO `wholesale_record` VALUES (22, 'PF_20231229_000001', '', '', NULL, '', '', '', '2023-12-29 00:00:00', '', NULL, NULL, '', '', NULL, NULL, '', 0.00, NULL, '', '', NULL, NULL, NULL, 0.00, NULL, '', '', NULL, '');
+INSERT INTO `wholesale_record` VALUES (23, 'PF_20231229_000002', '', '', NULL, '', '', '', '2023-12-29 00:00:00', '', NULL, NULL, '', '', NULL, NULL, '', 0.00, NULL, '', '', NULL, NULL, NULL, 0.00, NULL, '', '', NULL, '');
+INSERT INTO `wholesale_record` VALUES (24, 'PF_20231229_000003', '', '', NULL, '', '', '', '2023-12-29 00:00:00', '', NULL, NULL, '', '', NULL, NULL, '', 0.00, NULL, '', '', NULL, NULL, NULL, 0.00, NULL, '', '', NULL, '');
+INSERT INTO `wholesale_record` VALUES (25, 'PF_20231229_000004', '', '', NULL, '', '', '', '2023-12-29 00:00:00', '', NULL, NULL, '', '', NULL, NULL, '', 0.00, NULL, '', '', NULL, NULL, NULL, 0.00, NULL, '', '', NULL, '');
+INSERT INTO `wholesale_record` VALUES (33, 'PF_20240112_000001', '', '', NULL, '', '', '', '2024-01-12 19:11:04', '', NULL, NULL, '', '狼腾信息技术', NULL, NULL, '', 0.00, NULL, '', '', NULL, NULL, NULL, 0.00, NULL, '', '', NULL, '');
+INSERT INTO `wholesale_record` VALUES (38, 'PF_20240225_192025_000001', '', '', NULL, '', '', '', '2024-02-25 19:20:25', '', NULL, NULL, '', '', NULL, NULL, '', NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', '', NULL, '');
 
 SET FOREIGN_KEY_CHECKS = 1;

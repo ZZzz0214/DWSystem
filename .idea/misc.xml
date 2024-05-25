@@ -5,6 +5,11 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/ruoyi-system/pom.xml" />
+        <option value="$PROJECT_DIR$/ruoyi-framework/pom.xml" />
+        <option value="$PROJECT_DIR$/ruoyi-generator/pom.xml" />
+        <option value="$PROJECT_DIR$/ruoyi-quartz/pom.xml" />
+        <option value="$PROJECT_DIR$/ruoyi-common/pom.xml" />
       </list>
     </option>
   </component>

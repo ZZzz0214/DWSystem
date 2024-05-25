@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.UserMapper">
+    <resultMap id="DropshipRecordMap" type="com.ruoyi.common.core.domain.newEntity.DropshipRecord">
+        <id property="recordId" column="record_id" />
+        <result property="orderNumber" column="order_number" />
+        <result property="orderId" column="order_id" />
+        <result property="logisticsCompany" column="logistics_company" />
+        <result property="trackingNumber" column="tracking_number" />
+        <result property="recipientName" column="recipient_name" />
+        <result property="recipientPhone" column="recipient_phone" />
+        <result property="address" column="address" />
+        <result property="productName" column="product_name" />
+        <result property="specifications" column="specifications" />
+        <result property="quantity" column="quantity" />
+        <result property="productCode" column="product_code" />
+        <result property="memberRemarks" column="member_remarks" />
+        <result property="leader" column="leader" />
+        <result property="filter" column="filter" />
+        <result property="date" column="date" />
+        <result property="productNameDetails" column="product_name_details" />
+        <result property="multiplier" column="multiplier" />
+        <result property="afterSalesStatus" column="after_sales_status" />
+        <result property="remarks" column="remarks" />
+        <result property="internalProductCode" column="internal_product_code" />
+        <result property="stockQuantity" column="stock_quantity" />
+        <result property="brand" column="brand" />
+        <result property="purchasePrice" column="purchase_price" />
+        <result property="purchaseShippingFee" column="purchase_shipping_fee" />
+        <result property="purchaseOtherFee" column="purchase_other_fee" />
+        <result property="purchaseTotalAmount" column="purchase_total_amount" />
+        <result property="purchaseInspection" column="purchase_inspection" />
+        <result property="purchaseStatus" column="purchase_status" />
+        <result property="purchaseRemarks" column="purchase_remarks" />
+        <result property="sellingPrice" column="selling_price" />
+        <result property="sellingShippingFee" column="selling_shipping_fee" />
+        <result property="sellingOtherFee" column="selling_other_fee" />
+        <result property="sellingTotalAmount" column="selling_total_amount" />
+        <result property="sellingInspection" column="selling_inspection" />
+        <result property="sellingStatus" column="selling_status" />
+        <result property="sellingRemarks" column="selling_remarks" />
+        <result property="profit" column="profit" />
+        <result property="createBy" column="create_by" />
+        <result property="createTime" column="create_time" />
+        <result property="updateBy" column="update_by" />
+        <result property="updateTime" column="update_time" />
+    </resultMap>
+
+    <sql id="selectDropshipRecord">
+        SELECT
+            record_id,
+            order_number,
+            order_id,
+            logistics_company,
+            tracking_number,
+            recipient_name,
+            recipient_phone,
+            address,
+            product_name,
+            specifications,
+            quantity,
+            product_code,
+            member_remarks,
+            leader,
+            filter,
+            date,
+            product_name_details,
+            multiplier,
+            after_sales_status,
+            remarks,
+            internal_product_code,
+            stock_quantity,
+            brand,
+            purchase_price,
+            purchase_shipping_fee,
+            purchase_other_fee,
+            purchase_total_amount,
+            purchase_inspection,
+            purchase_status,
+            purchase_remarks,
+            selling_price,
+            selling_shipping_fee,
+            selling_other_fee,
+            selling_total_amount,
+            selling_inspection,
+            selling_status,
+            selling_remarks,
+            profit
+        FROM dropship_records
+    </sql>
+
+    <select id="selectAllDropshipRecords" resultMap="DropshipRecordMap">
+        <include refid="selectDropshipRecord"/>
+        WHERE 1=1
+        <if test="recordId != null">
+            AND record_id = #{recordId}
+        </if>
+        <if test="orderNumber != null and orderNumber != ''">
+            AND order_number = #{orderNumber}
+        </if>
+        <if test="orderId != null and orderId != ''">
+            AND order_id = #{orderId}
+        </if>
+        <if test="logisticsCompany != null and logisticsCompany != ''">
+            AND logistics_company = #{logisticsCompany}
+        </if>
+        <if test="trackingNumber != null and trackingNumber != ''">
+            AND tracking_number = #{trackingNumber}
+        </if>
+        <if test="recipientName != null and recipientName != ''">
+            AND recipient_name = #{recipientName}
+        </if>
+        <if test="recipientPhone != null and recipientPhone != ''">
+            AND recipient_phone = #{recipientPhone}
+        </if>
+        <if test="address != null and address != ''">
+            AND address = #{address}
+        </if>
+        <if test="productName != null and productName != ''">
+            AND product_name = #{productName}
+        </if>
+        <if test="specifications != null and specifications != ''">
+            AND specifications = #{specifications}
+        </if>
+        <if test="quantity != null">
+            AND quantity = #{quantity}
+        </if>
+        <if test="productCode != null and productCode != ''">
+            AND product_code = #{productCode}
+        </if>
+        <if test="memberRemarks != null and memberRemarks != ''">
+            AND member_remarks = #{memberRemarks}
+        </if>
+        <if test="leader != null and leader != ''">
+            AND leader = #{leader}
+        </if>
+        <if test="filter != null and filter != ''">
+            AND filter = #{filter}
+        </if>
+        <if test="date != null">
+            AND date = #{date}
+        </if>
+        <if test="productNameDetails != null and productNameDetails != ''">
+            AND product_name_details = #{productNameDetails}
+        </if>
+        <if test="multiplier != null">
+            AND multiplier = #{multiplier}
+        </if>
+        <if test="afterSalesStatus != null and afterSalesStatus != ''">
+            AND after_sales_status = #{afterSalesStatus}
+        </if>
+        <if test="remarks != null and remarks != ''">
+            AND remarks = #{remarks}
+        </if>
+        <if test="internalProductCode != null and internalProductCode != ''">
+            AND internal_product_code = #{internalProductCode}
+        </if>
+        <if test="stockQuantity != null">
+            AND stock_quantity = #{stockQuantity}
+        </if>
+        <if test="brand != null and brand != ''">
+            AND brand = #{brand}
+        </if>
+        <if test="purchasePrice != null">
+            AND purchase_price = #{purchasePrice}
+        </if>
+        <if test="purchaseShippingFee != null">
+            AND purchase_shipping_fee = #{purchaseShippingFee}
+        </if>
+        <if test="purchaseOtherFee != null">
+            AND purchase_other_fee = #{purchaseOtherFee}
+        </if>
+        <if test="purchaseTotalAmount != null">
+            AND purchase_total_amount = #{purchaseTotalAmount}
+        </if>
+        <if test="purchaseInspection != null and purchaseInspection != ''">
+            AND purchase_inspection = #{purchaseInspection}
+        </if>
+        <if test="purchaseStatus != null and purchaseStatus != ''">
+            AND purchase_status = #{purchaseStatus}
+        </if>
+        <if test="purchaseRemarks != null and purchaseRemarks != ''">
+            AND purchase_remarks = #{purchaseRemarks}
+        </if>
+        <if test="sellingPrice != null">
+            AND selling_price = #{sellingPrice}
+        </if>
+        <if test="sellingShippingFee != null">
+            AND selling_shipping_fee = #{sellingShippingFee}
+        </if>
+        <if test="sellingOtherFee != null">
+            AND selling_other_fee = #{sellingOtherFee}
+        </if>
+        <if test="sellingTotalAmount != null">
+            AND selling_total_amount = #{sellingTotalAmount}
+        </if>
+        <if test="sellingInspection != null and sellingInspection != ''">
+            AND selling_inspection = #{sellingInspection}
+        </if>
+        <if test="sellingStatus != null and sellingStatus != ''">
+            AND selling_status = #{sellingStatus}
+        </if>
+        <if test="sellingRemarks != null and sellingRemarks != ''">
+            AND selling_remarks = #{sellingRemarks}
+        </if>
+        <if test="profit != null">
+            AND profit = #{profit}
+        </if>
+    </select>
+
+    <!-- 根据ID查询单个DropshipRecord -->
+    <select id="selectDropshipRecordById" parameterType="Long" resultMap="DropshipRecordMap">
+        <include refid="selectDropshipRecord"/> WHERE record_id = #{recordId}
+    </select>
+
+    <insert id="insertDropshipRecord" parameterType="com.ruoyi.common.core.domain.newEntity.DropshipRecord" useGeneratedKeys="true" keyProperty="recordId">
+        INSERT INTO dropshiprecords (
+        <if test="orderNumber != null">order_number,</if>
+        <if test="orderId != null">order_id,</if>
+        <if test="logisticsCompany != null">logistics_company,</if>
+        <if test="trackingNumber != null">tracking_number,</if>
+        <if test="recipientName != null">recipient_name,</if>
+        <if test="recipientPhone != null and recipientPhone matches '^[0-9]{10,15}$'">recipient_phone,</if>
+        <if test="address != null">address,</if>
+        <if test="productName != null">product_name,</if>
+        <if test="specifications != null">specifications,</if>
+        <if test="quantity != null">quantity,</if>
+        <if test="productCode != null">product_code,</if>
+        <if test="memberRemarks != null">member_remarks,</if>
+        <if test="leader != null">leader,</if>
+        <if test="filter != null">filter,</if>
+        <if test="date != null">date,</if>
+        <if test="productNameDetails != null">product_name_details,</if>
+        <if test="multiplier != null">multiplier,</if>
+        <if test="afterSalesStatus != null">after_sales_status,</if>
+        <if test="remarks != null">remarks,</if>
+        <if test="internalProductCode != null">internal_product_code,</if>
+        <if test="stockQuantity != null">stock_quantity,</if>
+        <if test="brand != null">brand,</if>
+        <if test="purchasePrice != null">purchase_price,</if>
+        <if test="purchaseShippingFee != null">purchase_shipping_fee,</if>
+        <if test="purchaseOtherFee != null">purchase_other_fee,</if>
+        <if test="purchaseTotalAmount != null">purchase_total_amount,</if>
+        <if test="purchaseInspection != null">purchase_inspection,</if>
+        <if test="purchaseStatus != null">purchase_status,</if>
+        <if test="purchaseRemarks != null">purchase_remarks,</if>
+        <if test="sellingPrice != null">selling_price,</if>
+        <if test="sellingShippingFee != null">selling_shipping_fee,</if>
+        <if test="sellingOtherFee != null">selling_other_fee,</if>
+        <if test="sellingTotalAmount != null">selling_total_amount,</if>
+        <if test="sellingInspection != null">selling_inspection,</if>
+        <if test="sellingStatus != null">selling_status,</if>
+        <if test="sellingRemarks != null">selling_remarks,</if>
+        <if test="profit != null">profit,</if>
+        create_time
+        ) VALUES (
+        <if test="orderNumber != null">#{orderNumber},</if>
+        <if test="orderId != null">#{orderId},</if>
+        <if test="logisticsCompany != null">#{logisticsCompany},</if>
+        <if test="trackingNumber != null">#{trackingNumber},</if>
+        <if test="recipientName != null">#{recipientName},</if>
+        <if test="recipientPhone != null and recipientPhone matches '^[0-9]{10,15}$'">#{recipientPhone},</if>
+        <if test="address != null">#{address},</if>
+        <if test="productName != null">#{productName},</if>
+        <if test="specifications != null">#{specifications},</if>
+        <if test="quantity != null">#{quantity},</if>
+        <if test="productCode != null">#{productCode},</if>
+        <if test="memberRemarks != null">#{memberRemarks},</if>
+        <if test="leader != null">#{leader},</if>
+        <if test="filter != null">#{filter},</if>
+        <if test="date != null">#{date},</if>
+        <if test="productNameDetails != null">#{productNameDetails},</if>
+        <if test="multiplier != null">#{multiplier},</if>
+        <if test="afterSalesStatus != null">#{afterSalesStatus},</if>
+        <if test="remarks != null">#{remarks},</if>
+        <if test="internalProductCode != null">#{internalProductCode},</if>
+        <if test="stockQuantity != null">#{stockQuantity},</if>
+        <if test="brand != null">#{brand},</if>
+        <if test="purchasePrice != null">#{purchasePrice},</if>
+        <if test="purchaseShippingFee != null">#{purchaseShippingFee},</if>
+        <if test="purchaseOtherFee != null">#{purchaseOtherFee},</if>
+        <if test="purchaseTotalAmount != null">#{purchaseTotalAmount},</if>
+        <if test="purchaseInspection != null">#{purchaseInspection},</if>
+        <if test="purchaseStatus != null">#{purchaseStatus},</if>
+        <if test="purchaseRemarks != null">#{purchaseRemarks},</if>
+        <if test="sellingPrice != null">#{sellingPrice},</if>
+        <if test="sellingShippingFee != null">#{sellingShippingFee},</if>
+        <if test="sellingOtherFee != null">#{sellingOtherFee},</if>
+        <if test="sellingTotalAmount != null">#{sellingTotalAmount},</if>
+        <if test="sellingInspection != null">#{sellingInspection},</if>
+        <if test="sellingStatus != null">#{sellingStatus},</if>
+        <if test="sellingRemarks != null">#{sellingRemarks},</if>
+        <if test="profit != null">#{profit},</if>
+        sysdate()
+        )
+    </insert>
+    <update id="updateDropshipRecord" parameterType="com.ruoyi.common.core.domain.newEntity.DropshipRecord">
+        UPDATE dropshiprecords
+        <set>
+            <if test="orderNumber != null">order_number = #{orderNumber},</if>
+            <if test="orderId != null">order_id = #{orderId},</if>
+            <if test="logisticsCompany != null">logistics_company = #{logisticsCompany},</if>
+            <if test="trackingNumber != null">tracking_number = #{trackingNumber},</if>
+            <if test="recipientName != null">recipient_name = #{recipientName},</if>
+            <if test="recipientPhone != null and recipientPhone matches '^[0-9]{10,15}$'">recipient_phone = #{recipientPhone},</if>
+            <if test="address != null">address = #{address},</if>
+            <if test="productName != null">product_name = #{productName},</if>
+            <if test="specifications != null">specifications = #{specifications},</if>
+            <if test="quantity != null">quantity = #{quantity},</if>
+            <if test="productCode != null">product_code = #{productCode},</if>
+            <if test="memberRemarks != null">member_remarks = #{memberRemarks},</if>
+            <if test="leader != null">leader = #{leader},</if>
+            <if test="filter != null">filter = #{filter},</if>
+            <if test="date != null">date = #{date},</if>
+            <if test="productNameDetails != null">product_name_details = #{productNameDetails},</if>
+            <if test="multiplier != null">multiplier = #{multiplier},</if>
+            <if test="afterSalesStatus != null">after_sales_status = #{afterSalesStatus},</if>
+            <if test="remarks != null">remarks = #{remarks},</if>
+            <if test="internalProductCode != null">internal_product_code = #{internalProductCode},</if>
+            <if test="stockQuantity != null">stock_quantity = #{stockQuantity},</if>
+            <if test="brand != null">brand = #{brand},</if>
+            <if test="purchasePrice != null">purchase_price = #{purchasePrice},</if>
+            <if test="purchaseShippingFee != null">purchase_shipping_fee = #{purchaseShippingFee},</if>
+            <if test="purchaseOtherFee != null">purchase_other_fee = #{purchaseOtherFee},</if>
+            <if test="purchaseTotalAmount != null">purchase_total_amount = #{purchaseTotalAmount},</if>
+            <if test="purchaseInspection != null">purchase_inspection = #{purchaseInspection},</if>
+            <if test="purchaseStatus != null">purchase_status = #{purchaseStatus},</if>
+            <if test="purchaseRemarks != null">purchase_remarks = #{purchaseRemarks},</if>
+            <if test="sellingPrice != null">selling_price = #{sellingPrice},</if>
+            <if test="sellingShippingFee != null">selling_shipping_fee = #{sellingShippingFee},</if>
+            <if test="sellingOtherFee != null">selling_other_fee = #{sellingOtherFee},</if>
+            <if test="sellingTotalAmount != null">selling_total_amount = #{sellingTotalAmount},</if>
+            <if test="sellingInspection != null">selling_inspection = #{sellingInspection},</if>
+            <if test="sellingStatus != null">selling_status = #{sellingStatus},</if>
+            <if test="sellingRemarks != null">selling_remarks = #{sellingRemarks},</if>
+            <if test="profit != null">profit = #{profit},</if>
+            update_time = sysdate()
+        </set>
+        WHERE record_id = #{recordId}
+    </update>
+
+    <!-- 根据ID删除单个DropshipRecord -->
+    <delete id="deleteDropshipRecordById" parameterType="Long">
+        DELETE FROM dropshiprecords WHERE record_id = #{recordId}
+    </delete>
+
+    <!-- 根据多个ID删除DropshipRecord -->
+    <delete id="deleteDropshipRecordsByIds" parameterType="java.util.List">
+        DELETE FROM dropshiprecords WHERE record_id IN
+        <foreach collection="list" item="recordId" open="(" separator="," close=")">
+            #{recordId}
+        </foreach>
+    </delete>
+
+
+
+
+</mapper> 

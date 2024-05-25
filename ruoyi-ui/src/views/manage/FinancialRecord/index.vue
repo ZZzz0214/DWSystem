@@ -164,7 +164,7 @@
           <right-toolbar :showSearch.sync="showSearch" @queryTable="getList" :columns="columns"></right-toolbar>
         </el-row>
 
-        <el-table v-loading="loading" :data="userList" @selection-change="handleSelectionChange">
+        <el-table v-loading="loading" :data="financialRecordList" @selection-change="handleSelectionChange">
           <el-table-column type="selection" width="50" align="center" />
           <el-table-column label="结算日期" align="center" key="settlementDate" prop="settlementDate" v-if="columns[0].visible" />
           <el-table-column label="日期" align="center" prop="date" v-if="columns[1].visible"  width="180">
@@ -366,7 +366,7 @@ import "@riophae/vue-treeselect/dist/vue-treeselect.css";
 
 
 export default {
-  name: "User",
+  name: "FinancialRecord",
   dicts: ['sys_normal_disable', 'sys_user_sex'],
   components: { Treeselect },
   data() {
@@ -384,7 +384,7 @@ export default {
       // 总条数
       total: 0,
       // 用户表格数据
-      userList: null,
+      financialRecordList: null,
       // 弹出层标题
       title: "",
       // 部门树选项
@@ -475,7 +475,7 @@ export default {
     getList() {
       this.loading = true;
       listFinancialRecords(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
-          this.userList = response.rows;
+          this.financialRecordList = response.rows;
           this.total = response.total;
           this.loading = false;
         }

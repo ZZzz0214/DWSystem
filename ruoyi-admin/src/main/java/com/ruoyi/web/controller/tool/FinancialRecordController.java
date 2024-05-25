@@ -135,20 +135,20 @@ public class FinancialRecordController extends BaseController {
         /**
      * 删除菜单
      */
-//    @PreAuthorize("@ss.hasPermi('system:menu:remove')")
-//    @Log(title = "财务记录", businessType = BusinessType.DELETE)
-//    @DeleteMapping("/{id}")
-//    public AjaxResult remove(@PathVariable("id") Long id)
-//    {
-////        if (menuService.hasChildByMenuId(menuId))
-////        {
-////            return warn("存在子菜单,不允许删除");
-////        }
-////        if (menuService.checkMenuExistRole(menuId))
-////        {
-////            return warn("菜单已分配,不允许删除");
-////        }
-//        return toAjax(financialRecordService.deleteById(id));
-//    }
+    @PreAuthorize("@ss.hasPermi('system:menu:remove')")
+    @Log(title = "财务记录", businessType = BusinessType.DELETE)
+    @DeleteMapping("/{id}")
+    public AjaxResult remove(@PathVariable("id") Long id)
+    {
+//        if (menuService.hasChildByMenuId(menuId))
+//        {
+//            return warn("存在子菜单,不允许删除");
+//        }
+//        if (menuService.checkMenuExistRole(menuId))
+//        {
+//            return warn("菜单已分配,不允许删除");
+//        }
+        return toAjax(financialRecordService.deleteById(id));
+    }
 
 }
