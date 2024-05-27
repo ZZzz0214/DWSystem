@@ -4,9 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e46e3b0b-2b88-4f5d-b8c7-1ae0ef89e502" name="更改" comment="完成全部表的xml文件 和实体类编写">
+    <list default="true" id="e46e3b0b-2b88-4f5d-b8c7-1ae0ef89e502" name="更改" comment="改了一些 实体类引用错误的小毛病 可以正常运行了">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/AfterSalesBatchMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/AfterSalesBatchMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/tool/FinancialRecordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/tool/FinancialRecordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/tool/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/tool/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-common/src/main/java/com/ruoyi/common/core/domain/newEntity/FinancialRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/src/main/java/com/ruoyi/common/core/domain/newEntity/FinancialRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/mapper/FinancialRecordMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/mapper/FinancialRecordMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/impl/FinancialRecordServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/impl/FinancialRecordServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/FinancialRecordMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/FinancialRecordMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/.env.development" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/.env.development" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/api/system/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/api/system/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/assets/images/profile.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/assets/images/profile.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/assets/logo/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/assets/logo/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/assets/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/assets/styles/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/assets/styles/ruoyi.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/assets/styles/ruoyi.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/components/Breadcrumb/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/components/Breadcrumb/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/components/Hamburger/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/components/Hamburger/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/components/Pagination/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/components/Pagination/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/layout/components/Navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/layout/components/Navbar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/layout/components/Sidebar/Logo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/layout/components/Sidebar/Logo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/utils/ruoyi.js" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/utils/ruoyi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/views/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/views/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/views/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/views/login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/views/register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/views/register.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/views/system/role/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/views/system/role/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/views/system/user/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/views/system/user/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/views/tool/build/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/views/tool/build/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,39 +92,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.ruoyi [clean].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.RuoYiApplication.executor": "Run",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "#4 on first",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/项目文件/DWSystem/ruoyi-system/src/main/resources/mapper/newSystem",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.dev.executor": "Run",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "79d6ce39730bcb0bc093948bea475e34",
-    "ts.external.directory.path": "E:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.ruoyi [clean].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.RuoYiApplication.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#4 on first&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/项目文件/DWSystem/ruoyi-ui/src/views/system/user&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;79d6ce39730bcb0bc093948bea475e34&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;E:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\项目文件\DWSystem\ruoyi-ui\src\views\system\user" />
       <recent name="D:\项目文件\DWSystem\ruoyi-system\src\main\resources\mapper\newSystem" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -181,7 +209,10 @@
       <workItem from="1716431471958" duration="12039000" />
       <workItem from="1716520818870" duration="8028000" />
       <workItem from="1716539989952" duration="3697000" />
-      <workItem from="1716556740036" duration="2077000" />
+      <workItem from="1716556740036" duration="5488000" />
+      <workItem from="1716598824577" duration="20969000" />
+      <workItem from="1716775382541" duration="5607000" />
+      <workItem from="1716794248991" duration="17459000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1715672587273</created>
@@ -236,7 +267,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716558428518</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="改了一些 实体类引用错误的小毛病 可以正常运行了">
+      <option name="closed" value="true" />
+      <created>1716559056681</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1716559056681</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,6 +311,7 @@
     <MESSAGE value="修改了侧边栏目  到了表实现阶段" />
     <MESSAGE value="增加了财务记录表的全部流程  修改了securityConfig的静态资源" />
     <MESSAGE value="完成全部表的xml文件 和实体类编写" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成全部表的xml文件 和实体类编写" />
+    <MESSAGE value="改了一些 实体类引用错误的小毛病 可以正常运行了" />
+    <option name="LAST_COMMIT_MESSAGE" value="改了一些 实体类引用错误的小毛病 可以正常运行了" />
   </component>
 </project>

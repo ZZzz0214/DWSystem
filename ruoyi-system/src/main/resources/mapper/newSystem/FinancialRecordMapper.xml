@@ -8,6 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <!-- Result Map -->
     <resultMap id="FinancialRecordMap" type="com.ruoyi.common.core.domain.newEntity.FinancialRecord">
         <id property="id" column="Id" />
+        <result property="bianHao" column="bian_hao" />
         <result property="settlementDate" column="settlement_date" />
         <result property="date" column="date" />
         <result property="orderNumber" column="order_number" />
@@ -36,8 +37,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <if test="id != null and id != 0">
             AND Id = #{id}
         </if>
+        <if test="bianHao != null and bianHao != ''">
+            AND bian_hao LIKE concat('%',#{bianHao}, '%')
+        </if>
         <if test="settlementDate != null and settlementDate != ''">
-            AND settlement_date = #{settlementDate}
+            AND settlement_date LIKE concat('%',#{settlementDate}, '%')
         </if>
         <if test="date != null">
             AND date_format(date, '%Y-%m-%d') = date_format(#{date}, '%Y-%m-%d')
@@ -72,6 +76,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <if test="handler != null and handler != ''">
             AND handler LIKE concat('%', #{handler}, '%')
         </if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            AND date_format(date,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            AND date_format(date,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+        </if>
 
     </select>
 
@@ -83,6 +93,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <!-- Insert -->
     <insert id="insert" parameterType="com.ruoyi.common.core.domain.newEntity.FinancialRecord" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO financial_records (
+        <if test="bianHao != null">bian_hao,</if>
         <if test="settlementDate != null">settlement_date,</if>
         <if test="date != null">date,</if>
         <if test="orderNumber != null">order_number,</if>
@@ -97,6 +108,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <if test="handler != null">handler,</if>
         create_time
         ) VALUES (
+        <if test="bianHao != null">#{bianHao},</if>
         <if test="settlementDate != null">#{settlementDate},</if>
         <if test="date != null">#{date},</if>
         <if test="orderNumber != null">#{orderNumber},</if>
@@ -117,6 +129,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <update id="update" parameterType="com.ruoyi.common.core.domain.newEntity.FinancialRecord">
         UPDATE financial_records
         <set>
+            <if test="bianHao != null">bian_hao = #{bianHao},</if>
             <if test="settlementDate != null">settlement_date = #{settlementDate},</if>
             <if test="date != null">date = #{date},</if>
             <if test="orderNumber != null">order_number = #{orderNumber},</if>

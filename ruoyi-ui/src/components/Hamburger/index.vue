@@ -13,13 +13,14 @@
   </div>
 </template>
 
+
 <script>
 export default {
   name: 'Hamburger',
   props: {
     isActive: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   methods: {

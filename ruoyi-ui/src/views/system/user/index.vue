@@ -1,48 +1,14 @@
 <template>
-  <div class="app-container">
-    <el-row :gutter="20">
-      <!--部门数据-->
-      <el-col :span="4" :xs="24">
-        <div class="head-container">
-          <el-input
-            v-model="deptName"
-            placeholder="请输入部门名称"
-            clearable
-            size="small"
-            prefix-icon="el-icon-search"
-            style="margin-bottom: 20px"
-          />
-        </div>
-        <div class="head-container">
-          <el-tree
-            :data="deptOptions"
-            :props="defaultProps"
-            :expand-on-click-node="false"
-            :filter-node-method="filterNode"
-            ref="tree"
-            node-key="id"
-            default-expand-all
-            highlight-current
-            @node-click="handleNodeClick"
-          />
-        </div>
-      </el-col>
+  <div class="app-container" >
+
+    <el-row :gutter="20" >
       <!--用户数据-->
-      <el-col :span="20" :xs="24">
+      <el-col >
         <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
           <el-form-item label="用户名称" prop="userName">
             <el-input
               v-model="queryParams.userName"
               placeholder="请输入用户名称"
-              clearable
-              style="width: 240px"
-              @keyup.enter.native="handleQuery"
-            />
-          </el-form-item>
-          <el-form-item label="手机号码" prop="phonenumber">
-            <el-input
-              v-model="queryParams.phonenumber"
-              placeholder="请输入手机号码"
               clearable
               style="width: 240px"
               @keyup.enter.native="handleQuery"
@@ -141,9 +107,7 @@
           <el-table-column label="用户编号" align="center" key="userId" prop="userId" v-if="columns[0].visible" />
           <el-table-column label="用户名称" align="center" key="userName" prop="userName" v-if="columns[1].visible" :show-overflow-tooltip="true" />
           <el-table-column label="用户昵称" align="center" key="nickName" prop="nickName" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="部门" align="center" key="deptName" prop="dept.deptName" v-if="columns[3].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="手机号码" align="center" key="phonenumber" prop="phonenumber" v-if="columns[4].visible" width="120" />
-          <el-table-column label="状态" align="center" key="status" v-if="columns[5].visible">
+          <el-table-column label="状态" align="center" key="status" v-if="columns[3].visible">
             <template slot-scope="scope">
               <el-switch
                 v-model="scope.row.status"
@@ -153,11 +117,14 @@
               ></el-switch>
             </template>
           </el-table-column>
-          <el-table-column label="创建时间" align="center" prop="createTime" v-if="columns[6].visible" width="160">
+
+          <el-table-column label="创建时间" align="center" prop="createTime" v-if="columns[4].visible"  width="180">
             <template slot-scope="scope">
-              <span>{{ parseTime(scope.row.createTime) }}</span>
+              <span>{{ parseTime(scope.row.createTime) }}</span> <!-- 格式化后的数据 -->
             </template>
           </el-table-column>
+
+
           <el-table-column
             label="操作"
             align="center"
@@ -183,24 +150,27 @@
                 <el-button size="mini" type="text" icon="el-icon-d-arrow-right">更多</el-button>
                 <el-dropdown-menu slot="dropdown">
                   <el-dropdown-item command="handleResetPwd" icon="el-icon-key"
-                    v-hasPermi="['system:user:resetPwd']">重置密码</el-dropdown-item>
+                                    v-hasPermi="['system:user:resetPwd']">重置密码</el-dropdown-item>
                   <el-dropdown-item command="handleAuthRole" icon="el-icon-circle-check"
-                    v-hasPermi="['system:user:edit']">分配角色</el-dropdown-item>
+                                    v-hasPermi="['system:user:edit']">分配角色</el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
             </template>
           </el-table-column>
         </el-table>
 
-        <pagination
-          v-show="total>0"
-          :total="total"
-          :page.sync="queryParams.pageNum"
-          :limit.sync="queryParams.pageSize"
-          @pagination="getList"
-        />
       </el-col>
     </el-row>
+
+    <div class="pagination-container">
+      <pagination
+        v-show="total>0"
+        :total="total"
+        :page.sync="queryParams.pageNum"
+        :limit.sync="queryParams.pageSize"
+        @pagination="getList"
+      />
+    </div>
 
     <!-- 添加或修改用户配置对话框 -->
     <el-dialog :title="title" :visible.sync="open" width="600px" append-to-body>
@@ -211,23 +181,8 @@
               <el-input v-model="form.nickName" placeholder="请输入用户昵称" maxlength="30" />
             </el-form-item>
           </el-col>
-          <el-col :span="12">
-            <el-form-item label="归属部门" prop="deptId">
-              <treeselect v-model="form.deptId" :options="deptOptions" :show-count="true" placeholder="请选择归属部门" />
-            </el-form-item>
-          </el-col>
         </el-row>
         <el-row>
-          <el-col :span="12">
-            <el-form-item label="手机号码" prop="phonenumber">
-              <el-input v-model="form.phonenumber" placeholder="请输入手机号码" maxlength="11" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="邮箱" prop="email">
-              <el-input v-model="form.email" placeholder="请输入邮箱" maxlength="50" />
-            </el-form-item>
-          </el-col>
         </el-row>
         <el-row>
           <el-col :span="12">
@@ -337,14 +292,17 @@
         <el-button @click="upload.open = false">取 消</el-button>
       </div>
     </el-dialog>
+
   </div>
 </template>
 
+
 <script>
-import { listUser, getUser, delUser, addUser, updateUser, resetUserPwd, changeUserStatus, deptTreeSelect } from "@/api/system/user";
+import { listUser, getUser, delUser, addUser, updateUser, resetUserPwd, changeUserStatus } from "@/api/system/user";
 import { getToken } from "@/utils/auth";
 import Treeselect from "@riophae/vue-treeselect";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
+
 
 export default {
   name: "User",
@@ -372,8 +330,6 @@ export default {
       deptOptions: undefined,
       // 是否显示弹出层
       open: false,
-      // 部门名称
-      deptName: undefined,
       // 默认密码
       initPassword: undefined,
       // 日期范围
@@ -408,7 +364,6 @@ export default {
         pageNum: 1,
         pageSize: 10,
         userName: undefined,
-        phonenumber: undefined,
         status: undefined,
         deptId: undefined
       },
@@ -417,10 +372,8 @@ export default {
         { key: 0, label: `用户编号`, visible: true },
         { key: 1, label: `用户名称`, visible: true },
         { key: 2, label: `用户昵称`, visible: true },
-        { key: 3, label: `部门`, visible: true },
-        { key: 4, label: `手机号码`, visible: true },
-        { key: 5, label: `状态`, visible: true },
-        { key: 6, label: `创建时间`, visible: true }
+        { key: 3, label: `状态`, visible: true },
+        { key: 4, label: `创建时间`, visible: true }
       ],
       // 表单校验
       rules: {
@@ -435,38 +388,22 @@ export default {
           { required: true, message: "用户密码不能为空", trigger: "blur" },
           { min: 5, max: 20, message: '用户密码长度必须介于 5 和 20 之间', trigger: 'blur' },
           { pattern: /^[^<>"'|\\]+$/, message: "不能包含非法字符：< > \" ' \\\ |", trigger: "blur" }
-        ],
-        email: [
-          {
-            type: "email",
-            message: "请输入正确的邮箱地址",
-            trigger: ["blur", "change"]
-          }
-        ],
-        phonenumber: [
-          {
-            pattern: /^1[3|4|5|6|7|8|9][0-9]\d{8}$/,
-            message: "请输入正确的手机号码",
-            trigger: "blur"
-          }
         ]
       }
     };
   },
-  watch: {
-    // 根据名称筛选部门树
-    deptName(val) {
-      this.$refs.tree.filter(val);
-    }
-  },
   created() {
     this.getList();
-    this.getDeptTree();
     this.getConfigKey("sys.user.initPassword").then(response => {
       this.initPassword = response.msg;
     });
   },
+
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
   methods: {
+
     /** 查询用户列表 */
     getList() {
       this.loading = true;
@@ -477,22 +414,7 @@ export default {
         }
       );
     },
-    /** 查询部门下拉树结构 */
-    getDeptTree() {
-      deptTreeSelect().then(response => {
-        this.deptOptions = response.data;
-      });
-    },
-    // 筛选节点
-    filterNode(value, data) {
-      if (!value) return true;
-      return data.label.indexOf(value) !== -1;
-    },
-    // 节点单击事件
-    handleNodeClick(data) {
-      this.queryParams.deptId = data.id;
-      this.handleQuery();
-    },
+
     // 用户状态修改
     handleStatusChange(row) {
       let text = row.status === "0" ? "启用" : "停用";
@@ -517,8 +439,6 @@ export default {
         userName: undefined,
         nickName: undefined,
         password: undefined,
-        phonenumber: undefined,
-        email: undefined,
         sex: undefined,
         status: "0",
         remark: undefined,
@@ -599,10 +519,10 @@ export default {
           }
         },
       }).then(({ value }) => {
-          resetUserPwd(row.userId, value).then(response => {
-            this.$modal.msgSuccess("修改成功，新密码是：" + value);
-          });
-        }).catch(() => {});
+        resetUserPwd(row.userId, value).then(response => {
+          this.$modal.msgSuccess("修改成功，新密码是：" + value);
+        });
+      }).catch(() => {});
     },
     /** 分配角色操作 */
     handleAuthRole: function(row) {
@@ -674,3 +594,40 @@ export default {
   }
 };
 </script>
+<style scoped>
+
+.el-table__body-wrapper {
+  max-height: calc(100vh - 350px); /* 设置表格体的最大高度，留出搜索条件和底部pagination的空间 */
+  overflow-y: auto; /* 当内容超出容器高度时显示垂直滚动条 */
+}
+
+/*.app-container.has-placeholder .pagination-container {*/
+/*  bottom: 100px; !* 当有占位元素时，距离底部100px *!*/
+/*}*/
+
+/*.app-container {*/
+/*  min-height: 100vh; !* 设置最小高度为屏幕的高度 *!*/
+/*  position: relative; !* 确保.pagination-container相对于.app-container定位 *!*/
+/*}*/
+
+/*.app-container {*/
+/*  min-height: calc(100vh - 40px); !* 设置最小高度为屏幕的高度减去pagination的高度 *!*/
+/*  position: relative; !* 确保.pagination-container相对于.app-container定位 *!*/
+/*  overflow-y: auto; !* 当内容超出容器高度时显示垂直滚动条 *!*/
+/*  padding-bottom: 100px; !* 在底部留出足够空间给分页组件 *!*/
+/*}*/
+
+
+/*html, body {*/
+/*  height: 100%; !* 设置html和body元素的高度为100% *!*/
+/*  margin: 0; !* 去除默认的外边距 *!*/
+/*  padding: 0; !* 去除默认的内边距 *!*/
+/*  overflow: hidden; !* 隐藏页面的滚动条 *!*/
+/*}*/
+
+/*.app-container {*/
+/*  height: calc(100% - 100px); !* 设置内容容器的高度为页面高度减去页脚的高度 *!*/
+/*  overflow-y: auto; !* 当内容超出容器高度时显示垂直滚动条 *!*/
+/*}*/
+
+</style>

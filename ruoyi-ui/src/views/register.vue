@@ -1,7 +1,15 @@
+/**
+* @program: DWSystem
+* @author: Wasaige0828
+**/
 <template>
   <div class="register">
     <el-form ref="registerForm" :model="registerForm" :rules="registerRules" class="register-form">
-      <h3 class="title">若依后台管理系统</h3>
+      <div class="login_div">
+        <img src="../assets/logo/logo.png">
+        <h2 class="title">帝王团购管理系统</h2>
+      </div>
+      <span :style="{ color: '#1890ff' ,fontSize:'12px',textAlign:'center',margin:'10px'}">未经授权的用户不得登录本系统，忘记密码请与管理员联系</span>
       <el-form-item prop="username">
         <el-input v-model="registerForm.username" type="text" auto-complete="off" placeholder="账号">
           <svg-icon slot="prefix" icon-class="user" class="el-input__icon input-icon" />
@@ -59,10 +67,7 @@
         </div>
       </el-form-item>
     </el-form>
-    <!--  底部  -->
-    <div class="el-register-footer">
-      <span>Copyright © 2018-2024 ruoyi.vip All Rights Reserved.</span>
-    </div>
+
   </div>
 </template>
 
@@ -147,6 +152,12 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
+.login_div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .register {
   display: flex;
   justify-content: center;
@@ -156,16 +167,18 @@ export default {
   background-size: cover;
 }
 .title {
-  margin: 0px auto 30px auto;
+  margin: 0px 0px 15px 0px;
   text-align: center;
   color: #707070;
 }
 
 .register-form {
-  border-radius: 6px;
-  background: #ffffff;
-  width: 400px;
-  padding: 25px 25px 5px 25px;
+  width: auto;
+  height: auto;
+  position: absolute;
+  padding: 30px 30px 30px 30px;
+  border-radius: 8px;
+  background: #fff;
   .el-input {
     height: 38px;
     input {
