@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.InventoryRecordMapper">
+
+	<!-- 定义结果映射 -->
+	<resultMap id="InventoryRecordMap" type="com.ruoyi.common.core.domain.newEntity.InventoryRecord">
+		<id property="inventoryRecordId" column="inventory_record_id" />
+		<result property="entryDate" column="entry_date" />
+		<result property="productName" column="product_name" />
+		<result property="internalProductCode" column="internal_product_code" />
+		<result property="entryQuantity" column="entry_quantity" />
+		<result property="purchasePrice" column="purchase_price" />
+		<result property="remarks" column="remarks" />
+		<result property="createBy"     column="create_by"    />
+		<result property="createTime"   column="create_time"  />
+		<result property="updateBy"     column="update_by"    />
+		<result property="updateTime"   column="update_time"  />
+	</resultMap>
+
+	<!-- SQL 查询语句 -->
+	<sql id="selectInventoryRecord">
+		SELECT
+			inventory_record_id,
+			entry_date,
+			product_name,
+			internal_product_code,
+			entry_quantity,
+			purchase_price,
+			remarks
+		FROM inventory_record
+	</sql>
+	<!-- 根据条件查询所有InventoryRecord -->
+	<select id="selectAllInventoryRecords" resultMap="InventoryRecordMap">
+		<include refid="selectInventoryRecord"/>
+		WHERE 1=1
+		<if test="inventoryRecordId != null and inventoryRecordId != 0">
+			AND inventory_record_id = #{inventoryRecordId}
+		</if>
+		<if test="entryDate != null">
+			AND entry_date = #{entryDate}
+		</if>
+		<if test="productName != null and productName != ''">
+			AND product_name LIKE concat('%', #{productName}, '%')
+		</if>
+		<if test="internalProductCode != null and internalProductCode != ''">
+			AND internal_product_code LIKE concat('%', #{internalProductCode}, '%')
+		</if>
+		<if test="entryQuantity != null">
+			AND entry_quantity = #{entryQuantity}
+		</if>
+		<if test="purchasePrice != null">
+			AND purchase_price = #{purchasePrice}
+		</if>
+		<if test="remarks != null and remarks != ''">
+			AND remarks LIKE concat('%', #{remarks}, '%')
+		</if>
+	</select>
+	<!-- 根据ID查询单个InventoryRecord -->
+	<select id="selectInventoryRecordById" parameterType="Long" resultMap="InventoryRecordMap">
+		<include refid="selectInventoryRecord"/> WHERE inventory_record_id = #{inventoryRecordId}
+	</select>
+
+	<!-- 插入InventoryRecord -->
+	<insert id="insertInventoryRecord" parameterType="com.ruoyi.common.core.domain.newEntity.InventoryRecord" useGeneratedKeys="true" keyProperty="inventoryRecordId">
+		INSERT INTO inventory_record (
+		<if test="entryDate != null">entry_date,</if>
+		<if test="productName != null">product_name,</if>
+		<if test="internalProductCode != null">internal_product_code,</if>
+		<if test="entryQuantity != null">entry_quantity,</if>
+		<if test="purchasePrice != null">purchase_price,</if>
+		<if test="remarks != null">remarks,</if>
+		create_time
+		) VALUES (
+		<if test="entryDate != null">#{entryDate},</if>
+		<if test="productName != null">#{productName},</if>
+		<if test="internalProductCode != null">#{internalProductCode},</if>
+		<if test="entryQuantity != null">#{entryQuantity},</if>
+		<if test="purchasePrice != null">#{purchasePrice},</if>
+		<if test="remarks != null">#{remarks},</if>
+		sysdate()
+		)
+	</insert>
+
+	<!-- 更新InventoryRecord -->
+	<update id="updateInventoryRecord" parameterType="com.ruoyi.common.core.domain.newEntity.InventoryRecord">
+		UPDATE inventory_record
+		<set>
+			<if test="entryDate != null">entry_date = #{entryDate},</if>
+			<if test="productName != null">product_name = #{productName},</if>
+			<if test="internalProductCode != null">internal_product_code = #{internalProductCode},</if>
+			<if test="entryQuantity != null">entry_quantity = #{entryQuantity},</if>
+			<if test="purchasePrice != null">purchase_price = #{purchasePrice},</if>
+			<if test="remarks != null">remarks = #{remarks}</if>
+			update_time = sysdate()
+		</set>
+		WHERE inventory_record_id = #{inventoryRecordId}
+	</update>
+
+	<!-- 删除InventoryRecord -->
+	<delete id="deleteInventoryRecordById" parameterType="Long">
+		DELETE FROM inventory_record WHERE inventory_record_id = #{inventoryRecordId}
+	</delete>
+
+	<!-- 根据多个ID删除InventoryRecord -->
+	<delete id="deleteInventoryRecordsByIds" parameterType="Long">
+		DELETE FROM inventory_record WHERE inventory_record_id IN
+		<foreach collection="array" item="inventoryRecordId" open="(" separator="," close=")">
+			#{inventoryRecordId}
+		</foreach>
+	</delete>
+
+</mapper> 

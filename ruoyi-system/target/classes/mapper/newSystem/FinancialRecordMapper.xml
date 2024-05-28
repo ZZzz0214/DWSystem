@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ruoyi.system.mapper.FinancialRecordMapper">
+
+    <!-- Result Map -->
+    <resultMap id="FinancialRecordMap" type="com.ruoyi.common.core.domain.newEntity.FinancialRecord">
+        <id property="id" column="Id" />
+        <result property="bianHao" column="bian_hao" />
+        <result property="settlementDate" column="settlement_date" />
+        <result property="date" column="date" />
+        <result property="orderNumber" column="order_number" />
+        <result property="productNameDetails" column="product_name_details" />
+        <result property="amount" column="amount" />
+        <result property="isCompleted" column="is_completed" />
+        <result property="incomeExpense" column="income_expense" />
+        <result property="paymentItem" column="payment_item" />
+        <result property="remarks" column="remarks" />
+        <result property="brand" column="brand" />
+        <result property="supplier" column="supplier" />
+        <result property="handler" column="handler" />
+        <result property="createBy"     column="create_by"    />
+        <result property="createTime"   column="create_time"  />
+        <result property="updateBy"     column="update_by"    />
+        <result property="updateTime"   column="update_time"  />
+    </resultMap>
+    <sql id="selectFinacialVo">
+        SELECT * FROM financial_records
+    </sql>
+
+    <!-- Select All -->
+    <select id="selectAll" resultMap="FinancialRecordMap">
+        <include refid="selectFinacialVo"/>
+        where 1=1
+        <if test="id != null and id != 0">
+            AND Id = #{id}
+        </if>
+        <if test="bianHao != null and bianHao != ''">
+            AND bian_hao LIKE concat('%',#{bianHao}, '%')
+        </if>
+        <if test="settlementDate != null and settlementDate != ''">
+            AND settlement_date LIKE concat('%',#{settlementDate}, '%')
+        </if>
+        <if test="date != null">
+            AND date_format(date, '%Y-%m-%d') = date_format(#{date}, '%Y-%m-%d')
+        </if>
+        <if test="orderNumber != null and orderNumber != ''">
+            AND order_number LIKE concat('%', #{orderNumber}, '%')
+        </if>
+        <if test="productNameDetails != null and productNameDetails != ''">
+            AND product_name_details LIKE concat('%', #{productNameDetails}, '%')
+        </if>
+        <if test="amount != null">
+            AND amount = #{amount}
+        </if>
+        <if test="isCompleted != null and isCompleted != ''">
+            AND is_completed = #{isCompleted}
+        </if>
+        <if test="incomeExpense != null and incomeExpense != ''">
+            AND income_expense = #{incomeExpense}
+        </if>
+        <if test="paymentItem != null and paymentItem != ''">
+            AND payment_item LIKE concat('%', #{paymentItem}, '%')
+        </if>
+        <if test="remarks != null and remarks != ''">
+            AND remarks LIKE concat('%', #{remarks}, '%')
+        </if>
+        <if test="brand != null and brand != ''">
+            AND brand LIKE concat('%', #{brand}, '%')
+        </if>
+        <if test="supplier != null and supplier != ''">
+            AND supplier LIKE concat('%', #{supplier}, '%')
+        </if>
+        <if test="handler != null and handler != ''">
+            AND handler LIKE concat('%', #{handler}, '%')
+        </if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            AND date_format(date,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            AND date_format(date,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+        </if>
+
+    </select>
+
+    <!-- Select by ID -->
+    <select id="selectById" parameterType="Long" resultMap="FinancialRecordMap">
+        <include refid="selectFinacialVo"/> WHERE Id = #{id}
+    </select>
+
+    <!-- Insert -->
+    <insert id="insert" parameterType="com.ruoyi.common.core.domain.newEntity.FinancialRecord" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO financial_records (
+        <if test="bianHao != null">bian_hao,</if>
+        <if test="settlementDate != null">settlement_date,</if>
+        <if test="date != null">date,</if>
+        <if test="orderNumber != null">order_number,</if>
+        <if test="productNameDetails != null">product_name_details,</if>
+        <if test="amount != null">amount,</if>
+        <if test="isCompleted != null">is_completed,</if>
+        <if test="incomeExpense != null">income_expense,</if>
+        <if test="paymentItem != null">payment_item,</if>
+        <if test="remarks != null">remarks,</if>
+        <if test="brand != null">brand,</if>
+        <if test="supplier != null">supplier,</if>
+        <if test="handler != null">handler,</if>
+        create_time
+        ) VALUES (
+        <if test="bianHao != null">#{bianHao},</if>
+        <if test="settlementDate != null">#{settlementDate},</if>
+        <if test="date != null">#{date},</if>
+        <if test="orderNumber != null">#{orderNumber},</if>
+        <if test="productNameDetails != null">#{productNameDetails},</if>
+        <if test="amount != null">#{amount},</if>
+        <if test="isCompleted != null">#{isCompleted},</if>
+        <if test="incomeExpense != null">#{incomeExpense},</if>
+        <if test="paymentItem != null">#{paymentItem},</if>
+        <if test="remarks != null">#{remarks},</if>
+        <if test="brand != null">#{brand},</if>
+        <if test="supplier != null">#{supplier},</if>
+        <if test="handler != null">#{handler},</if>
+        sysdate()
+        )
+    </insert>
+
+    <!-- Update -->
+    <update id="update" parameterType="com.ruoyi.common.core.domain.newEntity.FinancialRecord">
+        UPDATE financial_records
+        <set>
+            <if test="bianHao != null">bian_hao = #{bianHao},</if>
+            <if test="settlementDate != null">settlement_date = #{settlementDate},</if>
+            <if test="date != null">date = #{date},</if>
+            <if test="orderNumber != null">order_number = #{orderNumber},</if>
+            <if test="productNameDetails != null">product_name_details = #{productNameDetails},</if>
+            <if test="amount != null">amount = #{amount},</if>
+            <if test="isCompleted != null">is_completed = #{isCompleted},</if>
+            <if test="incomeExpense != null">income_expense = #{incomeExpense},</if>
+            <if test="paymentItem != null">payment_item = #{paymentItem},</if>
+            <if test="remarks != null">remarks = #{remarks},</if>
+            <if test="brand != null">brand = #{brand},</if>
+            <if test="supplier != null">supplier = #{supplier},</if>
+            <if test="handler != null">handler = #{handler}</if>
+            update_time = sysdate()
+        </set>
+        WHERE Id = #{id}
+    </update>
+    <!-- Delete -->
+    <delete id="deleteById" parameterType="long">
+        DELETE FROM financial_records
+        WHERE Id = #{id}
+    </delete>
+
+    <delete id="deleteByIds" parameterType="Long">
+        DELETE FROM financial_records
+        WHERE Id IN
+        <foreach collection="array" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
