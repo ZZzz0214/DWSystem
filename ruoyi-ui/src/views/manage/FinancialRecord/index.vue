@@ -198,8 +198,11 @@
           <el-table-column label="订单号" align="center" key="orderNumber" prop="orderNumber" v-if="columns[2].visible" :show-overflow-tooltip="true" />
           <el-table-column label="产品名称_详细信息" align="center" key="productNameDetails" prop="productNameDetails" v-if="columns[3].visible" :show-overflow-tooltip="true" />
           <el-table-column label="账款" align="center" key="amount" prop="amount" v-if="columns[4].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="是否完成" align="center" key="isCompleted" prop="isCompleted" v-if="columns[5].visible" :show-overflow-tooltip="true" > <template slot-scope="scope">
-            {{ dict.type.completed[scope.row.isCompleted].label }}
+          <el-table-column label="是否完成" align="center" key="isCompleted" prop="isCompleted" v-if="columns[5].visible" :show-overflow-tooltip="true" >
+            <template slot-scope="scope">
+<!--            {{ dict.type.completed[scope.row.isCompleted]["label"] }}-->
+<!--            {{ dict.type.completed[scope.row.isCompleted]?.label }}-->
+              {{ dict.type.completed[scope.row.isCompleted] ? dict.type.completed[scope.row.isCompleted]["label"] : '空' }}
           </template>
           </el-table-column>
           <el-table-column label="支出收入" align="center" key="incomeExpense" prop="incomeExpense" v-if="columns[6].visible" :show-overflow-tooltip="true" />
@@ -279,7 +282,7 @@
                 type="date"
                 placeholder="请输入日期"
               ></el-date-picker>
-<!--              <el-input v-model="form.date" placeholder="请输入日期" maxlength="30" />-->
+
             </el-form-item>
           </el-col>
         </el-row>
@@ -557,15 +560,9 @@ export default {
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll);
   },
-  mounted() {
-    this.initializeForm();
-  },
+
   methods: {
-    initializeForm() {
-      const currentDate = format(new Date(), 'yyyy-MM-dd');
-      console.log(currentDate)
-      this.form.date = currentDate;
-    },
+
     // formatIsCompleted(row, column, cellValue) {
     //   const completedDict = this.dicts.completed || {}; // 获取completed字典
     //   const label = Object.keys(completedDict).find(key => completedDict[key] === cellValue); // 找到对应值的键
