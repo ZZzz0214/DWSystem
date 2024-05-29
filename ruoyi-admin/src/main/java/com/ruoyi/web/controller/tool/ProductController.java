@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
+/**
+ * 产品表
+ */
 @RestController
 @RequestMapping("/manage/Product")
 public class ProductController extends BaseController {

@@ -47,17 +47,11 @@
         <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="80px">
           <el-form-item label="品类">
             <el-select
-              v-model="queryParams.isCompleted"
+              v-model="queryParams.category"
               placeholder="请输入品类"
               clearable
               style="width: 240px"
             >
-              <el-option
-                v-for="dict in dict.type.sys_normal_disable"
-                :key="dict.value"
-                :label="dict.label"
-                :value="dict.value"
-              />
             </el-select>
           </el-form-item>
           <el-form-item label="规格" prop="supplier">
@@ -178,45 +172,45 @@
 
         <el-table v-loading="loading" :data="userList" @selection-change="handleSelectionChange">
           <el-table-column type="selection" width="50" align="center" />
-          <el-table-column label="录入时间" align="center" prop="entry_time" v-if="columns[1].visible"  width="180">
+          <el-table-column label="录入时间" align="center" prop="entryTime" v-if="columns[1].visible"  width="180">
             <template slot-scope="scope">
-              <span>{{ parseTime(scope.row.entry_time) }}</span> <!-- 格式化后的数据 -->
+              <span>{{ parseTime(scope.row.entryTime) }}</span> <!-- 格式化后的数据 -->
             </template>
           </el-table-column>
-          <el-table-column label="产品名称" align="center" key="product_name" prop="product_name" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="内部商品编号" align="center" key="internal_product_code" prop="internal_product_code" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="发货编码" align="center" key="shipment_code" prop="shipment_code" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="产品名称" align="center" key="productName" prop="productName" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="内部商品编号" align="center" key="internalProductCode" prop="internalProductCode" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="发货编码" align="center" key="shipmentCode" prop="shipmentCode" v-if="columns[2].visible" :show-overflow-tooltip="true" />
           <el-table-column label="规格" align="center" key="specifications" prop="specifications" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="生产日期" align="center" key="production_date" prop="production_date" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="产品卖点" align="center" key="product_selling_points" prop="product_selling_points" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="现货库存" align="center" key="current_stock" prop="current_stock" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="实际返单时效" align="center" key="actual_order_time" prop="actual_order_time" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="退货地址" align="center" key="return_address" prop="return_address" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="快递明细" align="center" key="shipping_details" prop="shipping_details" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="生产日期" align="center" key="productionDate" prop="productionDate" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="产品卖点" align="center" key="productSellingPoints" prop="productSellingPoints" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="现货库存" align="center" key="currentStock" prop="currentStock" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="实际返单时效" align="center" key="actualOrderTime" prop="actualOrderTime" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="退货地址" align="center" key="returnAddress" prop="returnAddress" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="快递明细" align="center" key="shippingDetails" prop="shippingDetails" v-if="columns[2].visible" :show-overflow-tooltip="true" />
           <el-table-column label="链接" align="center" key="link" prop="link" v-if="columns[2].visible" :show-overflow-tooltip="true" />
           <el-table-column label="状态" align="center" key="status" prop="status" v-if="columns[2].visible" :show-overflow-tooltip="true" />
           <el-table-column label="品牌" align="center" key="brand" prop="brand" v-if="columns[2].visible" :show-overflow-tooltip="true" />
           <el-table-column label="筛选" align="center" key="filter" prop="filter" v-if="columns[2].visible" :show-overflow-tooltip="true" />
           <el-table-column label="品类" align="center" key="category" prop="category" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="剩余库存" align="center" key="remaining_stock" prop="remaining_stock" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="售后数量" align="center" key="after_sales_quantity" prop="after_sales_quantity" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="品牌方" align="center" key="brand_owner" prop="brand_owner" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="产品状态" align="center" key="product_status" prop="product_status" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="采购价" align="center" key="purchase_price" prop="purchase_price" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="运费" align="center" key="shipping_cost" prop="shipping_cost" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="出货价_链" align="center" key="shipping_price_chain" prop="shipping_price_chain" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="出货价_代发" align="center" key="shipping_price_dropship" prop="shipping_price_dropship" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="出货价_详细代发" align="center" key="shipping_price_detailed_dropship" prop="shipping_price_detailed_dropship" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="采购_注意事项" align="center" key="purchase_notes" prop="purchase_notes" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="出货_注意事项" align="center" key="shipping_notes" prop="shipping_notes" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="公域挂价_天猫_淘宝_京东" align="center" key="public_listing_price_tmall_taobao_jd" prop="public_listing_price_tmall_taobao_jd" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="拼多多挂价" align="center" key="pinduoduo_listing_price" prop="pinduoduo_listing_price" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="私域_团购_快团等" align="center" key="private_group_buy_price" prop="private_group_buy_price" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="直播挂价_专属价_日常改原价" align="center" key="live_stream_price" prop="live_stream_price" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="出货价_1档" align="center" key="shipping_price_tier_1" prop="shipping_price_tier_1" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="出货价_2档" align="center" key="shipping_price_tier_2" prop="shipping_price_tier_2" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="代发出货价" align="center" key="dropship_shipping_price" prop="dropship_shipping_price" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="阿里挂价" align="center" key="alibaba_listing_price" prop="alibaba_listing_price" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="剩余库存" align="center" key="remainingStock" prop="remainingStock" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="售后数量" align="center" key="afterSalesQuantity" prop="afterSalesQuantity" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="品牌方" align="center" key="brandOwner" prop="brandOwner" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="产品状态" align="center" key="productStatus" prop="productStatus" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="采购价" align="center" key="purchasePrice" prop="purchasePrice" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="运费" align="center" key="shippingCost" prop="shippingCost" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="出货价_链" align="center" key="shippingPriceChain" prop="shippingPriceChain" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="出货价_代发" align="center" key="shippingPriceDropship" prop="shippingPriceDropship" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="出货价_详细代发" align="center" key="shippingPriceDetailedDropship" prop="shippingPriceDetailedDropship" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="采购_注意事项" align="center" key="purchaseNotes" prop="purchaseNotes" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="出货_注意事项" align="center" key="shippingNotes" prop="shippingNotes" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="公域挂价_天猫_淘宝_京东" align="center" key="publicListingPriceTmallTaobaoJd" prop="publicListingPriceTmallTaobaoJd" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="拼多多挂价" align="center" key="pinduoduoListingPrice" prop="pinduoduoListingPrice" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="私域_团购_快团等" align="center" key="privateGroupBuyPrice" prop="privateGroupBuyPrice" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="直播挂价_专属价_日常改原价" align="center" key="liveStreamPrice" prop="liveStreamPrice" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="出货价_1档" align="center" key="shippingPriceTier1" prop="shippingPriceTier1" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="出货价_2档" align="center" key="shippingPriceTier2" prop="shippingPriceTier2" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="代发出货价" align="center" key="dropshipShippingPrice" prop="dropshipShippingPrice" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="阿里挂价" align="center" key="alibabaListingPrice" prop="alibabaListingPrice" v-if="columns[2].visible" :show-overflow-tooltip="true" />
 
           shipperInformation
 
@@ -395,7 +389,7 @@
 
 <script>
 // import { listUser, getUser, delUser, addUser, updateUser, resetUserPwd, changeUserStatus } from "@/api/system/user";
-import { listFinancialRecords,getFinancialRecords,addFinancialRecords,updateFinancialRecords,delFinancialRecords } from "@/api/manage/financialRecord";
+import { listProduct,getProduct,addProduct,updateProduct,delProduct } from "@/api/manage/product";
 import { getToken } from "@/utils/auth";
 import Treeselect from "@riophae/vue-treeselect";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
@@ -510,7 +504,7 @@ export default {
     /** 查询用户列表 */
     getList() {
       this.loading = true;
-      listFinancialRecords(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
+      listProduct(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
           this.userList = response.rows;
           this.total = response.total;
           this.loading = false;
@@ -656,7 +650,7 @@ export default {
     handleDelete(row) {
       const userIds = row.id || this.ids;
       this.$modal.confirm('是否确认删除用户编号为"' + userIds + '"的数据项？').then(function() {
-        return delFinancialRecords(userIds);
+        return delProduct(userIds);
       }).then(() => {
         this.getList();
         this.$modal.msgSuccess("删除成功");

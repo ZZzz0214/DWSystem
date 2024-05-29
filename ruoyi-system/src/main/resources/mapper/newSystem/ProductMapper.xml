@@ -38,8 +38,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="pinduoduoListingPrice" column="pinduoduo_listing_price" />
 		<result property="privateGroupBuyPrice" column="private_group_buy_price" />
 		<result property="liveStreamPrice" column="live_stream_price" />
-		<result property="shippingPriceTier1" column="shipping_price_tier1" />
-		<result property="shippingPriceTier2" column="shipping_price_tier2" />
+		<result property="shippingPriceTier1" column="shipping_price_tier_1" />
+		<result property="shippingPriceTier2" column="shipping_price_tier_2" />
 		<result property="dropshipShippingPrice" column="dropship_shipping_price" />
 		<result property="alibabaListingPrice" column="alibaba_listing_price" />
 		<result property="entryTime" column="entry_time" />
@@ -84,8 +84,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			pinduoduo_listing_price,
 			private_group_buy_price,
 			live_stream_price,
-			shipping_price_tier1,
-			shipping_price_tier2,
+			shipping_price_tier_1,
+			shipping_price_tier_2,
 			dropship_shipping_price,
 			alibaba_listing_price,
 			entry_time,
@@ -202,10 +202,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			AND live_stream_price = #{liveStreamPrice}
 		</if>
 		<if test="shippingPriceTier1 != null">
-			AND shipping_price_tier1 = #{shippingPriceTier1}
+			AND shipping_price_tier_1 = #{shippingPriceTier1}
 		</if>
 		<if test="shippingPriceTier2 != null">
-			AND shipping_price_tier2 = #{shippingPriceTier2}
+			AND shipping_price_tier_2 = #{shippingPriceTier2}
 		</if>
 		<if test="dropshipShippingPrice != null">
 			AND dropship_shipping_price = #{dropshipShippingPrice}
@@ -269,8 +269,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="pinduoduoListingPrice != null">pinduoduo_listing_price,</if>
 			<if test="privateGroupBuyPrice != null">private_group_buy_price,</if>
 			<if test="liveStreamPrice != null">live_stream_price,</if>
-			<if test="shippingPriceTier1 != null">shipping_price_tier1,</if>
-			<if test="shippingPriceTier2 != null">shipping_price_tier2,</if>
+			<if test="shippingPriceTier1 != null">shipping_price_tier_1,</if>
+			<if test="shippingPriceTier2 != null">shipping_price_tier_2,</if>
 			<if test="dropshipShippingPrice != null">dropship_shipping_price,</if>
 			<if test="alibabaListingPrice != null">alibaba_listing_price,</if>
 			<if test="entryTime != null">entry_time,</if>
@@ -356,8 +356,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="pinduoduoListingPrice != null">pinduoduo_listing_price = #{pinduoduoListingPrice},</if>
 			<if test="privateGroupBuyPrice != null">private_group_buy_price = #{privateGroupBuyPrice},</if>
 			<if test="liveStreamPrice != null">live_stream_price = #{liveStreamPrice},</if>
-			<if test="shippingPriceTier1 != null">shipping_price_tier1 = #{shippingPriceTier1},</if>
-			<if test="shippingPriceTier2 != null">shipping_price_tier2 = #{shippingPriceTier2},</if>
+			<if test="shippingPriceTier1 != null">shipping_price_tier_1 = #{shippingPriceTier1},</if>
+			<if test="shippingPriceTier2 != null">shipping_price_tier_2 = #{shippingPriceTier2},</if>
 			<if test="dropshipShippingPrice != null">dropship_shipping_price = #{dropshipShippingPrice},</if>
 			<if test="alibabaListingPrice != null">alibaba_listing_price = #{alibabaListingPrice},</if>
 			<if test="entryTime != null">entry_time = #{entryTime},</if>
