@@ -5,29 +5,29 @@
       <!--财务数据-->
       <el-col >
         <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="100px">
-          <el-form-item label="订单编号" prop="order_number">
+          <el-form-item label="出货商" prop="shipper">
             <el-input
-              v-model="queryParams.order_number"
-              placeholder="请输入订单编号"
+              v-model="queryParams.shipper"
+              placeholder="请输入出货商"
               clearable
               style="width: 240px"
               @keyup.enter.native="handleQuery"
             />
           </el-form-item>
-          <el-form-item label="物流公司" prop="logistics_company">
+          <el-form-item label="收货人姓名" prop="recipientName">
             <el-input
-              v-model="queryParams.logistics_company"
-              placeholder="请输入物流公司"
+              v-model="queryParams.recipientName"
+              placeholder="请输入收货人姓名"
               clearable
               style="width: 240px"
               @keyup.enter.native="handleQuery"
             >
             </el-input>
           </el-form-item>
-          <el-form-item label="收货人" prop="recipient_name">
+          <el-form-item label="地址" prop="address">
             <el-select
-              v-model="queryParams.recipient_name"
-              placeholder="请输入收货人"
+              v-model="queryParams.address"
+              placeholder="请输入地址"
               clearable
               style="width: 240px"
             >
@@ -39,126 +39,27 @@
               />
             </el-select>
           </el-form-item>
-          <el-form-item label="商品名称" prop="product_name">
+          <el-form-item label="微信账号" prop="wechatAccount">
             <el-input
-              v-model="queryParams.product_name"
-              placeholder="请输入商品名称"
+              v-model="queryParams.wechatAccount"
+              placeholder="请输入微信账号"
               clearable
               style="width: 240px"
               @keyup.enter.native="handleQuery"
             />
           </el-form-item>
-          <el-form-item label="商品编码" prop="product_code">
+          <el-form-item label="收货人电话" prop="recipientPhone">
             <el-input
-              v-model="queryParams.product_code"
-              placeholder="请输入商品编码"
+              v-model="queryParams.recipientPhone"
+              placeholder="请输入收货人电话"
               clearable
               style="width: 240px"
               @keyup.enter.native="handleQuery"
             >
             </el-input>
           </el-form-item>
-          <el-form-item label="订单号" prop="order_id">
-            <el-input
-              v-model="queryParams.order_id"
-              placeholder="请输入订单号"
-              clearable
-              style="width: 240px"
-              @keyup.enter.native="handleQuery"
-            >
-            </el-input>
-          </el-form-item>
-          <el-form-item label="物流单号" prop="tracking_number">
-            <el-input
-              v-model="queryParams.tracking_number"
-              placeholder="请输入物流单号"
-              clearable
-              style="width: 240px"
-              @keyup.enter.native="handleQuery"
-            />
-          </el-form-item>
-          <el-form-item label="处理人" prop="handler">
-            <el-input
-              v-model="queryParams.handler"
-              placeholder="请输入处理人"
-              clearable
-              style="width: 240px"
-              @keyup.enter.native="handleQuery"
-            />
-          </el-form-item>
-          <el-form-item label="联系电话" prop="recipient_phone">
-            <el-input
-              v-model="queryParams.recipient_phone"
-              placeholder="请输入联系电话"
-              clearable
-              style="width: 240px"
-              @keyup.enter.native="handleQuery"
-            />
-          </el-form-item>
-          <el-form-item label="规格" prop="specifications">
-            <el-input
-              v-model="queryParams.specifications"
-              placeholder="请输入规格"
-              clearable
-              style="width: 240px"
-              @keyup.enter.native="handleQuery"
-            />
-          </el-form-item>
-          <el-form-item label="团长" prop="leader">
-            <el-input
-              v-model="queryParams.leader"
-              placeholder="请输入团长"
-              clearable
-              style="width: 240px"
-              @keyup.enter.native="handleQuery"
-            />
-          </el-form-item>
-          <el-form-item label="团长" prop="leader">
-            <el-input
-              v-model="queryParams.leader"
-              placeholder="请输入团长"
-              clearable
-              style="width: 240px"
-              @keyup.enter.native="handleQuery"
-            />
-          </el-form-item>
-          <el-form-item label="内部商品编号" prop="internal_product_code">
-            <el-input
-              v-model="queryParams.internal_product_code"
-              placeholder="请输入内部商品编号"
-              clearable
-              style="width: 240px"
-              @keyup.enter.native="handleQuery"
-            />
-          </el-form-item>
-          <el-form-item label="筛选" prop="filter">
-            <el-input
-              v-model="queryParams.filter"
-              placeholder="请输入筛选条件"
-              clearable
-              style="width: 240px"
-              @keyup.enter.native="handleQuery"
-            />
-          </el-form-item>
-          <el-form-item label="产品名称" prop="product_name_details">
-            <el-input
-              v-model="queryParams.product_name_details"
-              placeholder="请输入产品名称"
-              clearable
-              style="width: 240px"
-              @keyup.enter.native="handleQuery"
-            />
-          </el-form-item>
-          <el-form-item label="品牌方" prop="brand">
-            <el-input
-              v-model="queryParams.brand"
-              placeholder="请输入品牌方"
-              clearable
-              style="width: 240px"
-              @keyup.enter.native="handleQuery"
-            />
-          </el-form-item>
-          <el-form-item label="日期">
+
+          <el-form-item label="创建日期">
             <el-date-picker
               v-model="dateRange"
               style="width: 240px"
@@ -260,26 +161,27 @@
 
         <el-table v-loading="loading" :data="financialRecordList" @selection-change="handleSelectionChange">
           <el-table-column type="selection" width="50" align="center" />
-          <el-table-column label="编号" align="center" key="bianHao" prop="bianHao" v-if="columns[12].visible" />
-          <el-table-column label="结算日期" align="center" key="settlementDate" prop="settlementDate" v-if="columns[0].visible" />
-          <el-table-column label="日期" align="center" prop="date" v-if="columns[1].visible"  width="180">
+          <el-table-column label="编号" align="center" key="supplierNumber" prop="supplierNumber" v-if="columns[0].visible" />
+          <el-table-column label="出货商" align="center" key="shipper" prop="shipper" v-if="columns[1].visible" />
+          <el-table-column label="收货人姓名" align="center" key="recipientName" prop="recipientName" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="收货人电话" align="center" key="recipientPhone" prop="recipientPhone" v-if="columns[3].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="详细地址" align="center" key="address" prop="address" v-if="columns[4].visible" :show-overflow-tooltip="true" />
+<!--          <el-table-column label="是否完成" align="center" key="isCompleted" prop="isCompleted" v-if="columns[5].visible" :show-overflow-tooltip="true" > <template slot-scope="scope">-->
+<!--            {{ dict.type.completed[scope.row.isCompleted] ? dict.type.completed[scope.row.isCompleted]["label"] : '空' }}-->
+<!--          </template>-->
+<!--          </el-table-column>-->
+          <el-table-column label="微信账号" align="center" key="wechatAccount" prop="wechatAccount" v-if="columns[5].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="支付宝账号" align="center" key="alipayAccount" prop="alipayAccount" v-if="columns[6].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="银行卡账号" align="center" key="bankAccount" prop="bankAccount" v-if="columns[7].visible" :show-overflow-tooltip="true" />
+
+          <el-table-column label="创建日期" align="center" prop="creationDate" v-if="columns[8].visible"  width="180">
             <template slot-scope="scope">
               <span>{{ parseTime(scope.row.date) }}</span> <!-- 格式化后的数据 -->
             </template>
           </el-table-column>
-          <el-table-column label="订单号" align="center" key="orderNumber" prop="orderNumber" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="产品名称_详细信息" align="center" key="productNameDetails" prop="productNameDetails" v-if="columns[3].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="账款" align="center" key="amount" prop="amount" v-if="columns[4].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="是否完成" align="center" key="isCompleted" prop="isCompleted" v-if="columns[5].visible" :show-overflow-tooltip="true" > <template slot-scope="scope">
-            {{ dict.type.completed[scope.row.isCompleted] ? dict.type.completed[scope.row.isCompleted]["label"] : '空' }}
-          </template>
-          </el-table-column>
-          <el-table-column label="支出收入" align="center" key="incomeExpense" prop="incomeExpense" v-if="columns[6].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="付款项目" align="center" key="paymentItem" prop="paymentItem" v-if="columns[7].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="备注" align="center" key="remarks" prop="remarks" v-if="columns[8].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="品牌方" align="center" key="brand" prop="brand" v-if="columns[9].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="出货方" align="center" key="supplier" prop="supplier" v-if="columns[10].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="处理人" align="center" key="handler" prop="handler" v-if="columns[11].visible" :show-overflow-tooltip="true" />
+
+          <el-table-column label="出货总数" align="center" key="totalShipment" prop="totalShipment" v-if="columns[9].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="备注" align="center" key="remarks" prop="remarks" v-if="columns[10].visible" :show-overflow-tooltip="true" />
 
 
           // 功能按钮  数据最后一列的操作
@@ -470,14 +372,14 @@
 
 
 <script>
-import { listFinancialRecords,getFinancialRecords,addFinancialRecords,updateFinancialRecords,delFinancialRecords } from "@/api/manage/financialRecord";
+import { listSupplierInfo,getSupplierInfo,addSupplierInfo,updateSupplierInfo,delSupplierInfo } from "@/api/manage/supplierInfo";
 import { getToken } from "@/utils/auth";
 import Treeselect from "@riophae/vue-treeselect";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
 
 
 export default {
-  name: "FinancialRecord",
+  name: "SupplierInfo",
   dicts: ['sys_normal_disable', 'sys_user_sex','completed','expense_income','brand_owner','payment_item','expense_income'],
   components: { Treeselect },
   data() {
@@ -556,19 +458,17 @@ export default {
 
       // 列信息
       columns: [
-        { key: 'settlementDate', label: '结算日期', visible: true },
-        { key: 'date', label: '日期', visible: true },
-        { key: 'orderNumber', label: '订单号', visible: true },
-        { key: 'productNameDetail', label: '产品名称_详细信息', visible: true },
-        { key: 'amount', label: '账款', visible: true },
-        { key: 'isCompleted', label: '是否完成', visible: true },
-        { key: 'incomeExpense', label: '支出收入', visible: true },
-        { key: 'paymentItem', label: '付款项目', visible: true },
-        { key: 'remark', label: '备注', visible: true },
-        { key: 'brand', label: '品牌方', visible: true },
-        { key: 'supplier', label: '出货方', visible: true },
-        { key: 'handler', label: '处理人', visible: true },
-        { key: 'bianHao', label: '编号', visible: true }
+        { key: 'supplierNumber', label: '供应商编号', visible: true },
+        { key: 'shipper', label: '出货商', visible: true },
+        { key: 'recipientName', label: '收货人姓名', visible: true },
+        { key: 'recipientPhone', label: '收货人电话', visible: true },
+        { key: 'address', label: '地址', visible: true },
+        { key: 'wechatAccount', label: '微信账号', visible: true },
+        { key: 'alipayAccount', label: '支付宝账号', visible: true },
+        { key: 'bankAccount', label: '银行卡账号', visible: true },
+        { key: 'creationDate', label: '创建日期', visible: true },
+        { key: 'totalShipment', label: '出货总数', visible: true },
+        { key: 'remarks', label: '备注', visible: true }
       ],
       // 表单校验
       rules: {
@@ -621,7 +521,7 @@ export default {
       this.loading = true;
 
       // 获取数据
-      listFinancialRecords(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
+      listSupplierInfo(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
         this.financialRecordList = response.rows;
         this.total = response.total;
         this.loading = false;
@@ -721,7 +621,7 @@ export default {
     /** 新增按钮操作 */
     handleAdd() {
       this.reset();
-      // getFinancialRecords().then(response => {
+      // getSupplierInfo().then(response => {
       this.open = true;
       this.title = "添加财务记录";
       // });
@@ -730,7 +630,7 @@ export default {
     handleUpdate(row) {
       this.reset();
       const idd = row.id || this.ids;
-      getFinancialRecords(idd).then(response => {
+      getSupplierInfo(idd).then(response => {
         this.form = response.data;
         console.log(response.data)
         this.open = true;
@@ -743,13 +643,13 @@ export default {
       this.$refs["form"].validate(valid => {
         if (valid) {
           if (this.form.id != undefined) {
-            updateFinancialRecords(this.form).then(response => {
+            updateSupplierInfo(this.form).then(response => {
               this.$modal.msgSuccess("修改成功");
               this.open = false;
               this.getList();
             });
           } else {
-            addFinancialRecords(this.form).then(response => {
+            addSupplierInfo(this.form).then(response => {
               this.$modal.msgSuccess("新增成功");
               this.open = false;
               this.getList();
@@ -762,7 +662,7 @@ export default {
     handleDelete(row) {
       const FinancialRecordIds = row.id || this.ids;
       this.$modal.confirm('是否确认删除财务编号为"' + FinancialRecordIds + '"的数据项？').then(function() {
-        return delFinancialRecords(FinancialRecordIds);
+        return delSupplierInfo(FinancialRecordIds);
       }).then(() => {
         this.getList();
         this.$modal.msgSuccess("删除成功");

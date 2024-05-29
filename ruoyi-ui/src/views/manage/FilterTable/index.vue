@@ -5,8 +5,88 @@
       <!--财务数据-->
       <el-col >
         <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="80px">
-
-          <el-form-item label="入库日期">
+          <el-form-item label="结算日期" prop="settlementDate">
+            <el-input
+              v-model="queryParams.settlementDate"
+              placeholder="请输入结算日期"
+              clearable
+              style="width: 240px"
+              @keyup.enter.native="handleQuery"
+            />
+          </el-form-item>
+          <el-form-item label="订单号" prop="orderNumber">
+            <el-input
+              v-model="queryParams.orderNumber"
+              placeholder="请输入订单号"
+              clearable
+              style="width: 240px"
+              @keyup.enter.native="handleQuery"
+            >
+            </el-input>
+          </el-form-item>
+          <el-form-item label="是否完成" prop="isCompleted">
+            <el-select
+              v-model="queryParams.isCompleted"
+              placeholder="是否完成"
+              clearable
+              style="width: 240px"
+            >
+              <el-option
+                v-for="dict in dict.type.completed"
+                :key="dict.value"
+                :label="dict.label"
+                :value="dict.value"
+              />
+            </el-select>
+          </el-form-item>
+          <el-form-item label="品牌方" prop="brand">
+            <el-input
+              v-model="queryParams.brand"
+              placeholder="请输入品牌方"
+              clearable
+              style="width: 240px"
+              @keyup.enter.native="handleQuery"
+            />
+          </el-form-item>
+          <el-form-item label="出货方" prop="supplier">
+            <el-input
+              v-model="queryParams.supplier"
+              placeholder="请输入出货方"
+              clearable
+              style="width: 240px"
+              @keyup.enter.native="handleQuery"
+            >
+            </el-input>
+          </el-form-item>
+          <el-form-item label="支出/收入" prop="incomeExpense">
+            <el-input
+              v-model="queryParams.incomeExpense"
+              placeholder="请输入支出/收入"
+              clearable
+              style="width: 240px"
+              @keyup.enter.native="handleQuery"
+            >
+            </el-input>
+          </el-form-item>
+          <el-form-item label="付款项目" prop="paymentItem">
+            <el-input
+              v-model="queryParams.paymentItem"
+              placeholder="请输入付款项目"
+              clearable
+              style="width: 240px"
+              @keyup.enter.native="handleQuery"
+            />
+          </el-form-item>
+          <el-form-item label="处理人" prop="handler">
+            <el-input
+              v-model="queryParams.handler"
+              placeholder="请输入处理人"
+              clearable
+              style="width: 240px"
+              @keyup.enter.native="handleQuery"
+            />
+          </el-form-item>
+          <el-form-item label="日期">
             <el-date-picker
               v-model="dateRange"
               style="width: 240px"
@@ -17,28 +97,6 @@
               end-placeholder="结束日期"
             ></el-date-picker>
           </el-form-item>
-
-          <el-form-item label="内部商品编号" prop="internalProductCode">
-            <el-input
-              v-model="queryParams.internalProductCode"
-              placeholder="请输入内部商品编号"
-              clearable
-              style="width: 240px"
-              @keyup.enter.native="handleQuery"
-            />
-          </el-form-item>
-
-          <el-form-item label="产品名称" prop="productName">
-            <el-input
-              v-model="queryParams.productName"
-              placeholder="请输入订单号"
-              clearable
-              style="width: 240px"
-              @keyup.enter.native="handleQuery"
-            >
-            </el-input>
-          </el-form-item>
-
           <el-form-item label="筛选属性" prop="filterAttribute">
             <el-select v-model="queryParams.filterAttribute" clearable placeholder="选择属性"   style="width: 240px">
               <el-option v-for="column in columns" :key="column.key" :label="column.label" :value="column.key"></el-option>
@@ -130,18 +188,27 @@
 
         <el-table v-loading="loading" :data="financialRecordList" @selection-change="handleSelectionChange">
           <el-table-column type="selection" width="50" align="center" />
-<!--          <el-table-column label="编号" align="center" key="bianHao" prop="bianHao" v-if="columns[12].visible" />-->
-
-          <el-table-column label="入库日期" align="center" prop="entryDate" v-if="columns[0].visible"  width="180">
+          <el-table-column label="编号" align="center" key="bianHao" prop="bianHao" v-if="columns[12].visible" />
+          <el-table-column label="结算日期" align="center" key="settlementDate" prop="settlementDate" v-if="columns[0].visible" />
+          <el-table-column label="日期" align="center" prop="date" v-if="columns[1].visible"  width="180">
             <template slot-scope="scope">
-              <span>{{ parseTime(scope.row.entryDate) }}</span> <!-- 格式化后的数据 -->
+              <span>{{ parseTime(scope.row.date) }}</span> <!-- 格式化后的数据 -->
             </template>
           </el-table-column>
-          <el-table-column label="产品名称" align="center" key="productName" prop="productName" v-if="columns[1].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="内部商品编号" align="center" key="internalProductCode" prop="internalProductCode" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="入库数量" align="center" key="entryQuantity" prop="entryQuantity" v-if="columns[3].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="采购价" align="center" key="purchasePrice" prop="purchasePrice" v-if="columns[4].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="备注" align="center" key="remarks" prop="remarks" v-if="columns[5].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="订单号" align="center" key="orderNumber" prop="orderNumber" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="产品名称_详细信息" align="center" key="productNameDetails" prop="productNameDetails" v-if="columns[3].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="账款" align="center" key="amount" prop="amount" v-if="columns[4].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="是否完成" align="center" key="isCompleted" prop="isCompleted" v-if="columns[5].visible" :show-overflow-tooltip="true" > <template slot-scope="scope">
+            {{ dict.type.completed[scope.row.isCompleted] ? dict.type.completed[scope.row.isCompleted]["label"] : '空' }}
+          </template>
+          </el-table-column>
+          <el-table-column label="支出收入" align="center" key="incomeExpense" prop="incomeExpense" v-if="columns[6].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="付款项目" align="center" key="paymentItem" prop="paymentItem" v-if="columns[7].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="备注" align="center" key="remarks" prop="remarks" v-if="columns[8].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="品牌方" align="center" key="brand" prop="brand" v-if="columns[9].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="出货方" align="center" key="supplier" prop="supplier" v-if="columns[10].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="处理人" align="center" key="handler" prop="handler" v-if="columns[11].visible" :show-overflow-tooltip="true" />
+
 
           // 功能按钮  数据最后一列的操作
           <el-table-column label="操作" align="center" width="160" class-name="small-padding fixed-width">
@@ -331,14 +398,14 @@
 
 
 <script>
-import { listInventoryRecord,getInventoryRecord,addInventoryRecord,updateInventoryRecord,delInventoryRecord } from "@/api/manage/inventoryRecord";
+import { listFinancialRecords,getFinancialRecords,addFinancialRecords,updateFinancialRecords,delFinancialRecords } from "@/api/manage/financialRecord";
 import { getToken } from "@/utils/auth";
 import Treeselect from "@riophae/vue-treeselect";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
 
 
 export default {
-  name: "InventoryRecord",
+  name: "FinancialRecord",
   dicts: ['sys_normal_disable', 'sys_user_sex','completed','expense_income','brand_owner','payment_item','expense_income'],
   components: { Treeselect },
   data() {
@@ -417,12 +484,19 @@ export default {
 
       // 列信息
       columns: [
-        { key: 'entryDate', label: '入库日期', visible: true },
-        { key: 'productName', label: '产品名称', visible: true },
-        { key: 'internalProductCode', label: '内部商品编号', visible: true },
-        { key: 'entryQuantity', label: '入库数量', visible: true },
-        { key: 'purchasePrice', label: '采购价', visible: true },
-        { key: 'remarks', label: '备注', visible: true }
+        { key: 'settlementDate', label: '结算日期', visible: true },
+        { key: 'date', label: '日期', visible: true },
+        { key: 'orderNumber', label: '订单号', visible: true },
+        { key: 'productNameDetail', label: '产品名称_详细信息', visible: true },
+        { key: 'amount', label: '账款', visible: true },
+        { key: 'isCompleted', label: '是否完成', visible: true },
+        { key: 'incomeExpense', label: '支出收入', visible: true },
+        { key: 'paymentItem', label: '付款项目', visible: true },
+        { key: 'remark', label: '备注', visible: true },
+        { key: 'brand', label: '品牌方', visible: true },
+        { key: 'supplier', label: '出货方', visible: true },
+        { key: 'handler', label: '处理人', visible: true },
+        { key: 'bianHao', label: '编号', visible: true }
       ],
       // 表单校验
       rules: {
@@ -475,7 +549,7 @@ export default {
       this.loading = true;
 
       // 获取数据
-      listInventoryRecord(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
+      listFinancialRecords(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
         this.financialRecordList = response.rows;
         this.total = response.total;
         this.loading = false;
@@ -575,7 +649,7 @@ export default {
     /** 新增按钮操作 */
     handleAdd() {
       this.reset();
-      // getInventoryRecord().then(response => {
+      // getFinancialRecords().then(response => {
         this.open = true;
         this.title = "添加财务记录";
       // });
@@ -584,7 +658,7 @@ export default {
     handleUpdate(row) {
       this.reset();
       const idd = row.id || this.ids;
-      getInventoryRecord(idd).then(response => {
+      getFinancialRecords(idd).then(response => {
         this.form = response.data;
         console.log(response.data)
         this.open = true;
@@ -597,13 +671,13 @@ export default {
       this.$refs["form"].validate(valid => {
         if (valid) {
           if (this.form.id != undefined) {
-            updateInventoryRecord(this.form).then(response => {
+            updateFinancialRecords(this.form).then(response => {
               this.$modal.msgSuccess("修改成功");
               this.open = false;
               this.getList();
             });
           } else {
-            addInventoryRecord(this.form).then(response => {
+            addFinancialRecords(this.form).then(response => {
               this.$modal.msgSuccess("新增成功");
               this.open = false;
               this.getList();
@@ -616,7 +690,7 @@ export default {
     handleDelete(row) {
       const FinancialRecordIds = row.id || this.ids;
       this.$modal.confirm('是否确认删除财务编号为"' + FinancialRecordIds + '"的数据项？').then(function() {
-        return delInventoryRecord(FinancialRecordIds);
+        return delFinancialRecords(FinancialRecordIds);
       }).then(() => {
         this.getList();
         this.$modal.msgSuccess("删除成功");
