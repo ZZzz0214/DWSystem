@@ -8,17 +8,17 @@ import java.util.List;
 
 public interface AfterSalesBatchMapper {
 
-    List<AfterSalesBatch> selectAllAfterSalesBatchs(@Param("afterSalesBatch") AfterSalesBatch afterSalesBatch);
+    List<AfterSalesBatch> selectAllAfterSalesBatchs( AfterSalesBatch afterSalesBatch);
 
-    AfterSalesBatch selectAfterSalesBatchById(@Param("afterSalesBatchId") Long afterSalesBatchId);
+    AfterSalesBatch selectAfterSalesBatchById( Long afterSalesBatchId);
 
-    int insertAfterSalesBatch(@Param("afterSalesBatch") AfterSalesBatch afterSalesBatch);
+    int insertAfterSalesBatch( AfterSalesBatch afterSalesBatch);
 
-    int updateAfterSalesBatch(@Param("afterSalesBatch") AfterSalesBatch afterSalesBatch);
+    int updateAfterSalesBatch( AfterSalesBatch afterSalesBatch);
 
-    int deleteAfterSalesBatchById(@Param("afterSalesBatchId") Long afterSalesBatchId);
+    int deleteAfterSalesBatchById( Long afterSalesBatchId);
 
-    int deleteAfterSalesBatchsByIds(@Param("afterSalesBatchIds") Long[] afterSalesBatchIds);
+    int deleteAfterSalesBatchsByIds( Long[] afterSalesBatchIds);
 
     @Select("SELECT orderNumber FROM after_sales_batch WHERE orderNumber LIKE CONCAT('SH_', #{date}, '%') ORDER BY id DESC LIMIT 1")
     String findTopBianHaoByDate(@Param("date") String date);

@@ -141,7 +141,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="remarks != null">remarks = #{remarks},</if>
             <if test="brand != null">brand = #{brand},</if>
             <if test="supplier != null">supplier = #{supplier},</if>
-            <if test="handler != null">handler = #{handler},</if>
+            <if test="handler != null">handler = #{handler}</if>
             update_time = sysdate()
         </set>
         WHERE Id = #{id}

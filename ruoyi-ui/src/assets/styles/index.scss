@@ -127,7 +127,7 @@ html, body {
 }
 
 .el-table__body-wrapper {
-  max-height: calc(100vh - 390px); /* 设置表格体的最大高度，留出搜索条件和底部pagination的空间 */
+  max-height: calc(100vh - 500px); /* 设置表格体的最大高度，留出搜索条件和底部pagination的空间 */
   overflow-y: auto; /* 当内容超出容器高度时显示垂直滚动条 */
 }
 

@@ -5,98 +5,56 @@
       <!--财务数据-->
       <el-col >
         <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="80px">
-          <el-form-item label="结算日期" prop="settlementDate">
+          <el-form-item label="商品编码" prop="productCode">
             <el-input
-              v-model="queryParams.settlementDate"
-              placeholder="请输入结算日期"
+              v-model="queryParams.productCode"
+              placeholder="请输入商品编码"
               clearable
               style="width: 240px"
               @keyup.enter.native="handleQuery"
             />
           </el-form-item>
-          <el-form-item label="订单号" prop="orderNumber">
+          <el-form-item label="商品名称" prop="productName">
             <el-input
-              v-model="queryParams.orderNumber"
-              placeholder="请输入订单号"
+              v-model="queryParams.productName"
+              placeholder="请输入商品名称"
               clearable
               style="width: 240px"
               @keyup.enter.native="handleQuery"
             >
             </el-input>
           </el-form-item>
-          <el-form-item label="是否完成" prop="isCompleted">
-            <el-select
-              v-model="queryParams.isCompleted"
-              placeholder="是否完成"
-              clearable
-              style="width: 240px"
-            >
-              <el-option
-                v-for="dict in dict.type.completed"
-                :key="dict.value"
-                :label="dict.label"
-                :value="dict.value"
-              />
-            </el-select>
-          </el-form-item>
-          <el-form-item label="品牌方" prop="brand">
+
+          <el-form-item label="内部商品编号" prop="internalProductCode">
             <el-input
-              v-model="queryParams.brand"
-              placeholder="请输入品牌方"
+              v-model="queryParams.internalProductCode"
+              placeholder="请输入内部商品编号"
               clearable
               style="width: 240px"
               @keyup.enter.native="handleQuery"
             />
           </el-form-item>
-          <el-form-item label="出货方" prop="supplier">
+          <el-form-item label="品牌方" prop="brandOwner">
             <el-input
-              v-model="queryParams.supplier"
-              placeholder="请输入出货方"
+              v-model="queryParams.brandOwner"
+              placeholder="请输入产品名称"
               clearable
               style="width: 240px"
               @keyup.enter.native="handleQuery"
             >
             </el-input>
           </el-form-item>
-          <el-form-item label="支出/收入" prop="incomeExpense">
+          <el-form-item label="开团团长" prop="groupLeader">
             <el-input
-              v-model="queryParams.incomeExpense"
-              placeholder="请输入支出/收入"
+              v-model="queryParams.groupLeader"
+              placeholder="请输入开团团长"
               clearable
               style="width: 240px"
               @keyup.enter.native="handleQuery"
             >
             </el-input>
           </el-form-item>
-          <el-form-item label="付款项目" prop="paymentItem">
-            <el-input
-              v-model="queryParams.paymentItem"
-              placeholder="请输入付款项目"
-              clearable
-              style="width: 240px"
-              @keyup.enter.native="handleQuery"
-            />
-          </el-form-item>
-          <el-form-item label="处理人" prop="handler">
-            <el-input
-              v-model="queryParams.handler"
-              placeholder="请输入处理人"
-              clearable
-              style="width: 240px"
-              @keyup.enter.native="handleQuery"
-            />
-          </el-form-item>
-          <el-form-item label="日期">
-            <el-date-picker
-              v-model="dateRange"
-              style="width: 240px"
-              value-format="yyyy-MM-dd"
-              type="daterange"
-              range-separator="-"
-              start-placeholder="开始日期"
-              end-placeholder="结束日期"
-            ></el-date-picker>
-          </el-form-item>
+
           <el-form-item label="筛选属性" prop="filterAttribute">
             <el-select v-model="queryParams.filterAttribute" clearable placeholder="选择属性"   style="width: 240px">
               <el-option v-for="column in columns" :key="column.key" :label="column.label" :value="column.key"></el-option>
@@ -188,26 +146,48 @@
 
         <el-table v-loading="loading" :data="financialRecordList" @selection-change="handleSelectionChange">
           <el-table-column type="selection" width="50" align="center" />
-          <el-table-column label="编号" align="center" key="bianHao" prop="bianHao" v-if="columns[12].visible" />
-          <el-table-column label="结算日期" align="center" key="settlementDate" prop="settlementDate" v-if="columns[0].visible" />
-          <el-table-column label="日期" align="center" prop="date" v-if="columns[1].visible"  width="180">
-            <template slot-scope="scope">
-              <span>{{ parseTime(scope.row.date) }}</span> <!-- 格式化后的数据 -->
+          <el-table-column type="expand">
+            <template slot-scope="props">
+              <el-form label-position="left" inline class="demo-table-expand">
+                <el-form-item label="商品编码">:
+                  <span>{{ props.row.productCode }}</span>
+                </el-form-item>
+                <el-form-item label="开团团长">:
+                  <span>{{ props.row.groupLeader }}</span>
+                </el-form-item>
+                <el-form-item label="商品名称">:
+                  <span>{{ props.row.productName }}</span>
+                </el-form-item>
+                <el-form-item label="供货价">:
+                  <span>{{ props.row.supplyPrice }}</span>
+                </el-form-item>
+                <el-form-item label="货数">:
+                  <span>{{ props.row.quantity }}</span>
+                </el-form-item>
+                <el-form-item label="产品名称">:
+                  <span>{{ props.row.productType }}</span>
+                </el-form-item>
+                <el-form-item label="内部商品编号">:
+                  <span>{{ props.row.internalProductCode }}</span>
+                </el-form-item>
+                <el-form-item label="品牌方">:
+                  <span>{{ props.row.brandOwner }}</span>
+                </el-form-item>
+                <el-form-item label="备注">:
+                  <span>{{ props.row.remarks }}</span>
+                </el-form-item>
+              </el-form>
             </template>
           </el-table-column>
-          <el-table-column label="订单号" align="center" key="orderNumber" prop="orderNumber" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="产品名称_详细信息" align="center" key="productNameDetails" prop="productNameDetails" v-if="columns[3].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="账款" align="center" key="amount" prop="amount" v-if="columns[4].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="是否完成" align="center" key="isCompleted" prop="isCompleted" v-if="columns[5].visible" :show-overflow-tooltip="true" > <template slot-scope="scope">
-            {{ dict.type.completed[scope.row.isCompleted] ? dict.type.completed[scope.row.isCompleted]["label"] : '空' }}
-          </template>
-          </el-table-column>
-          <el-table-column label="支出收入" align="center" key="incomeExpense" prop="incomeExpense" v-if="columns[6].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="付款项目" align="center" key="paymentItem" prop="paymentItem" v-if="columns[7].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="商品编码" align="center" key="productCode" prop="productCode" v-if="columns[0].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="开团团长" align="center" key="groupLeader" prop="groupLeader" v-if="columns[1].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="商品名称" align="center" key="productName" prop="productName" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="供货价" align="center" key="supplyPrice" prop="supplyPrice" v-if="columns[3].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="货数" align="center" key="quantity" prop="quantity" v-if="columns[4].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="产品名称" align="center" key="productType" prop="productType" v-if="columns[5].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="内部商品编号" align="center" key="internalProductCode" prop="internalProductCode" v-if="columns[6].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="品牌方" align="center" key="brandOwner" prop="brandOwner" v-if="columns[7].visible" :show-overflow-tooltip="true" />
           <el-table-column label="备注" align="center" key="remarks" prop="remarks" v-if="columns[8].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="品牌方" align="center" key="brand" prop="brand" v-if="columns[9].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="出货方" align="center" key="supplier" prop="supplier" v-if="columns[10].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="处理人" align="center" key="handler" prop="handler" v-if="columns[11].visible" :show-overflow-tooltip="true" />
 
 
           // 功能按钮  数据最后一列的操作
@@ -398,7 +378,7 @@
 
 
 <script>
-import { listFinancialRecords,getFinancialRecords,addFinancialRecords,updateFinancialRecords,delFinancialRecords } from "@/api/manage/financialRecord";
+import { listKttShipment,getKttShipment,addKttShipment,updateKttShipment,delKttShipment } from "@/api/manage/kttShipment";
 import { getToken } from "@/utils/auth";
 import Treeselect from "@riophae/vue-treeselect";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
@@ -463,40 +443,27 @@ export default {
       queryParams: {
         pageNum: 1,
         pageSize: 10,
-        settlementDate: undefined,
-        date: undefined,
-        orderNumber: undefined,
-        productNameDetails: undefined,
-        amount: undefined,
-        isCompleted: undefined,
-        incomeExpense: undefined,
-        paymentItem: undefined,
-        remarks: undefined,
-        brand: undefined,
-        supplier: undefined,
-        handler: undefined,
-        filterAttribute:undefined,
-        filterCondition:undefined,
-        filterValue:undefined,
-        bianHao:undefined
+        productCode: undefined,
+        productName: undefined,
+        internalProductCode: undefined,
+        productType: undefined,
+        brandOwner: undefined,
+        groupLeader: undefined,
+
 
       },
 
       // 列信息
       columns: [
-        { key: 'settlementDate', label: '结算日期', visible: true },
-        { key: 'date', label: '日期', visible: true },
-        { key: 'orderNumber', label: '订单号', visible: true },
-        { key: 'productNameDetail', label: '产品名称_详细信息', visible: true },
-        { key: 'amount', label: '账款', visible: true },
-        { key: 'isCompleted', label: '是否完成', visible: true },
-        { key: 'incomeExpense', label: '支出收入', visible: true },
-        { key: 'paymentItem', label: '付款项目', visible: true },
-        { key: 'remark', label: '备注', visible: true },
-        { key: 'brand', label: '品牌方', visible: true },
-        { key: 'supplier', label: '出货方', visible: true },
-        { key: 'handler', label: '处理人', visible: true },
-        { key: 'bianHao', label: '编号', visible: true }
+        { key: 'productCode', label: '商品编码', visible: true },
+        { key: 'groupLeader', label: '开团团长', visible: true },
+        { key: 'productName', label: '商品名称', visible: true },
+        { key: 'supplyPrice', label: '供货价', visible: true },
+        { key: 'quantity', label: '货数', visible: true },
+        { key: 'productType', label: '产品名称', visible: true },
+        { key: 'internalProductCode', label: '内部商品编号', visible: true },
+        { key: 'brandOwner', label: '品牌方', visible: true },
+        { key: 'remarks', label: '备注', visible: true }
       ],
       // 表单校验
       rules: {
@@ -549,7 +516,7 @@ export default {
       this.loading = true;
 
       // 获取数据
-      listFinancialRecords(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
+      listKttShipment(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
         this.financialRecordList = response.rows;
         this.total = response.total;
         this.loading = false;
@@ -649,7 +616,7 @@ export default {
     /** 新增按钮操作 */
     handleAdd() {
       this.reset();
-      // getFinancialRecords().then(response => {
+      // getKttShipment().then(response => {
         this.open = true;
         this.title = "添加财务记录";
       // });
@@ -658,7 +625,7 @@ export default {
     handleUpdate(row) {
       this.reset();
       const idd = row.id || this.ids;
-      getFinancialRecords(idd).then(response => {
+      getKttShipment(idd).then(response => {
         this.form = response.data;
         console.log(response.data)
         this.open = true;
@@ -671,13 +638,13 @@ export default {
       this.$refs["form"].validate(valid => {
         if (valid) {
           if (this.form.id != undefined) {
-            updateFinancialRecords(this.form).then(response => {
+            updateKttShipment(this.form).then(response => {
               this.$modal.msgSuccess("修改成功");
               this.open = false;
               this.getList();
             });
           } else {
-            addFinancialRecords(this.form).then(response => {
+            addKttShipment(this.form).then(response => {
               this.$modal.msgSuccess("新增成功");
               this.open = false;
               this.getList();
@@ -690,7 +657,7 @@ export default {
     handleDelete(row) {
       const FinancialRecordIds = row.id || this.ids;
       this.$modal.confirm('是否确认删除财务编号为"' + FinancialRecordIds + '"的数据项？').then(function() {
-        return delFinancialRecords(FinancialRecordIds);
+        return delKttShipment(FinancialRecordIds);
       }).then(() => {
         this.getList();
         this.$modal.msgSuccess("删除成功");
@@ -737,6 +704,18 @@ export default {
 .el-table__body-wrapper {
   max-height: calc(100vh - 400px); /* 设置表格体的最大高度，留出搜索条件和底部pagination的空间 */
   overflow-y: auto; /* 当内容超出容器高度时显示垂直滚动条 */
+}
+.demo-table-expand {
+  font-size: 0;
+}
+.demo-table-expand label {
+  width: 90px;
+  color: #2278d9;
+}
+.demo-table-expand .el-form-item {
+  margin-right: 0;
+  margin-bottom: 0;
+  width: 50%;
 }
 
 </style>
