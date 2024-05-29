@@ -35,6 +35,7 @@ public class FinancialRecordController extends BaseController {
     {
         startPage();
         List<FinancialRecord> list = financialRecordService.selectAll(financialRecord);
+        System.out.println(list);
         return getDataTable(list);
     }
 //    @Log(title = "财务记录", businessType = BusinessType.EXPORT)
@@ -95,7 +96,9 @@ public class FinancialRecordController extends BaseController {
 //        {
 //            return error("新增用户'" + user.getUserName() + "'失败，邮箱账号已存在");
 //        }
+
         financialRecord.setCreateBy(getUsername());
+        System.out.println(financialRecord);
         return toAjax(financialRecordService.insert(financialRecord));
     }
 
@@ -119,7 +122,9 @@ public class FinancialRecordController extends BaseController {
 //        {
 //            return error("修改用户'" + user.getUserName() + "'失败，邮箱账号已存在");
 //        }
+
         financialRecord.setUpdateBy(getUsername());
+        System.out.println(financialRecord);
         return toAjax(financialRecordService.update(financialRecord));
     }
 
@@ -132,23 +137,6 @@ public class FinancialRecordController extends BaseController {
 
         return toAjax(financialRecordService.deleteByIds(ids));
     }
-        /**
-     * 删除菜单
-     */
-    @PreAuthorize("@ss.hasPermi('system:menu:remove')")
-    @Log(title = "财务记录", businessType = BusinessType.DELETE)
-    @DeleteMapping("/{id}")
-    public AjaxResult remove(@PathVariable("id") Long id)
-    {
-//        if (menuService.hasChildByMenuId(menuId))
-//        {
-//            return warn("存在子菜单,不允许删除");
-//        }
-//        if (menuService.checkMenuExistRole(menuId))
-//        {
-//            return warn("菜单已分配,不允许删除");
-//        }
-        return toAjax(financialRecordService.deleteById(id));
-    }
+
 
 }

@@ -34,7 +34,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			internal_product_code,
 			brand_owner,
 			remarks
-		FROM ktt_shipment
+		FROM kuatuantuan_shipment
 	</sql>
 
 	<!-- 根据条件查询所有KttShipment -->
@@ -77,7 +77,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 插入KttShipment -->
 	<insert id="insertKttShipment" parameterType="com.ruoyi.common.core.domain.newEntity.KttShipment">
-		INSERT INTO ktt_shipment (
+		INSERT INTO kuatuantuan_shipment (
 		<if test="productCode != null">product_code,</if>
 		<if test="groupLeader != null">group_leader,</if>
 		<if test="productName != null">product_name,</if>
@@ -104,7 +104,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 更新KttShipment -->
 	<update id="updateKttShipment" parameterType="com.ruoyi.common.core.domain.newEntity.KttShipment">
-		UPDATE ktt_shipment
+		UPDATE kuatuantuan_shipment
 		<set>
 			<if test="productCode != null">product_code = #{productCode},</if>
 			<if test="groupLeader != null">group_leader = #{groupLeader},</if>
@@ -122,12 +122,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 删除KttShipment -->
 	<delete id="deleteKttShipmentById" parameterType="Long">
-		DELETE FROM ktt_shipment WHERE record_id = #{recordId}
+		DELETE FROM kuatuantuan_shipment WHERE record_id = #{recordId}
 	</delete>
 
 	<!-- 根据多个ID删除KttShipment -->
 	<delete id="deleteKttShipmentsByIds" parameterType="Long">
-		DELETE FROM ktt_shipment WHERE record_id IN
+		DELETE FROM kuatuantuan_shipment WHERE record_id IN
 		<foreach collection="array" item="recordId" open="(" separator="," close=")">
 			#{recordId}
 		</foreach>

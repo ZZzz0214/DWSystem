@@ -2,6 +2,8 @@ package com.ruoyi.system.mapper;
 
 
 import com.ruoyi.common.core.domain.newEntity.FinancialRecord;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -23,4 +25,7 @@ public interface FinancialRecordMapper {
 
     // 根据多个ID删除记录
     int deleteByIds(Long[] ids);
+
+    @Select("SELECT bian_hao FROM financial_records WHERE bian_hao LIKE CONCAT('CWJL_', #{date}, '%') ORDER BY id DESC LIMIT 1")
+    String findTopBianHaoByDate(@Param("date") String date);
 }

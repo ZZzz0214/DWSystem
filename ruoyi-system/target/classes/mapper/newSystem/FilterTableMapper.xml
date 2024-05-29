@@ -50,7 +50,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectAllFilterTables" resultMap="FilterTableMap">
 		<include refid="selectFilterTable"/>
 		WHERE 1=1
-		<if test="orderNumber != null and orderNumber != ''">
+		<if test="orderNumber != null and orderNumber != 0">
 			AND order_number = #{orderNumber}
 		</if>
 		<if test="productName != null and productName != ''">

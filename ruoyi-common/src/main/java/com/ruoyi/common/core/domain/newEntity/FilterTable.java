@@ -12,7 +12,7 @@ public class FilterTable extends BaseEntity {
     private static final long serialVersionUID = 1L;
     /** 订单编号 */
     @Excel(name = "订单编号")
-    private String orderNumber;
+    private Long orderNumber;
 
     /** 商品名称 */
     @Excel(name = "商品名称")
@@ -66,11 +66,11 @@ public class FilterTable extends BaseEntity {
     @Excel(name = "内部商品编号")
     private String internalProductCode;
 
-    public String getOrderNumber() {
+    public Long getOrderNumber() {
         return orderNumber;
     }
 
-    public void setOrderNumber(String orderNumber) {
+    public void setOrderNumber(Long orderNumber) {
         this.orderNumber = orderNumber;
     }
 
