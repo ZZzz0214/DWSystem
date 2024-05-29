@@ -5,49 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e46e3b0b-2b88-4f5d-b8c7-1ae0ef89e502" name="更改" comment="改了一些 实体类引用错误的小毛病 可以正常运行了">
-      <change afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/tool/AfterSalesBatchController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/tool/DropshipRecordController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/tool/FilterTableController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/tool/InventoryRecordController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/tool/KttShipmentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/tool/NotebookController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/tool/SupplierInfoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/mapper/AfterSalesBatchMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/mapper/DropshipRecordMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/mapper/FilterTableMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/mapper/InventoryRecordMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/mapper/KttShipmentMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/mapper/NotebookMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/mapper/SupplierInfoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/AfterSalesBatchService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/DropshipRecordService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/FilterTableService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/InventoryRecordService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/KttShipmentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/NotebookService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/SupplierInfoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/impl/AfterSalesBatchServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/impl/DropshipRecordServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/impl/FilterTableServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/impl/InventoryRecordServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/impl/KttShipmentServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/impl/NotebookServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/impl/SupplierInfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-common/src/main/java/com/ruoyi/common/core/domain/newEntity/FilterTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/src/main/java/com/ruoyi/common/core/domain/newEntity/FilterTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/core/domain/newEntity/FilterTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/core/domain/newEntity/FilterTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/DropshipRecordMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/DropshipRecordMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/FilterTableMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/FilterTableMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/KttShipmentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/KttShipmentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/newSystem/DropshipRecordMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/newSystem/DropshipRecordMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/newSystem/FilterTableMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/newSystem/FilterTableMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/23ee9c5638f6c0c81fb81be5383c7a79.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/23ee9c5638f6c0c81fb81be5383c7a79.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/3346b7bcc9b0084ee5f87a8eda34b6e1.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/3346b7bcc9b0084ee5f87a8eda34b6e1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/371d25f340002d73082ef0b1f2cc4ebf.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/371d25f340002d73082ef0b1f2cc4ebf.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/5225d4761a9a2430df5bdf8dd9cad0fc.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/5225d4761a9a2430df5bdf8dd9cad0fc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/5a26dd0a4d2bd9c1677aad92c48e20d2.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/5a26dd0a4d2bd9c1677aad92c48e20d2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/d5afc0a400abc033d32f2f4667e35f9d.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/d5afc0a400abc033d32f2f4667e35f9d.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/views/manage/FinancialRecord/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/views/manage/FinancialRecord/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/newSystem/KttShipmentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/newSystem/KttShipmentMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,6 +194,7 @@
       <workItem from="1716861050856" duration="6671000" />
       <workItem from="1716876657760" duration="5099000" />
       <workItem from="1716898732172" duration="7918000" />
+      <workItem from="1716957582884" duration="722000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1715672587273</created>
