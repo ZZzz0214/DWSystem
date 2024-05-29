@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e46e3b0b-2b88-4f5d-b8c7-1ae0ef89e502" name="更改" comment="改了一些 实体类引用错误的小毛病 可以正常运行了">
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/newSystem/KttShipmentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/newSystem/KttShipmentMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/tool/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/mapper/ProductMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/impl/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/impl/KttShipmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/impl/KttShipmentServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +199,7 @@
       <workItem from="1716861050856" duration="6671000" />
       <workItem from="1716876657760" duration="5099000" />
       <workItem from="1716898732172" duration="7918000" />
-      <workItem from="1716957582884" duration="722000" />
+      <workItem from="1716957582884" duration="2462000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1715672587273</created>

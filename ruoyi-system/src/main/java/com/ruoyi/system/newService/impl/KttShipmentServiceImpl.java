@@ -21,18 +21,28 @@ public class KttShipmentServiceImpl implements KttShipmentService {
     public  String generateBianHao() {
 
 
+//        String lastBianHao = kttShipmentMapper.findMaxBianHao();
+//        long nextSequenceNumber;
+//
+//        if (lastBianHao != null) {
+//            // 提取最后编号中的序列号部分
+//            String lastSequenceNumberStr = lastBianHao.substring(lastBianHao.lastIndexOf('H') + 1);
+//            nextSequenceNumber = Long.parseLong(lastSequenceNumberStr) + 1;
+//        } else {
+//            nextSequenceNumber = 1;
+//        }
+//
+//        // 返回新的编号
+//        return String.format("NO.AH%06d", nextSequenceNumber);
         String lastBianHao = kttShipmentMapper.findMaxBianHao();
         long nextSequenceNumber;
 
         if (lastBianHao != null) {
-            // 提取最后编号中的序列号部分
-            String lastSequenceNumberStr = lastBianHao.substring(lastBianHao.lastIndexOf('H') + 1);
-            nextSequenceNumber = Long.parseLong(lastSequenceNumberStr) + 1;
+            nextSequenceNumber = Long.parseLong(lastBianHao) + 1;
         } else {
             nextSequenceNumber = 1;
         }
 
-        // 返回新的编号
         return String.format("NO.AH%06d", nextSequenceNumber);
     }
     @Override
