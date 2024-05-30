@@ -103,22 +103,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			AND product_id = #{productId}
 		</if>
 		<if test="productName != null and productName != ''">
-			AND product_name = #{productName}
+			AND product_name LIKE concat('%',#{productName},'%')
 		</if>
 		<if test="internalProductCode != null and internalProductCode != ''">
-			AND internal_product_code = #{internalProductCode}
+			AND internal_product_code   LIKE concat('%',#{internalProductCode},'%')
 		</if>
 		<if test="shipmentCode != null and shipmentCode != ''">
-			AND shipment_code = #{shipmentCode}
+			AND shipment_code LIKE concat('%',#{shipmentCode},'%')
 		</if>
 		<if test="specifications != null and specifications != ''">
 			AND specifications = #{specifications}
 		</if>
 		<if test="tmallListingPrice != null">
 			AND tmall_listing_price = #{tmallListingPrice}
-		</if>
-		<if test="productionDate != null">
-			AND data_format(production_date, '%Y-%m-%d')= date_format(#{productionDate},'%Y-%m-%d')
 		</if>
 		<if test="productSellingPoints != null and productSellingPoints != ''">
 			AND product_selling_points = #{productSellingPoints}
@@ -213,9 +210,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<if test="alibabaListingPrice != null">
 			AND alibaba_listing_price = #{alibabaListingPrice}
 		</if>
-		<if test="entryTime != null">
-			AND data_format(entry_time, '%Y-%m-%d') = data_format(#{entryTime}, '%Y-%m-%d')
-		</if>
 		<if test="createBy != null and createBy != ''">
 			AND create_by = #{createBy}
 		</if>
@@ -227,6 +221,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</if>
 		<if test="updateTime != null">
 			AND data_format(update_time, '%Y-%m-%d') = data_format(#{updateTime}, '%Y-%m-%d')
+		</if>
+		<!-- 生产日期范围 -->
+		<if test="productionStartDate != null and productionStartDate != ''">
+			AND date_format(production_date,'%y%m%d') &gt;= date_format(#{productionStartDate},'%y%m%d')
+		</if>
+		<if test="productionEndDate != null and productionEndDate != ''">
+			AND date_format(production_date,'%y%m%d') &lt;= date_format(#{productionEndDate},'%y%m%d')
+		</if>
+		<!-- 录入时间范围 -->
+		<if test="entryStartDate != null and entryStartDate != ''">
+			AND date_format(entry_time,'%y%m%d') &gt;= date_format(#{entryStartDate},'%y%m%d')
+		</if>
+		<if test="entryEndDate != null and entryEndDate != ''">
+			AND date_format(entry_time,'%y%m%d') &lt;= date_format(#{entryEndDate},'%y%m%d')
 		</if>
 	</select>
 	<select id="selectById" parameterType="Long" resultMap="ProductMap">
@@ -375,7 +383,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="deleteProductByIds" parameterType="Long">
 		DELETE FROM product_information
 		WHERE product_id IN
-		<foreach collection="list" item="productId" open="(" separator="," close=")">
+		<foreach collection="array" item="productId" open="(" separator="," close=")">
 			#{productId}
 		</foreach>
 	</delete>

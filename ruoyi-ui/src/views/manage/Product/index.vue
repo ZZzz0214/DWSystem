@@ -5,18 +5,18 @@
       <!--产品信息-->
       <el-col >
         <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="80px">
-          <el-form-item label="内部编号" prop="settlementDate">
+          <el-form-item label="内部编号" prop="internalProductCode">
             <el-input
-              v-model="queryParams.settlementDate"
+              v-model="queryParams.internalProductCode"
               placeholder="请输入内部编号"
               clearable
               style="width: 240px"
               @keyup.enter.native="handleQuery"
             />
           </el-form-item>
-          <el-form-item label="产品名称" prop="orderNumber">
+          <el-form-item label="产品名称" prop="productName">
             <el-input
-              v-model="queryParams.orderNumber"
+              v-model="queryParams.productName"
               placeholder="请输入产品名称"
               clearable
               style="width: 240px"
@@ -24,39 +24,40 @@
             >
             </el-input>
           </el-form-item>
-          <el-form-item label="发货编码" prop="brand">
+          <el-form-item label="发货编码" prop="shipmentCode">
             <el-input
-              v-model="queryParams.brand"
+              v-model="queryParams.shipmentCode"
               placeholder="请输入发货编码"
               clearable
               style="width: 240px"
               @keyup.enter.native="handleQuery"
             />
           </el-form-item>
-          <el-form-item label="产品状态" prop="paymentItem">
-            <el-input
-              v-model="queryParams.paymentItem"
-              placeholder="请输入产品状态"
-              clearable
-              style="width: 240px"
-              @keyup.enter.native="handleQuery"
-            />
-          </el-form-item>
-
-        </el-form>
-        <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="80px">
-          <el-form-item label="品类">
-            <el-select
-              v-model="queryParams.category"
-              placeholder="请输入品类"
-              clearable
-              style="width: 240px"
-            >
+          <el-form-item label="产品状态" prop="productStatus">
+            <el-select v-model="queryParams.productStatus" placeholder="请选择产品状态">
+              <el-option
+                v-for="dict in dict.type.product_status"
+                :key="dict.value"
+                :label="dict.label"
+                :value="dict.value"
+              ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="规格" prop="supplier">
+
+
+          <el-form-item label="品类" prop="category">
+            <el-select v-model="queryParams.category" placeholder="请选择品类">
+              <el-option
+                v-for="dict in dict.type.category"
+                :key="dict.value"
+                :label="dict.label"
+                :value="dict.value"
+              ></el-option>
+            </el-select>
+          </el-form-item>
+          <el-form-item label="规格" prop="specifications">
             <el-input
-              v-model="queryParams.supplier"
+              v-model="queryParams.specifications"
               placeholder="请输入规格"
               clearable
               style="width: 240px"
@@ -64,31 +65,33 @@
             >
             </el-input>
           </el-form-item>
-          <el-form-item label="品牌方" prop="incomeExpense">
-            <el-input
-              v-model="queryParams.incomeExpense"
-              placeholder="请输入品牌方"
-              clearable
-              style="width: 240px"
-              @keyup.enter.native="handleQuery"
-            >
-            </el-input>
+          <el-form-item label="品牌方" prop="brandOwner">
+            <el-select v-model="queryParams.brandOwner" placeholder="请选择品牌方">
+              <el-option
+                v-for="dict in dict.type.brand_owner"
+                :key="dict.value"
+                :label="dict.label"
+                :value="dict.value"
+              ></el-option>
+            </el-select>
+
           </el-form-item>
-          <el-form-item label="状态" prop="handler">
-            <el-input
-              v-model="queryParams.handler"
-              placeholder="请输入状态"
-              clearable
-              style="width: 240px"
-              @keyup.enter.native="handleQuery"
-            />
+          <el-form-item label="状态" prop="status">
+            <el-select v-model="queryParams.status" placeholder="请选择状态">
+              <el-option
+                v-for="dict in dict.type.status"
+                :key="dict.value"
+                :label="dict.label"
+                :value="dict.value"
+              ></el-option>
+            </el-select>
           </el-form-item>
 
-        </el-form>
-        <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="80px">
+
+
           <el-form-item label="生产日期">
             <el-date-picker
-              v-model="dateRange"
+              v-model="dateRange1"
               style="width: 240px"
               value-format="yyyy-MM-dd"
               type="daterange"
@@ -99,7 +102,7 @@
           </el-form-item>
           <el-form-item label="录入时间">
             <el-date-picker
-              v-model="dateRange"
+              v-model="dateRange2"
               style="width: 240px"
               value-format="yyyy-MM-dd"
               type="daterange"
@@ -172,47 +175,83 @@
 
         <el-table v-loading="loading" :data="userList" @selection-change="handleSelectionChange">
           <el-table-column type="selection" width="50" align="center" />
-          <el-table-column label="录入时间" align="center" prop="entryTime" v-if="columns[1].visible"  width="180">
+          <el-table-column type="expand">
+            <template slot-scope="props">
+              <el-form label-position="left" inline class="demo-table-expand">
+                <el-form-item v-for="(column, index) in columns" :key="index" v-if="column.visible" :label="column.label">
+                  <span>{{ props.row[column.key] }}</span>
+                </el-form-item>
+              </el-form>
+            </template>
+          </el-table-column>
+
+          <el-table-column label="录入时间" align="center" prop="entryTime" v-if="columns[0].visible"  width="180">
             <template slot-scope="scope">
               <span>{{ parseTime(scope.row.entryTime) }}</span> <!-- 格式化后的数据 -->
             </template>
           </el-table-column>
-          <el-table-column label="产品名称" align="center" key="productName" prop="productName" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="产品名称" align="center" key="productName" prop="productName" v-if="columns[1].visible" :show-overflow-tooltip="true" />
           <el-table-column label="内部商品编号" align="center" key="internalProductCode" prop="internalProductCode" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="发货编码" align="center" key="shipmentCode" prop="shipmentCode" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="规格" align="center" key="specifications" prop="specifications" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="生产日期" align="center" key="productionDate" prop="productionDate" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="产品卖点" align="center" key="productSellingPoints" prop="productSellingPoints" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="现货库存" align="center" key="currentStock" prop="currentStock" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="实际返单时效" align="center" key="actualOrderTime" prop="actualOrderTime" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="退货地址" align="center" key="returnAddress" prop="returnAddress" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="快递明细" align="center" key="shippingDetails" prop="shippingDetails" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="链接" align="center" key="link" prop="link" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="状态" align="center" key="status" prop="status" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="品牌" align="center" key="brand" prop="brand" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="筛选" align="center" key="filter" prop="filter" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="品类" align="center" key="category" prop="category" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="剩余库存" align="center" key="remainingStock" prop="remainingStock" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="售后数量" align="center" key="afterSalesQuantity" prop="afterSalesQuantity" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="品牌方" align="center" key="brandOwner" prop="brandOwner" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="产品状态" align="center" key="productStatus" prop="productStatus" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="采购价" align="center" key="purchasePrice" prop="purchasePrice" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="运费" align="center" key="shippingCost" prop="shippingCost" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="出货价_链" align="center" key="shippingPriceChain" prop="shippingPriceChain" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="出货价_代发" align="center" key="shippingPriceDropship" prop="shippingPriceDropship" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="出货价_详细代发" align="center" key="shippingPriceDetailedDropship" prop="shippingPriceDetailedDropship" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="采购_注意事项" align="center" key="purchaseNotes" prop="purchaseNotes" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="出货_注意事项" align="center" key="shippingNotes" prop="shippingNotes" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="公域挂价_天猫_淘宝_京东" align="center" key="publicListingPriceTmallTaobaoJd" prop="publicListingPriceTmallTaobaoJd" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="拼多多挂价" align="center" key="pinduoduoListingPrice" prop="pinduoduoListingPrice" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="私域_团购_快团等" align="center" key="privateGroupBuyPrice" prop="privateGroupBuyPrice" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="直播挂价_专属价_日常改原价" align="center" key="liveStreamPrice" prop="liveStreamPrice" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="出货价_1档" align="center" key="shippingPriceTier1" prop="shippingPriceTier1" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="出货价_2档" align="center" key="shippingPriceTier2" prop="shippingPriceTier2" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="代发出货价" align="center" key="dropshipShippingPrice" prop="dropshipShippingPrice" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="阿里挂价" align="center" key="alibabaListingPrice" prop="alibabaListingPrice" v-if="columns[2].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="发货编码" align="center" key="shipmentCode" prop="shipmentCode" v-if="columns[3].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="规格" align="center" key="specifications" prop="specifications" v-if="columns[4].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="生产日期" align="center" key="productionDate" prop="productionDate" v-if="columns[5].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="产品卖点" align="center" key="productSellingPoints" prop="productSellingPoints" v-if="columns[6].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="现货库存" align="center" key="currentStock" prop="currentStock" v-if="columns[7].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="实际返单时效" align="center" key="actualOrderTime" prop="actualOrderTime" v-if="columns[8].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="退货地址" align="center" key="returnAddress" prop="returnAddress" v-if="columns[9].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="快递明细" align="center" key="shippingDetails" prop="shippingDetails" v-if="columns[10].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="链接" align="center" key="link" prop="link" v-if="columns[11].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="状态" align="center" key="status" prop="status" v-if="columns[12].visible" :show-overflow-tooltip="true" >
+            <template slot-scope="scope">
+              {{ dict.type.status[scope.row.status] ? dict.type.status[scope.row.status]["label"] : '空' }}
+            </template>
+          </el-table-column>
+          <el-table-column label="品牌" align="center" key="brand" prop="brand" v-if="columns[13].visible" :show-overflow-tooltip="true" >
+            <template slot-scope="scope">
+              {{ dict.type.brand[scope.row.brand] ? dict.type.brand[scope.row.brand]["label"] : '空' }}
+            </template>
+          </el-table-column>
+          <el-table-column label="筛选" align="center" key="filter" prop="filter" v-if="columns[14].visible" :show-overflow-tooltip="true" >
+            <template slot-scope="scope">
+              {{ dict.type.filter[scope.row.filter] ? dict.type.filter[scope.row.filter]["label"] : '空' }}
+            </template>
 
-          shipperInformation
+          </el-table-column>
+          <el-table-column label="品类" align="center" key="category" prop="category" v-if="columns[15].visible" :show-overflow-tooltip="true">
+            <template slot-scope="scope">
+              {{ dict.type.category[scope.row.category] ? dict.type.category[scope.row.category]["label"] : '空' }}
+            </template>
+
+          </el-table-column>
+          <el-table-column label="剩余库存" align="center" key="remainingStock" prop="remainingStock" v-if="columns[16].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="售后数量" align="center" key="afterSalesQuantity" prop="afterSalesQuantity" v-if="columns[17].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="品牌方" align="center" key="brandOwner" prop="brandOwner" v-if="columns[18].visible" :show-overflow-tooltip="true" >
+            <template slot-scope="scope">
+              {{ dict.type.brand_owner[scope.row.brandOwner] ? dict.type.brand_owner[scope.row.brandOwner]["label"] : '空' }}
+            </template>
+
+          </el-table-column>
+          <el-table-column label="产品状态" align="center" key="productStatus" prop="productStatus" v-if="columns[19].visible" :show-overflow-tooltip="true" >
+            <template slot-scope="scope">
+              {{ dict.type.product_status[scope.row.productStatus] ? dict.type.product_status[scope.row.productStatus]["label"] : '空' }}
+            </template>
+
+          </el-table-column>
+          <el-table-column label="采购价" align="center" key="purchasePrice" prop="purchasePrice" v-if="columns[20].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="运费" align="center" key="shippingCost" prop="shippingCost" v-if="columns[21].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="出货价_链" align="center" key="shippingPriceChain" prop="shippingPriceChain" v-if="columns[22].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="出货价_代发" align="center" key="shippingPriceDropship" prop="shippingPriceDropship" v-if="columns[23].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="出货价_详细代发" align="center" key="shippingPriceDetailedDropship" prop="shippingPriceDetailedDropship" v-if="columns[24].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="采购_注意事项" align="center" key="purchaseNotes" prop="purchaseNotes" v-if="columns[25].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="出货_注意事项" align="center" key="shippingNotes" prop="shippingNotes" v-if="columns[26].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="公域挂价_天猫_淘宝_京东" align="center" key="publicListingPriceTmallTaobaoJd" prop="publicListingPriceTmallTaobaoJd" v-if="columns[27].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="拼多多挂价" align="center" key="pinduoduoListingPrice" prop="pinduoduoListingPrice" v-if="columns[28].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="私域_团购_快团等" align="center" key="privateGroupBuyPrice" prop="privateGroupBuyPrice" v-if="columns[29].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="直播挂价_专属价_日常改原价" align="center" key="liveStreamPrice" prop="liveStreamPrice" v-if="columns[30].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="出货价_1档" align="center" key="shippingPriceTier1" prop="shippingPriceTier1" v-if="columns[31].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="出货价_2档" align="center" key="shippingPriceTier2" prop="shippingPriceTier2" v-if="columns[32].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="代发出货价" align="center" key="dropshipShippingPrice" prop="dropshipShippingPrice" v-if="columns[33].visible" :show-overflow-tooltip="true" />
+          <el-table-column label="阿里挂价" align="center" key="alibabaListingPrice" prop="alibabaListingPrice" v-if="columns[34].visible" :show-overflow-tooltip="true" />
 
           <el-table-column
             label="操作"
@@ -263,35 +302,92 @@
     </div>
 
     <!-- 添加或修改用户配置对话框 -->
-    <el-dialog :title="title" :visible.sync="open" width="600px" append-to-body>
+    <el-dialog :title="title" :visible.sync="open" width="800px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
         <el-row>
           <el-col :span="12">
-            <el-form-item label="用户昵称" prop="nickName">
-              <el-input v-model="form.nickName" placeholder="请输入用户昵称" maxlength="30" />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row>
-        </el-row>
-        <el-row>
-          <el-col :span="12">
-            <el-form-item v-if="form.userId == undefined" label="用户名称" prop="userName">
-              <el-input v-model="form.userName" placeholder="请输入用户名称" maxlength="30" />
+            <el-form-item label="发货编码" prop="shipmentCode">
+              <el-input v-model="form.shipmentCode" placeholder="请输入发货编码" maxlength="30" />
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item v-if="form.userId == undefined" label="用户密码" prop="password">
-              <el-input v-model="form.password" placeholder="请输入用户密码" type="password" maxlength="20" show-password/>
+            <el-form-item  label="产品名称" prop="productName">
+              <el-input v-model="form.productName" placeholder="请输入产品名称"  maxlength="20" />
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="12">
-            <el-form-item label="用户性别">
-              <el-select v-model="form.sex" placeholder="请选择性别">
+            <el-form-item label="生产日期" prop="productionDate">
+              <el-date-picker
+                v-model="form.productionDate"
+                type="date"
+                placeholder="选择生产日期"
+                format="yyyy-MM-dd"
+                value-format="yyyy-MM-dd"
+              ></el-date-picker>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item  label="规格" prop="specifications">
+              <el-input v-model="form.specifications" placeholder="请输入规格"  maxlength="20" />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="产品卖点" prop="productSellingPoints">
+              <el-input v-model="form.productSellingPoints" placeholder="请输入产品卖点" maxlength="30" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item  label="现货库存" prop="currentStock">
+              <el-input v-model="form.currentStock" placeholder="请输入现货库存"  maxlength="20" />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="退货地址" prop="returnAddress">
+              <el-input v-model="form.returnAddress" placeholder="请输入退货地址" maxlength="30" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item  label="实际返单时效" prop="actualOrderTime">
+              <el-input v-model="form.actualOrderTime" placeholder="请输入实际返单时效"  maxlength="20" />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="公域挂价_天猫_淘宝_京东" prop="publicListingPriceTmallTaobaoJd">
+              <el-input v-model="form.publicListingPriceTmallTaobaoJd" placeholder="请输入公域挂价_天猫_淘宝_京东" maxlength="30" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item  label="快递明细" prop="shippingDetails">
+              <el-input v-model="form.shippingDetails" placeholder="请输入快递明细"  maxlength="20" />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="私域_团购_快团等" prop="privateGroupBuyPrice">
+              <el-input v-model="form.privateGroupBuyPrice" placeholder="请输入私域_团购_快团等" maxlength="30" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item  label="拼多多挂价" prop="pinduoduoListingPrice">
+              <el-input v-model="form.pinduoduoListingPrice" placeholder="请输入拼多多挂价"  maxlength="20" />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="品类" prop="category">
+              <el-select v-model="form.category" placeholder="请选择品类">
                 <el-option
-                  v-for="dict in dict.type.sys_user_sex"
+                  v-for="dict in dict.type.category"
                   :key="dict.value"
                   :label="dict.label"
                   :value="dict.value"
@@ -300,52 +396,182 @@
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item label="状态">
-              <el-radio-group v-model="form.status">
-                <el-radio
-                  v-for="dict in dict.type.sys_normal_disable"
+            <el-form-item  label="直播挂价_专属价_日常改原价" prop="liveStreamPrice">
+              <el-input v-model="form.liveStreamPrice" placeholder="请输入直播挂价_专属价_日常改原价"  maxlength="20" />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="状态" prop="status">
+              <el-select v-model="form.status" placeholder="请选择状态">
+                <el-option
+                  v-for="dict in dict.type.status"
                   :key="dict.value"
-                  :label="dict.value"
-                >{{dict.label}}</el-radio>
-              </el-radio-group>
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="12">
-            <el-form-item label="岗位">
-              <el-select v-model="form.postIds" multiple placeholder="请选择岗位">
-                <el-option
-                  v-for="item in postOptions"
-                  :key="item.postId"
-                  :label="item.postName"
-                  :value="item.postId"
-                  :disabled="item.status == 1"
+                  :label="dict.label"
+                  :value="dict.value"
                 ></el-option>
               </el-select>
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item label="角色">
-              <el-select v-model="form.roleIds" multiple placeholder="请选择角色">
+            <el-form-item  label="品牌" prop="brand">
+              <el-select v-model="form.brand" placeholder="请选择品牌">
                 <el-option
-                  v-for="item in roleOptions"
-                  :key="item.roleId"
-                  :label="item.roleName"
-                  :value="item.roleId"
-                  :disabled="item.status == 1"
+                  v-for="dict in dict.type.brand"
+                  :key="dict.value"
+                  :label="dict.label"
+                  :value="dict.value"
                 ></el-option>
               </el-select>
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="24">
-            <el-form-item label="备注">
-              <el-input v-model="form.remark" type="textarea" placeholder="请输入内容"></el-input>
+          <el-col :span="12">
+            <el-form-item label="筛选" prop="filter">
+              <el-select v-model="form.filter" placeholder="请选择筛选">
+                <el-option
+                  v-for="dict in dict.type.filter"
+                  :key="dict.value"
+                  :label="dict.label"
+                  :value="dict.value"
+                ></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item  label="产品状态" prop="productStatus">
+              <el-select v-model="form.productStatus" placeholder="请选择产品状态">
+                <el-option
+                  v-for="dict in dict.type.product_status"
+                  :key="dict.value"
+                  :label="dict.label"
+                  :value="dict.value"
+                ></el-option>
+              </el-select>
             </el-form-item>
           </el-col>
         </el-row>
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="剩余库存" prop="remainingStock">
+              <el-input v-model="form.remainingStock" placeholder="请输入剩余库存" maxlength="30" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item  label="链接" prop="link">
+              <el-input v-model="form.link" placeholder="请输入链接"  maxlength="20" />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="采购价" prop="purchasePrice">
+              <el-input v-model="form.purchasePrice" placeholder="请输入采购价" maxlength="30" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item  label="售后数量" prop="afterSalesQuantity">
+              <el-input v-model="form.afterSalesQuantity" placeholder="请输入售后数量"  maxlength="20" />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="运费" prop="shippingCost">
+              <el-input v-model="form.shippingCost" placeholder="请输入运费" maxlength="30" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item  label="品牌方" prop="brandOwner">
+              <el-select v-model="form.brandOwner" placeholder="请选择品牌方">
+                <el-option
+                  v-for="dict in dict.type.brand_owner"
+                  :key="dict.value"
+                  :label="dict.label"
+                  :value="dict.value"
+                ></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="采购_注意事项" prop="purchaseNotes">
+              <el-input v-model="form.purchaseNotes" placeholder="请输入采购_注意事项" maxlength="30" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item  label="代发出货价" prop="dropshipShippingPrice">
+              <el-input v-model="form.dropshipShippingPrice" placeholder="请输入代发出货价"  maxlength="20" />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="出货价_链" prop="shippingPriceChain">
+              <el-input v-model="form.shippingPriceChain" placeholder="请输入出货价_链" maxlength="30" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item  label="出货价_1档" prop="shippingPriceTier1">
+              <el-input v-model="form.shippingPriceTier1" placeholder="请输入出货价_1档"  maxlength="20" />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="出货价_代发" prop="shippingPriceDropship">
+              <el-input v-model="form.shippingPriceDropship" placeholder="请输入出货价_代发" maxlength="30" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item  label="出货价_2档" prop="shippingPriceTier2">
+              <el-input v-model="form.shippingPriceTier2" placeholder="请输入出货价_2档"  maxlength="20" />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="出货价_详细代发" prop="shippingPriceDetailedDropship">
+              <el-input v-model="form.shippingPriceDetailedDropship" placeholder="请输入出货价_详细代发" maxlength="30" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item  label="阿里挂价" prop="alibabaListingPrice">
+              <el-input v-model="form.alibabaListingPrice" placeholder="请输入阿里挂价"  maxlength="20" />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="出货_注意事项" prop="shippingNotes">
+              <el-input v-model="form.shippingNotes" placeholder="请输入出货_注意事项" maxlength="30" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="录入时间" prop="entryTime">
+              <el-date-picker
+                v-model="form.entryTime"
+                type="datetime"
+                placeholder="选择录入时间"
+                format="yyyy-MM-dd HH:mm:ss"
+                value-format="yyyy-MM-dd HH:mm:ss"
+              ></el-date-picker>
+            </el-form-item>
+
+
+          </el-col>
+        </el-row>
+
+        <el-card>
+          <div v-for="(column, index) in columns" :key="index" v-if="column.visible">
+            {{ column.label }}: {{ form[column.key] }}
+          </div>
+        </el-card>
+
+
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button type="primary" @click="submitForm">确 定</el-button>
@@ -397,7 +623,7 @@ import "@riophae/vue-treeselect/dist/vue-treeselect.css";
 
 export default {
   name: "User",
-  dicts: ['sys_normal_disable', 'sys_user_sex'],
+  dicts: ['sys_normal_disable', 'sys_user_sex','category','status','brand','filter','product_status','brand_owner'],
   components: { Treeselect },
   data() {
     return {
@@ -425,12 +651,17 @@ export default {
       initPassword: undefined,
       // 日期范围
       dateRange: [],
+      dateRange1: [], // 生产日期范围
+      dateRange2: [],// 录入时间范围
       // 岗位选项
       postOptions: [],
       // 角色选项
       roleOptions: [],
       // 表单参数
-      form: {},
+      form: {
+      },
+      entryTime: this.getCurrentDateTime,
+      intervalId: null, // 定时器ID
       defaultProps: {
         children: "children",
         label: "label"
@@ -454,24 +685,59 @@ export default {
       queryParams: {
         pageNum: 1,
         pageSize: 10,
-        userName: undefined,
-        status: undefined,
-        deptId: undefined
+        // userName: undefined,
+        // status: undefined,
+        // deptId: undefined
+        internalProductCode: undefined, // 内部编号
+        productName: undefined, // 产品名称
+        shipmentCode: undefined, // 发货编码
+        productStatus: undefined, // 产品状态
+        category: undefined, // 品类
+        specifications: undefined, // 规格
+        brandOwner: undefined, // 品牌方
+        status: undefined, // 状态
+        productionStartDate: undefined,
+        productionEndDate: undefined,
+        entryStartDate: undefined,
+        entryEndDate: undefined
       },
       // 列信息
       columns: [
-        { key: 0, label: `结算日期`, visible: true },
-        { key: 1, label: `日期`, visible: true },
-        { key: 2, label: `订单号`, visible: true },
-        { key: 3, label: `产品名称_详细信息`, visible: true },
-        { key: 4, label: `账款`, visible: true },
-        { key: 5, label: `是否完成`, visible: true },
-        { key: 6, label: `支出收入`, visible: true },
-        { key: 7, label: `付款项目`, visible: true },
-        { key: 8, label: `备注`, visible: true },
-        { key: 9, label: `品牌方`, visible: true },
-        { key: 10, label: `出货方`, visible: true },
-        { key: 11, label: `处理人`, visible: true }
+        { key: 'entryTime', label: '录入时间', visible: true },
+        { key: 'productName', label: '产品名称', visible: true },
+        { key: 'internalProductCode', label: '内部商品编号', visible: true },
+        { key: 'shipmentCode', label: '发货编码', visible: true },
+        { key: 'specifications', label: '规格', visible: true },
+        { key: 'productionDate', label: '生产日期', visible: true },
+        { key: 'productSellingPoints', label: '产品卖点', visible: true },
+        { key: 'currentStock', label: '现货库存', visible: true },
+        { key: 'actualOrderTime', label: '实际返单时效', visible: true },
+        { key: 'returnAddress', label: '退货地址', visible: true },
+        { key: 'shippingDetails', label: '快递明细', visible: true },
+        { key: 'link', label: '链接', visible: true },
+        { key: 'status', label: '状态', visible: true },
+        { key: 'brand', label: '品牌', visible: true },
+        { key: 'filter', label: '筛选', visible: true },
+        { key: 'category', label: '品类', visible: true },
+        { key: 'remainingStock', label: '剩余库存', visible: true },
+        { key: 'afterSalesQuantity', label: '售后数量', visible: true },
+        { key: 'brandOwner', label: '品牌方', visible: true },
+        { key: 'productStatus', label: '产品状态', visible: true },
+        { key: 'purchasePrice', label: '采购价', visible: true },
+        { key: 'shippingCost', label: '运费', visible: true },
+        { key: 'shippingPriceChain', label: '出货价_链', visible: true },
+        { key: 'shippingPriceDropship', label: '出货价_代发', visible: true },
+        { key: 'shippingPriceDetailedDropship', label: '出货价_详细代发', visible: true },
+        { key: 'purchaseNotes', label: '采购_注意事项', visible: true },
+        { key: 'shippingNotes', label: '出货_注意事项', visible: true },
+        { key: 'publicListingPriceTmallTaobaoJd', label: '公域挂价_天猫_淘宝_京东', visible: true },
+        { key: 'pinduoduoListingPrice', label: '拼多多挂价', visible: true },
+        { key: 'privateGroupBuyPrice', label: '私域_团购_快团等', visible: true },
+        { key: 'liveStreamPrice', label: '直播挂价_专属价_日常改原价', visible: true },
+        { key: 'shippingPriceTier1', label: '出货价_1档', visible: true },
+        { key: 'shippingPriceTier2', label: '出货价_2档', visible: true },
+        { key: 'dropshipShippingPrice', label: '代发出货价', visible: true },
+        { key: 'alibabaListingPrice', label: '阿里挂价', visible: true },
       ],
       // 表单校验
       rules: {
@@ -495,22 +761,102 @@ export default {
     this.getConfigKey("sys.user.initPassword").then(response => {
       this.initPassword = response.msg;
     });
+    // 启动定时器，每秒更新一次时间
+    this.intervalId = setInterval(() => {
+      // this.form.entryTime = this.getCurrentDateTime();
+      this.$set(this.form, "entryTime", this.getCurrentDateTime());
+    }, 1000);
   },
 
   beforeDestroy() {
+    // 在组件销毁前清除定时器
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
     window.removeEventListener('scroll', this.handleScroll);
-  },
+  }
+  ,
   methods: {
+
+    getCurrentDateTime() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+    }
+  ,
     /** 查询用户列表 */
     getList() {
+
+      // 确保 dateRange1 和 dateRange2 是数组
+      if (Array.isArray(this.dateRange1) && this.dateRange1.length) {
+        this.queryParams.productionStartDate = this.dateRange1[0];
+        this.queryParams.productionEndDate = this.dateRange1[1];
+      } else {
+        this.queryParams.productionStartDate = undefined;
+        this.queryParams.productionEndDate = undefined;
+      }
+
+      if (Array.isArray(this.dateRange2) && this.dateRange2.length) {
+        this.queryParams.entryStartDate = this.dateRange2[0];
+        this.queryParams.entryEndDate = this.dateRange2[1];
+      } else {
+        this.queryParams.entryStartDate = undefined;
+        this.queryParams.entryEndDate = undefined;
+      }
+
       this.loading = true;
-      listProduct(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
+      // listProduct(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
+      listProduct(this.queryParams).then(response => {
           this.userList = response.rows;
           this.total = response.total;
           this.loading = false;
+        // 在数据获取成功后进行过滤
+        this.applyFilter();
         }
-      );
+      ).catch(() => {
+        this.loading = false;
+      });
+
     },
+    applyFilter() {
+      if (!this.queryParams.filterAttribute || !this.queryParams.filterCondition || !this.queryParams.filterValue) {
+        return;
+      }
+
+      console.log(this.queryParams.financialRecordList);
+      const filterAttr = this.columns.find(col => col.key === this.queryParams.filterAttribute)?.key;
+
+      if (!filterAttr) return;
+
+      this.financialRecordList = this.financialRecordList.filter(item => {
+        const value = item[filterAttr];
+        if (value === undefined || value === null) return false;  // 处理值不存在的情况
+        switch (this.queryParams.filterCondition) {
+          case 'contains':
+            return value.includes(this.queryParams.filterValue);
+          case 'equals':
+            return value === this.queryParams.filterValue;
+          case 'startsWith':
+            return value.startsWith(this.queryParams.filterValue);
+          case 'endsWith':
+            return value.endsWith(this.queryParams.filterValue);
+          case 'isEmpty':
+            return value === '';
+          case 'isNotEmpty':
+            return value !== '';
+          default:
+            return true;
+        }
+      });
+
+
+    },
+
 
     // 用户状态修改
     handleStatusChange(row) {
@@ -552,14 +898,16 @@ export default {
     /** 重置按钮操作 */
     resetQuery() {
       this.dateRange = [];
+      this.dateRange1=[];
+      this.dateRange2=[];
       this.resetForm("queryForm");
-      this.queryParams.deptId = undefined;
-      this.$refs.tree.setCurrentKey(null);
+      // this.queryParams.deptId = undefined;
+      // this.$refs.tree.setCurrentKey(null);
       this.handleQuery();
     },
     // 多选框选中数据
     handleSelectionChange(selection) {
-      this.ids = selection.map(item => item.userId);
+      this.ids = selection.map(item => item.productId);
       this.single = selection.length != 1;
       this.multiple = !selection.length;
     },
@@ -579,65 +927,34 @@ export default {
     /** 新增按钮操作 */
     handleAdd() {
       this.reset();
-      getUser().then(response => {
-        this.postOptions = response.posts;
-        this.roleOptions = response.roles;
+
         this.open = true;
-        this.title = "添加用户";
-        this.form.password = this.initPassword;
-      });
+        this.title = "添加产品信息";
+
     },
     /** 修改按钮操作 */
     handleUpdate(row) {
       this.reset();
-      const userId = row.userId || this.ids;
-      getUser(userId).then(response => {
+      const userId = row.productId || this.ids;
+      getProduct(userId).then(response => {
         this.form = response.data;
-        this.postOptions = response.posts;
-        this.roleOptions = response.roles;
-        this.$set(this.form, "postIds", response.postIds);
-        this.$set(this.form, "roleIds", response.roleIds);
         this.open = true;
-        this.title = "修改用户";
-        this.form.password = "";
+        this.title = "修改产品信息";
       });
     },
-    /** 重置密码按钮操作 */
-    handleResetPwd(row) {
-      this.$prompt('请输入"' + row.userName + '"的新密码', "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        closeOnClickModal: false,
-        inputPattern: /^.{5,20}$/,
-        inputErrorMessage: "用户密码长度必须介于 5 和 20 之间",
-        inputValidator: (value) => {
-          if (/<|>|"|'|\||\\/.test(value)) {
-            return "不能包含非法字符：< > \" ' \\\ |"
-          }
-        },
-      }).then(({ value }) => {
-        resetUserPwd(row.userId, value).then(response => {
-          this.$modal.msgSuccess("修改成功，新密码是：" + value);
-        });
-      }).catch(() => {});
-    },
-    /** 分配角色操作 */
-    handleAuthRole: function(row) {
-      const userId = row.userId;
-      this.$router.push("/system/user-auth/role/" + userId);
-    },
+
     /** 提交按钮 */
     submitForm: function() {
       this.$refs["form"].validate(valid => {
         if (valid) {
-          if (this.form.userId != undefined) {
-            updateUser(this.form).then(response => {
+          if (this.form.productId != undefined) {
+            updateProduct(this.form).then(response => {
               this.$modal.msgSuccess("修改成功");
               this.open = false;
               this.getList();
             });
           } else {
-            addUser(this.form).then(response => {
+            addProduct(this.form).then(response => {
               this.$modal.msgSuccess("新增成功");
               this.open = false;
               this.getList();
@@ -648,7 +965,7 @@ export default {
     },
     /** 删除按钮操作 */
     handleDelete(row) {
-      const userIds = row.id || this.ids;
+      const userIds = row.productId || this.ids;
       this.$modal.confirm('是否确认删除用户编号为"' + userIds + '"的数据项？').then(function() {
         return delProduct(userIds);
       }).then(() => {
@@ -658,9 +975,22 @@ export default {
     },
     /** 导出按钮操作 */
     handleExport() {
-      this.download('system/user/export', {
-        ...this.queryParams
-      }, `user_${new Date().getTime()}.xlsx`)
+      // this.download('manage/Product/export', {
+      //   ...this.queryParams
+      // }, `user_${new Date().getTime()}.xlsx`)
+
+      // 获取隐藏的列
+      const hiddenColumns = this.columns.filter(column => !column.visible).map(column => column.key);
+
+      // 构建请求参数
+      const params = {
+        ...this.queryParams,
+        hiddenColumns
+      };
+      console.log(typeof params)
+
+      // 调用下载方法
+      this.download('manage/Product/export', params, `产品信息数据_${new Date().getTime()}.xlsx`);
     },
     /** 导入按钮操作 */
     handleImport() {
@@ -696,6 +1026,19 @@ export default {
 .el-table__body-wrapper {
   max-height: calc(100vh - 350px); /* 设置表格体的最大高度，留出搜索条件和底部pagination的空间 */
   overflow-y: auto; /* 当内容超出容器高度时显示垂直滚动条 */
+}
+.demo-table-expand {
+  font-size: 0;
+  column-count: 3;
+}
+.demo-table-expand label {
+  width: 90px;
+  color: #2278d9;
+}
+.demo-table-expand .el-form-item {
+  margin-right: 0;
+  margin-bottom: 0;
+  width: 50%;
 }
 
 </style>

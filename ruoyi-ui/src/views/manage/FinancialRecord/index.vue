@@ -198,7 +198,8 @@
           <el-table-column label="订单号" align="center" key="orderNumber" prop="orderNumber" v-if="columns[2].visible" :show-overflow-tooltip="true" />
           <el-table-column label="产品名称_详细信息" align="center" key="productNameDetails" prop="productNameDetails" v-if="columns[3].visible" :show-overflow-tooltip="true" />
           <el-table-column label="账款" align="center" key="amount" prop="amount" v-if="columns[4].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="是否完成" align="center" key="isCompleted" prop="isCompleted" v-if="columns[5].visible" :show-overflow-tooltip="true" > <template slot-scope="scope">
+          <el-table-column label="是否完成" align="center" key="isCompleted" prop="isCompleted" v-if="columns[5].visible" :show-overflow-tooltip="true" >
+            <template slot-scope="scope">
             {{ dict.type.completed[scope.row.isCompleted] ? dict.type.completed[scope.row.isCompleted]["label"] : '空' }}
           </template>
           </el-table-column>
@@ -545,7 +546,9 @@ export default {
     // //   return label || cellValue; // 如果找到了对应的键，返回键值，否则返回原值回字典中对应的值，如果没有匹配项则返回原值
     // // },
     /** 查询用户列表 */
+
     getList() {
+
       this.loading = true;
 
       // 获取数据

@@ -16,14 +16,14 @@ public interface ProductMapper {
     int insert(Product product);
 
     // 更新产品记录
-    int update(Product product);
+    int updateProduct(Product product);
 
     // 根据产品ID删除记录
-    int deleteById(Long productId);
+    int deleteProductById(Long productId);
 
     // 根据多个产品ID删除记录
-    int deleteByIds(Long[] productIds);
+    int deleteProductByIds(Long[] productIds);
 
-    @Select("SELECT MAX(CONVERT(SUBSTRING_INDEX(internalProductCode, 'DW', -1), UNSIGNED)) FROM product_information")
+    @Select("SELECT MAX(CONVERT(SUBSTRING_INDEX(internal_product_code, 'DW', -1), UNSIGNED)) FROM product_information")
     String findMaxBianHao();
 }

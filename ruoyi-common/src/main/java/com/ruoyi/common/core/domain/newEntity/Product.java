@@ -1,5 +1,6 @@
 package com.ruoyi.common.core.domain.newEntity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.ruoyi.common.annotation.Excel;
 import com.ruoyi.common.core.domain.BaseEntity;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -13,6 +14,11 @@ public class Product extends BaseEntity {
     /** ID */
     @Excel(name = "ID")
     private Long productId;
+
+    /** 录入时间 */
+    @Excel(name = "录入时间", width = 30, dateFormat = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date entryTime;
 
     /** 产品名称 */
     @Excel(name = "产品名称")
@@ -163,9 +169,45 @@ public class Product extends BaseEntity {
     @Excel(name = "阿里挂价")
     private BigDecimal alibabaListingPrice;
 
-    /** 录入时间 */
-    @Excel(name = "录入时间", width = 30, dateFormat = "yyyy-MM-dd HH:mm:ss")
-    private Date entryTime;
+
+
+
+    private String entryStartDate;
+    private String entryEndDate;
+    private String productionStartDate;
+    private String productionEndDate;
+
+    public String getEntryStartDate() {
+        return entryStartDate;
+    }
+
+    public void setEntryStartDate(String entryStartDate) {
+        this.entryStartDate = entryStartDate;
+    }
+
+    public String getEntryEndDate() {
+        return entryEndDate;
+    }
+
+    public void setEntryEndDate(String entryEndDate) {
+        this.entryEndDate = entryEndDate;
+    }
+
+    public String getProductionStartDate() {
+        return productionStartDate;
+    }
+
+    public void setProductionStartDate(String productionStartDate) {
+        this.productionStartDate = productionStartDate;
+    }
+
+    public String getProductionEndDate() {
+        return productionEndDate;
+    }
+
+    public void setProductionEndDate(String productionEndDate) {
+        this.productionEndDate = productionEndDate;
+    }
 
     public Long getProductId() {
         return productId;

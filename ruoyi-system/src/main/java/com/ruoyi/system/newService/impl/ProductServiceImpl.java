@@ -59,17 +59,17 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public int update(Product product) {
-        return productMapper.update(product);
+        return productMapper.updateProduct(product);
     }
 
     @Override
     public int deleteById(Long productId) {
-        return productMapper.deleteById(productId);
+        return productMapper.deleteProductById(productId);
     }
 
     @Override
     public int deleteByIds(Long[] productIds) {
-        return productMapper.deleteByIds(productIds);
+        return productMapper.deleteProductByIds(productIds);
     }
 
 }

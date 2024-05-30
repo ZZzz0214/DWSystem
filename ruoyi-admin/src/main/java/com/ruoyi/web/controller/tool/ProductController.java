@@ -11,12 +11,15 @@ import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.system.newService.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
+import java.io.IOException;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * 产品表
@@ -30,18 +33,50 @@ public class ProductController extends BaseController {
     public TableDataInfo list(Product product)
     {
         startPage();
+        System.out.println(product);
         List<Product> list = productService.selectAll(product);
-        System.out.println(list);
+//        System.out.println(list);
         return getDataTable(list);
     }
 
-    @PostMapping("/export")
-    public void export(HttpServletResponse response, Product product)
-    {
+
+
+    @PostMapping(value = "/export")
+    public void export(HttpServletResponse response, Product product,@RequestParam Map<String, String> params) {
+        List<String> hiddenColumns = params.entrySet().stream()
+                .filter(entry -> entry.getKey().startsWith("hiddenColumns["))
+                .sorted(Comparator.comparingInt(entry -> Integer.parseInt(entry.getKey().replaceAll("[^0-9]", ""))))
+                .map(Map.Entry::getValue)
+                .collect(Collectors.toList());
+
+        System.out.println("Hidden Columns: " + hiddenColumns);
+
         List<Product> list = productService.selectAll(product);
-        ExcelUtil<Product> util = new ExcelUtil<Product>(Product.class);
+        // 使用ExcelUtil进行导出
+        ExcelUtil<Product> util = new ExcelUtil<>(Product.class);
+        if (!hiddenColumns.isEmpty()) {
+            System.out.println("Hidden : " + hiddenColumns.toArray(new String[0]));
+            util.hideColumn(hiddenColumns.toArray(new String[0])); // 隐藏列
+        }
         util.exportExcel(response, list, "产品信息数据");
     }
+
+
+
+//    @PostMapping(value = "/export")
+//    public void export(HttpServletResponse response, @ModelAttribute Product product,
+//                       @RequestParam("hiddenColumns") List<String> hiddenColumns)
+//    {
+//
+//        System.out.println(hiddenColumns);
+//        List<Product> list = productService.selectAll(product);
+//        ExcelUtil<Product> util = new ExcelUtil<Product>(Product.class);
+//        // 隐藏列
+////        if (hiddenColumns != null) {
+////            util.hideColumn(hiddenColumns.toArray(new String[0])); // 修改这一行
+////        }
+//        util.exportExcel(response, list, "产品信息数据");
+//    }
 
     @PostMapping("/importTemplate")
     public void importTemplate(HttpServletResponse response)
