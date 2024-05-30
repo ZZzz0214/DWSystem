@@ -216,7 +216,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
 
     <insert id="insertDropshipRecord" parameterType="com.ruoyi.common.core.domain.newEntity.DropshipRecord" useGeneratedKeys="true" keyProperty="recordId">
-        INSERT INTO dropshiprecords (
+        INSERT INTO dropship_records (
         <if test="orderNumber != null">order_number,</if>
         <if test="orderId != null">order_id,</if>
         <if test="logisticsCompany != null">logistics_company,</if>
@@ -297,7 +297,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         )
     </insert>
     <update id="updateDropshipRecord" parameterType="com.ruoyi.common.core.domain.newEntity.DropshipRecord">
-        UPDATE dropshiprecords
+        UPDATE dropship_records
         <set>
             <if test="orderNumber != null">order_number = #{orderNumber},</if>
             <if test="orderId != null">order_id = #{orderId},</if>
@@ -343,12 +343,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <!-- 根据ID删除单个DropshipRecord -->
     <delete id="deleteDropshipRecordById" parameterType="Long">
-        DELETE FROM dropshiprecords WHERE record_id = #{recordId}
+        DELETE FROM dropship_records WHERE record_id = #{recordId}
     </delete>
 
     <!-- 根据多个ID删除DropshipRecord -->
     <delete id="deleteDropshipRecordsByIds" parameterType="java.util.List">
-        DELETE FROM dropshiprecords WHERE record_id IN
+        DELETE FROM dropship_records WHERE record_id IN
         <foreach collection="list" item="recordId" open="(" separator="," close=")">
             #{recordId}
         </foreach>

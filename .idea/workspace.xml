@@ -4,21 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e46e3b0b-2b88-4f5d-b8c7-1ae0ef89e502" name="更改" comment="完成前端快团表和售后批发表  增加了展开行的设置 修改了部分后端@param注解的问题">
+    <list default="true" id="e46e3b0b-2b88-4f5d-b8c7-1ae0ef89e502" name="更改" comment="完成了产品信息表">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/tool/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/tool/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/tool/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/tool/ProductController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/ProductMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/ProductMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/23ee9c5638f6c0c81fb81be5383c7a79.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/23ee9c5638f6c0c81fb81be5383c7a79.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/3346b7bcc9b0084ee5f87a8eda34b6e1.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/3346b7bcc9b0084ee5f87a8eda34b6e1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/371d25f340002d73082ef0b1f2cc4ebf.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/371d25f340002d73082ef0b1f2cc4ebf.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/5225d4761a9a2430df5bdf8dd9cad0fc.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/5225d4761a9a2430df5bdf8dd9cad0fc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/5a26dd0a4d2bd9c1677aad92c48e20d2.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/5a26dd0a4d2bd9c1677aad92c48e20d2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/d5afc0a400abc033d32f2f4667e35f9d.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/d5afc0a400abc033d32f2f4667e35f9d.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/api/manage/productInformation.js" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/api/manage/product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/assets/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/assets/styles/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/views/manage/FinancialRecord/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/views/manage/FinancialRecord/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/views/manage/productInformation/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/views/manage/Product/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/mapper/DropshipRecordMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/mapper/DropshipRecordMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/mapper/FilterTableMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/mapper/FilterTableMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/DropshipRecordMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/DropshipRecordMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/com/ruoyi/system/mapper/DropshipRecordMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/com/ruoyi/system/mapper/DropshipRecordMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/com/ruoyi/system/mapper/FilterTableMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/com/ruoyi/system/mapper/FilterTableMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/newSystem/DropshipRecordMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/newSystem/DropshipRecordMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/newSystem/ProductMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/newSystem/ProductMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/95da00668e7d63059ca17808a36b284e.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/95da00668e7d63059ca17808a36b284e.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/1b26573af677aba6d26e68942d2d218a.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/1b26573af677aba6d26e68942d2d218a.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/51ac0849ec4e2f5f0c863022bb61a732.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/51ac0849ec4e2f5f0c863022bb61a732.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/93102cb80becf1b96c9cf55dcdca1f69.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/93102cb80becf1b96c9cf55dcdca1f69.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/d800e01466748cac0d62a4a7343367e3.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/d800e01466748cac0d62a4a7343367e3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/f8929e815391ee8e14f1d8cdb73111b6.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/f8929e815391ee8e14f1d8cdb73111b6.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/views/manage/DropshipRecord/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/views/manage/DropshipRecord/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/views/manage/FilterTable/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/views/manage/FilterTable/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,34 +85,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.ruoyi [clean].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.RuoYiApplication.executor": "Run",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "first",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/项目文件/DWSystem/ruoyi-ui/src/views/system/user",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.dev.executor": "Run",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "79d6ce39730bcb0bc093948bea475e34",
-    "ts.external.directory.path": "E:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.ruoyi [clean].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.RuoYiApplication.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;first&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/项目文件/DWSystem/ruoyi-ui/src/views/system/user&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;79d6ce39730bcb0bc093948bea475e34&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;E:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -120,6 +122,8 @@
       <recent name="D:\项目文件\DWSystem\ruoyi-system\src\main\resources\mapper\newSystem" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\项目文件\DWSystem\ruoyi-ui\src\views\manage\FilterTable" />
+      <recent name="D:\项目文件\DWSystem\ruoyi-ui\src\views\manage\DropshipRecord" />
       <recent name="D:\项目文件\DWSystem\ruoyi-admin\src\main\java" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -208,7 +212,8 @@
       <workItem from="1716876657760" duration="5099000" />
       <workItem from="1716898732172" duration="7918000" />
       <workItem from="1716957582884" duration="5029000" />
-      <workItem from="1716986866276" duration="10304000" />
+      <workItem from="1716986866276" duration="10571000" />
+      <workItem from="1717030471454" duration="2998000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1715672587273</created>
@@ -287,7 +292,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716993587612</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="完成了产品信息表">
+      <option name="closed" value="true" />
+      <created>1716998831871</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1716998831871</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,6 +339,7 @@
     <MESSAGE value="改了一些 实体类引用错误的小毛病 可以正常运行了" />
     <MESSAGE value="全部接口已完成" />
     <MESSAGE value="完成前端快团表和售后批发表  增加了展开行的设置 修改了部分后端@param注解的问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成前端快团表和售后批发表  增加了展开行的设置 修改了部分后端@param注解的问题" />
+    <MESSAGE value="完成了产品信息表" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成了产品信息表" />
   </component>
 </project>

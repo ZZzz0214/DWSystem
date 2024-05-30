@@ -7,17 +7,17 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 public interface DropshipRecordMapper {
-    List<DropshipRecord> selectAllDropshipRecords(@Param("dropshipRecord") DropshipRecord dropshipRecord);
+    List<DropshipRecord> selectAllDropshipRecords( DropshipRecord dropshipRecord);
 
-    DropshipRecord selectDropshipRecordById(@Param("recordId") Long recordId);
+    DropshipRecord selectDropshipRecordById( Long recordId);
 
-    int insertDropshipRecord(@Param("dropshipRecord") DropshipRecord dropshipRecord);
+    int insertDropshipRecord( DropshipRecord dropshipRecord);
 
-    int updateDropshipRecord(@Param("dropshipRecord") DropshipRecord dropshipRecord);
+    int updateDropshipRecord( DropshipRecord dropshipRecord);
 
-    int deleteDropshipRecordById(@Param("recordId") Long recordId);
+    int deleteDropshipRecordById( Long recordId);
 
-    int deleteDropshipRecordsByIds(@Param("recordIds") Long[] recordIds);
+    int deleteDropshipRecordsByIds( Long[] recordIds);
     @Select("SELECT orderNumber FROM dropship_records WHERE orderNumber LIKE CONCAT('DF_', #{date}, '%') ORDER BY id DESC LIMIT 1")
     String findTopBianHaoByDate(@Param("date") String date);
 }

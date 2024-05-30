@@ -1,97 +1,84 @@
 <template>
-  <div class="app-container" >
+  <div class="app-container">
 
-    <el-row :gutter="20" >
+    <el-row :gutter="24">
       <!--财务数据-->
-      <el-col >
-        <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="100px">
-          <el-form-item label="订单编号" prop="order_number">
+      <el-col>
+        <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch"
+                 label-width="100px">
+          <el-form-item label="订单编号" prop="orderNumber">
             <el-input
-              v-model="queryParams.order_number"
+              v-model="queryParams.orderNumber"
               placeholder="请输入订单编号"
               clearable
-              style="width: 240px"
+              style="width: 200px"
               @keyup.enter.native="handleQuery"
             />
           </el-form-item>
-          <el-form-item label="物流公司" prop="logistics_company">
+          <el-form-item label="物流公司" prop="logisticsCompany">
             <el-input
-              v-model="queryParams.logistics_company"
+              v-model="queryParams.logisticsCompany"
               placeholder="请输入物流公司"
               clearable
-              style="width: 240px"
+              style="width: 200px"
               @keyup.enter.native="handleQuery"
             >
             </el-input>
           </el-form-item>
-          <el-form-item label="收货人" prop="recipient_name">
+          <el-form-item label="收货人" prop="recipientName">
             <el-select
-              v-model="queryParams.recipient_name"
+              v-model="queryParams.recipientName"
               placeholder="请输入收货人"
               clearable
-              style="width: 240px"
+              style="width: 200px"
             >
-              <el-option
-                v-for="dict in dict.type.completed"
-                :key="dict.value"
-                :label="dict.label"
-                :value="dict.value"
-              />
             </el-select>
           </el-form-item>
-          <el-form-item label="商品名称" prop="product_name">
+          <el-form-item label="商品名称" prop="productName">
             <el-input
-              v-model="queryParams.product_name"
+              v-model="queryParams.productName"
               placeholder="请输入商品名称"
               clearable
-              style="width: 240px"
+              style="width: 200px"
               @keyup.enter.native="handleQuery"
             />
           </el-form-item>
-          <el-form-item label="商品编码" prop="product_code">
+          <el-form-item label="商品编码" prop="productCode">
             <el-input
-              v-model="queryParams.product_code"
+              v-model="queryParams.productCode"
               placeholder="请输入商品编码"
               clearable
-              style="width: 240px"
+              style="width: 200px"
               @keyup.enter.native="handleQuery"
             >
             </el-input>
           </el-form-item>
-          <el-form-item label="订单号" prop="order_id">
+          <el-form-item label="订单号" prop="orderId">
             <el-input
-              v-model="queryParams.order_id"
+              v-model="queryParams.orderId"
               placeholder="请输入订单号"
               clearable
-              style="width: 240px"
+              style="width: 200px"
               @keyup.enter.native="handleQuery"
             >
             </el-input>
           </el-form-item>
-          <el-form-item label="物流单号" prop="tracking_number">
+          <el-form-item label="物流单号" prop="trackingNumber">
             <el-input
-              v-model="queryParams.tracking_number"
+              v-model="queryParams.trackingNumber"
               placeholder="请输入物流单号"
               clearable
-              style="width: 240px"
+              style="width: 200px"
               @keyup.enter.native="handleQuery"
             />
           </el-form-item>
-          <el-form-item label="处理人" prop="handler">
+
+          <el-form-item label="联系电话" prop="recipientPhone">
             <el-input
-              v-model="queryParams.handler"
-              placeholder="请输入处理人"
-              clearable
-              style="width: 240px"
-              @keyup.enter.native="handleQuery"
-            />
-          </el-form-item>
-          <el-form-item label="联系电话" prop="recipient_phone">
-            <el-input
-              v-model="queryParams.recipient_phone"
+              v-model="queryParams.recipientPhone"
               placeholder="请输入联系电话"
               clearable
-              style="width: 240px"
+              style="width: 200px"
               @keyup.enter.native="handleQuery"
             />
           </el-form-item>
@@ -100,7 +87,7 @@
               v-model="queryParams.specifications"
               placeholder="请输入规格"
               clearable
-              style="width: 240px"
+              style="width: 200px"
               @keyup.enter.native="handleQuery"
             />
           </el-form-item>
@@ -109,25 +96,16 @@
               v-model="queryParams.leader"
               placeholder="请输入团长"
               clearable
-              style="width: 240px"
+              style="width: 200px"
               @keyup.enter.native="handleQuery"
             />
           </el-form-item>
-          <el-form-item label="团长" prop="leader">
+          <el-form-item label="内部商品编号" prop="internalProductCode">
             <el-input
-              v-model="queryParams.leader"
-              placeholder="请输入团长"
-              clearable
-              style="width: 240px"
-              @keyup.enter.native="handleQuery"
-            />
-          </el-form-item>
-          <el-form-item label="内部商品编号" prop="internal_product_code">
-            <el-input
-              v-model="queryParams.internal_product_code"
+              v-model="queryParams.internalProductCode"
               placeholder="请输入内部商品编号"
               clearable
-              style="width: 240px"
+              style="width: 200px"
               @keyup.enter.native="handleQuery"
             />
           </el-form-item>
@@ -136,16 +114,16 @@
               v-model="queryParams.filter"
               placeholder="请输入筛选条件"
               clearable
-              style="width: 240px"
+              style="width: 200px"
               @keyup.enter.native="handleQuery"
             />
           </el-form-item>
-          <el-form-item label="产品名称" prop="product_name_details">
+          <el-form-item label="产品名称" prop="productNameDetails">
             <el-input
-              v-model="queryParams.product_name_details"
+              v-model="queryParams.productNameDetails"
               placeholder="请输入产品名称"
               clearable
-              style="width: 240px"
+              style="width: 200px"
               @keyup.enter.native="handleQuery"
             />
           </el-form-item>
@@ -154,14 +132,14 @@
               v-model="queryParams.brand"
               placeholder="请输入品牌方"
               clearable
-              style="width: 240px"
+              style="width: 200px"
               @keyup.enter.native="handleQuery"
             />
           </el-form-item>
           <el-form-item label="日期">
             <el-date-picker
               v-model="dateRange"
-              style="width: 240px"
+              style="width: 200px"
               value-format="yyyy-MM-dd"
               type="daterange"
               range-separator="-"
@@ -170,13 +148,14 @@
             ></el-date-picker>
           </el-form-item>
           <el-form-item label="筛选属性" prop="filterAttribute">
-            <el-select v-model="queryParams.filterAttribute" clearable placeholder="选择属性"   style="width: 240px">
-              <el-option v-for="column in columns" :key="column.key" :label="column.label" :value="column.key"></el-option>
+            <el-select v-model="queryParams.filterAttribute" clearable placeholder="选择属性" style="width: 200px">
+              <el-option v-for="column in columns" :key="column.key" :label="column.label"
+                         :value="column.key"></el-option>
             </el-select>
           </el-form-item>
           <!-- 筛选条件选择框 -->
           <el-form-item label="筛选条件" prop="filterCondition">
-            <el-select v-model="queryParams.filterCondition"  clearable placeholder="选择条件"  style="width: 240px">
+            <el-select v-model="queryParams.filterCondition" clearable placeholder="选择条件" style="width: 200px">
               <el-option label="包含" value="contains"></el-option>
               <el-option label="等于" value="equals"></el-option>
               <el-option label="开头是" value="startsWith"></el-option>
@@ -191,7 +170,7 @@
               v-model="queryParams.filterValue"
               placeholder="请输入筛选值"
               clearable
-              style="width: 240px"
+              style="width: 200px"
               @keyup.enter.native="handleQuery"
             />
           </el-form-item>
@@ -211,7 +190,8 @@
               size="mini"
               @click="handleAdd"
               v-hasPermi="['manage:FinancialRecord:add']"
-            >新增</el-button>
+            >新增
+            </el-button>
           </el-col>
           <el-col :span="1.5">
             <el-button
@@ -222,7 +202,8 @@
               :disabled="single"
               @click="handleUpdate"
               v-hasPermi="['system:user:edit']"
-            >修改</el-button>
+            >修改
+            </el-button>
           </el-col>
           <el-col :span="1.5">
             <el-button
@@ -233,7 +214,8 @@
               :disabled="multiple"
               @click="handleDelete"
               v-hasPermi="['system:user:remove']"
-            >删除</el-button>
+            >删除
+            </el-button>
           </el-col>
           <el-col :span="1.5">
             <el-button
@@ -243,7 +225,8 @@
               size="mini"
               @click="handleImport"
               v-hasPermi="['system:user:import']"
-            >导入</el-button>
+            >导入
+            </el-button>
           </el-col>
           <el-col :span="1.5">
             <el-button
@@ -253,40 +236,66 @@
               size="mini"
               @click="handleExport"
               v-hasPermi="['system:user:export']"
-            >导出</el-button>
+            >导出
+            </el-button>
           </el-col>
           <right-toolbar :showSearch.sync="showSearch" @queryTable="getList" :columns="columns"></right-toolbar>
         </el-row>
 
         <el-table v-loading="loading" :data="financialRecordList" @selection-change="handleSelectionChange">
-          <el-table-column type="selection" width="50" align="center" />
-          <el-table-column label="编号" align="center" key="bianHao" prop="bianHao" v-if="columns[12].visible" />
-          <el-table-column label="结算日期" align="center" key="settlementDate" prop="settlementDate" v-if="columns[0].visible" />
-          <el-table-column label="日期" align="center" prop="date" v-if="columns[1].visible"  width="180">
-            <template slot-scope="scope">
-              <span>{{ parseTime(scope.row.date) }}</span> <!-- 格式化后的数据 -->
-            </template>
-          </el-table-column>
-          <el-table-column label="订单号" align="center" key="orderNumber" prop="orderNumber" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="产品名称_详细信息" align="center" key="productNameDetails" prop="productNameDetails" v-if="columns[3].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="账款" align="center" key="amount" prop="amount" v-if="columns[4].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="是否完成" align="center" key="isCompleted" prop="isCompleted" v-if="columns[5].visible" :show-overflow-tooltip="true" > <template slot-scope="scope">
-            {{ dict.type.completed[scope.row.isCompleted] ? dict.type.completed[scope.row.isCompleted]["label"] : '空' }}
-          </template>
-          </el-table-column>
-          <el-table-column label="支出收入" align="center" key="incomeExpense" prop="incomeExpense" v-if="columns[6].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="付款项目" align="center" key="paymentItem" prop="paymentItem" v-if="columns[7].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="备注" align="center" key="remarks" prop="remarks" v-if="columns[8].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="品牌方" align="center" key="brand" prop="brand" v-if="columns[9].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="出货方" align="center" key="supplier" prop="supplier" v-if="columns[10].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="处理人" align="center" key="handler" prop="handler" v-if="columns[11].visible" :show-overflow-tooltip="true" />
+          <el-table-column type="selection" width="50" align="center"/>
+<!--          <el-table-column label="编号" align="center" key="bianHao" prop="bianHao" v-if="columns[12].visible"/>-->
+          <el-table-column label="订单编号" align="center" key="orderNumber" prop="orderNumber" v-if="columns[0].visible"/>
+          <el-table-column label="订单号" align="center" key="orderId" prop="orderId" v-if="columns[1].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="物流公司" align="center" key="logisticsCompany" prop="logisticsCompany" v-if="columns[2].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="物流单号" align="center" key="trackingNumber" prop="trackingNumber" v-if="columns[3].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="收货人" align="center" key="recipientName" prop="recipientName" v-if="columns[4].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="联系电话" align="center" key="recipientPhone" prop="recipientPhone" v-if="columns[5].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="详细地址" align="center" key="address" prop="address" v-if="columns[6].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="商品名称" align="center" key="productName" prop="productName" v-if="columns[7].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="规格" align="center" key="specifications" prop="specifications" v-if="columns[8].visible":show-overflow-tooltip="true"/>
+          <el-table-column label="数量" align="center" key="quantity" prop="quantity" v-if="columns[9].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="商品编码" align="center" key="productCode" prop="productCode" v-if="columns[10].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="团员备注" align="center" key="memberRemarks" prop="memberRemarks" v-if="columns[11].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="团长" align="center" key="leader" prop="leader" v-if="columns[12].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="筛选" align="center" key="filter" prop="filter" v-if="columns[13].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="日期" align="center" key="date" prop="date" v-if="columns[14].visible" :show-overflow-tooltip="true">
+                      <template slot-scope="scope">
+                        <span>{{ parseTime(scope.row.date) }}</span> <!-- 格式化后的数据 -->
+                      </template>
+                    </el-table-column>
+          <el-table-column label="产品名称" align="center" key="productNameDetails" prop="productNameDetails" v-if="columns[15].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="倍数" align="center" key="multiplier" prop="multiplier" v-if="columns[16].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="备注" align="center" key="remarks" prop="remarks" v-if="columns[17].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="内部商品编号" align="center" key="internalProductCode" prop="internalProductCode" v-if="columns[18].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="货数" align="center" key="stockQuantity" prop="stockQuantity" v-if="columns[19].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="品牌方" align="center" key="brand" prop="brand" v-if="columns[20].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="采购价" align="center" key="purchasePrice" prop="purchasePrice" v-if="columns[21].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="采购_运费" align="center" key="purchaseShippingFee" prop="purchaseShippingFee" v-if="columns[22].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="采购_其他费" align="center" key="purchaseOtherFee" prop="purchaseOtherFee" v-if="columns[23].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="采购_总额" align="center" key="purchaseTotalAmount" prop="purchaseTotalAmount" v-if="columns[24].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="采购_检查" align="center" key="purchaseInspection" prop="purchaseInspection" v-if="columns[25].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="采购_状况" align="center" key="purchaseStatus" prop="purchaseStatus" v-if="columns[26].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="采购_备注" align="center" key="purchaseRemarks" prop="purchaseRemarks" v-if="columns[27].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="出货价" align="center" key="sellingPrice" prop="sellingPrice" v-if="columns[28].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="出货_运费" align="center" key="sellingShippingFee" prop="sellingShippingFee" v-if="columns[29].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="出货_其他费" align="center" key="sellingOtherFee" prop="sellingOtherFee" v-if="columns[30].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="出货_总额" align="center" key="sellingTotalAmount" prop="sellingTotalAmount" v-if="columns[31].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="出货_检查" align="center" key="sellingInspection" prop="sellingInspection" v-if="columns[32].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="出货_状况" align="center" key="sellingStatus" prop="sellingStatus" v-if="columns[33].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="出货_备注" align="center" key="sellingRemarks" prop="sellingRemarks" v-if="columns[34].visible" :show-overflow-tooltip="true"/>
+          <el-table-column label="利润" align="center" key="profit" prop="profit" v-if="columns[35].visible" :show-overflow-tooltip="true"/>
 
 
-          // 功能按钮  数据最后一列的操作
+          // 功能按钮 数据最后一列的操作
           <el-table-column label="操作" align="center" width="160" class-name="small-padding fixed-width">
             <template slot-scope="scope" v-if="scope.row.id !== 1">
-              <el-button size="mini" type="text" icon="el-icon-edit" @click="handleUpdate(scope.row)" v-hasPermi="['system:user:edit']">修改</el-button>
-              <el-button size="mini" type="text" icon="el-icon-delete" @click="handleDelete(scope.row)" v-hasPermi="['system:user:remove']">删除</el-button>
+              <el-button size="mini" type="text" icon="el-icon-edit" @click="handleUpdate(scope.row)"
+                         v-hasPermi="['system:user:edit']">修改
+              </el-button>
+              <el-button size="mini" type="text" icon="el-icon-delete" @click="handleDelete(scope.row)"
+                         v-hasPermi="['system:user:remove']">删除
+              </el-button>
             </template>
           </el-table-column>
 
@@ -311,7 +320,7 @@
         <el-row>
           <el-col :span="12">
             <el-form-item label="结算日期" prop="settlementDate">
-              <el-input v-model="form.settlementDate" placeholder="请输入结算日期" maxlength="30" />
+              <el-input v-model="form.settlementDate" placeholder="请输入结算日期" maxlength="30"/>
             </el-form-item>
           </el-col>
         </el-row>
@@ -320,7 +329,7 @@
             <el-form-item label="日期" prop="date">
               <el-date-picker
                 v-model="form.date"
-                style="width: 240px"
+                style="width: 200px"
                 value-format="yyyy-MM-dd"
                 type="date"
                 placeholder="请输入日期"
@@ -332,21 +341,21 @@
         <el-row>
           <el-col :span="12">
             <el-form-item label="订单号" prop="orderNumber">
-              <el-input v-model="form.orderNumber" placeholder="请输入订单号" maxlength="30" />
+              <el-input v-model="form.orderNumber" placeholder="请输入订单号" maxlength="30"/>
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="12">
             <el-form-item label="产品名称_详细信息" prop="productName">
-              <el-input v-model="form.productNameDetails" placeholder="请输入产品名称_详细信息" maxlength="30" />
+              <el-input v-model="form.productNameDetails" placeholder="请输入产品名称_详细信息" maxlength="30"/>
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="12">
             <el-form-item label="账款" prop="amount">
-              <el-input v-model="form.amount" placeholder="请输入账款" maxlength="30" />
+              <el-input v-model="form.amount" placeholder="请输入账款" maxlength="30"/>
             </el-form-item>
           </el-col>
         </el-row>
@@ -395,7 +404,7 @@
         <el-row>
           <el-col :span="12">
             <el-form-item label="备注" prop="remark">
-              <el-input v-model="form.remarks" placeholder="请输入备注" maxlength="30" />
+              <el-input v-model="form.remarks" placeholder="请输入备注" maxlength="30"/>
             </el-form-item>
           </el-col>
         </el-row>
@@ -416,14 +425,14 @@
         <el-row>
           <el-col :span="12">
             <el-form-item label="出货方" prop="supplier">
-              <el-input v-model="form.supplier" placeholder="请输入出货方" maxlength="30" />
+              <el-input v-model="form.supplier" placeholder="请输入出货方" maxlength="30"/>
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="12">
             <el-form-item label="处理人" prop="handler">
-              <el-input v-model="form.handler" placeholder="请输入处理人" maxlength="30" />
+              <el-input v-model="form.handler" placeholder="请输入处理人" maxlength="30"/>
             </el-form-item>
           </el-col>
         </el-row>
@@ -453,10 +462,13 @@
         <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
         <div class="el-upload__tip text-center" slot="tip">
           <div class="el-upload__tip" slot="tip">
-            <el-checkbox v-model="upload.updateSupport" /> 是否更新已经存在的财务数据
+            <el-checkbox v-model="upload.updateSupport"/>
+            是否更新已经存在的财务数据
           </div>
           <span>仅允许导入xls、xlsx格式文件。</span>
-          <el-link type="primary" :underline="false" style="font-size:12px;vertical-align: baseline;" @click="importTemplate">下载模板</el-link>
+          <el-link type="primary" :underline="false" style="font-size:12px;vertical-align: baseline;"
+                   @click="importTemplate">下载模板
+          </el-link>
         </div>
       </el-upload>
       <div slot="footer" class="dialog-footer">
@@ -470,16 +482,16 @@
 
 
 <script>
-import { listFinancialRecords,getFinancialRecords,addFinancialRecords,updateFinancialRecords,delFinancialRecords } from "@/api/manage/financialRecord";
-import { getToken } from "@/utils/auth";
+import {addDropshipRecord, delDropshipRecord, getDropshipRecord, listDropshipRecord, updateDropshipRecord} from "@/api/manage/dropshipRecord";
+import {getToken} from "@/utils/auth";
 import Treeselect from "@riophae/vue-treeselect";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
 
 
 export default {
-  name: "FinancialRecord",
-  dicts: ['sys_normal_disable', 'sys_user_sex','completed','expense_income','brand_owner','payment_item','expense_income'],
-  components: { Treeselect },
+  name: "DropshipRecord",
+  dicts: ['sys_normal_disable', 'sys_user_sex', 'completed', 'expense_income', 'brand_owner', 'payment_item', 'expense_income'],
+  components: {Treeselect},
   data() {
     return {
       // 遮罩层
@@ -527,7 +539,7 @@ export default {
         // 是否更新已经存在的用户数据
         updateSupport: 0,
         // 设置上传的请求头部
-        headers: { Authorization: "Bearer " + getToken() },
+        headers: {Authorization: "Bearer " + getToken()},
         // 上传的地址
         url: process.env.VUE_APP_BASE_API + "/system/user/importData"
       },
@@ -547,28 +559,51 @@ export default {
         brand: undefined,
         supplier: undefined,
         handler: undefined,
-        filterAttribute:undefined,
-        filterCondition:undefined,
-        filterValue:undefined,
-        bianHao:undefined
+        filterAttribute: undefined,
+        filterCondition: undefined,
+        filterValue: undefined,
+        bianHao: undefined
 
       },
 
       // 列信息
       columns: [
-        { key: 'settlementDate', label: '结算日期', visible: true },
-        { key: 'date', label: '日期', visible: true },
-        { key: 'orderNumber', label: '订单号', visible: true },
-        { key: 'productNameDetail', label: '产品名称_详细信息', visible: true },
-        { key: 'amount', label: '账款', visible: true },
-        { key: 'isCompleted', label: '是否完成', visible: true },
-        { key: 'incomeExpense', label: '支出收入', visible: true },
-        { key: 'paymentItem', label: '付款项目', visible: true },
-        { key: 'remark', label: '备注', visible: true },
-        { key: 'brand', label: '品牌方', visible: true },
-        { key: 'supplier', label: '出货方', visible: true },
-        { key: 'handler', label: '处理人', visible: true },
-        { key: 'bianHao', label: '编号', visible: true }
+        {key: 'orderNumber', label: '订单编号', visible: true}, // 修改 key 和 label
+        {key: 'orderId', label: '订单号', visible: true}, // 修改 key 和 label
+        {key: 'logisticsCompany', label: '物流公司', visible: true}, // 修改 key 和 label
+        {key: 'trackingNumber', label: '物流单号', visible: true}, // 修改 key 和 label
+        {key: 'recipientName', label: '收货人', visible: true}, // 修改 key 和 label
+        {key: 'recipientPhone', label: '联系电话', visible: true}, // 修改 key 和 label
+        {key: 'address', label: '详细地址', visible: true}, // 修改 key 和 label
+        {key: 'productName', label: '商品名称', visible: true}, // 修改 key 和 label
+        {key: 'specifications', label: '规格', visible: true}, // 修改 key 和 label
+        {key: 'quantity', label: '数量', visible: true}, // 修改 key 和 label
+        {key: 'productCode', label: '商品编码', visible: true}, // 修改 key 和 label
+        {key: 'memberRemarks', label: '团员备注', visible: true}, // 修改 key 和 label
+        {key: 'leader', label: '团长', visible: true}, // 修改 key 和 label
+        {key: 'filter', label: '筛选', visible: true}, // 修改 key 和 label
+        {key: 'date', label: '日期', visible: true}, // 修改 key 和 label
+        {key: 'productNameDetails', label: '产品名称', visible: true}, // 修改 key 和 label
+        {key: 'multiplier', label: '倍数', visible: true}, // 修改 key 和 label
+        {key: 'remarks', label: '备注', visible: true}, // 修改 key 和 label
+        {key: 'internalProductCode', label: '内部商品编号', visible: true}, // 修改 key 和 label
+        {key: 'stockQuantity', label: '货数', visible: true}, // 修改 key 和 label
+        {key: 'brand', label: '品牌方', visible: true}, // 修改 key 和 label
+        {key: 'purchasePrice', label: '采购价', visible: true}, // 修改 key 和 label
+        {key: 'purchaseShippingFee', label: '采购_运费', visible: true}, // 修改 key 和 label
+        {key: 'purchaseOtherFee', label: '采购_其他费', visible: true}, // 修改 key 和 label
+        {key: 'purchaseTotalAmount', label: '采购_总额', visible: true}, // 修改 key 和 label
+        {key: 'purchaseInspection', label: '采购_检查', visible: true}, // 修改 key 和 label
+        {key: 'purchaseStatus', label: '采购_状况', visible: true}, // 修改 key 和 label
+        {key: 'purchaseRemarks', label: '采购_备注', visible: true}, // 修改 key 和 label
+        {key: 'sellingPrice', label: '出货价', visible: true}, // 修改 key 和 label
+        {key: 'sellingShippingFee', label: '出货_运费', visible: true}, // 修改 key 和 label
+        {key: 'sellingOtherFee', label: '出货_其他费', visible: true}, // 修改 key 和 label
+        {key: 'sellingTotalAmount', label: '出货_总额', visible: true}, // 修改 key 和 label
+        {key: 'sellingInspection', label: '出货_检查', visible: true}, // 修改 key 和 label
+        {key: 'sellingStatus', label: '出货_状况', visible: true}, // 修改 key 和 label
+        {key: 'sellingRemarks', label: '出货_备注', visible: true}, // 修改 key 和 label
+        {key: 'profit', label: '利润', visible: true}// 修改 key 和 label
       ],
       // 表单校验
       rules: {
@@ -585,8 +620,8 @@ export default {
         //   { pattern: /^[^<>"'|\\]+$/, message: "不能包含非法字符：< > \" ' \\\ |", trigger: "blur" }
         // ]
         amount: [
-          { required: true, message: "价格不能为空", trigger: "blur" },
-          { pattern: /^\d+(\.\d+)?$/, message: "价格必须是数字", trigger: "blur" }
+          {required: true, message: "价格不能为空", trigger: "blur"},
+          {pattern: /^\d+(\.\d+)?$/, message: "价格必须是数字", trigger: "blur"}
         ]
 
       }
@@ -621,7 +656,7 @@ export default {
       this.loading = true;
 
       // 获取数据
-      listFinancialRecords(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
+      listDropshipRecord(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
         this.financialRecordList = response.rows;
         this.total = response.total;
         this.loading = false;
@@ -721,7 +756,7 @@ export default {
     /** 新增按钮操作 */
     handleAdd() {
       this.reset();
-      // getFinancialRecords().then(response => {
+      // getDropshipRecord().then(response => {
       this.open = true;
       this.title = "添加财务记录";
       // });
@@ -730,7 +765,7 @@ export default {
     handleUpdate(row) {
       this.reset();
       const idd = row.id || this.ids;
-      getFinancialRecords(idd).then(response => {
+      getDropshipRecord(idd).then(response => {
         this.form = response.data;
         console.log(response.data)
         this.open = true;
@@ -739,17 +774,17 @@ export default {
     },
 
     /** 提交按钮 */
-    submitForm: function() {
+    submitForm: function () {
       this.$refs["form"].validate(valid => {
         if (valid) {
           if (this.form.id != undefined) {
-            updateFinancialRecords(this.form).then(response => {
+            updateDropshipRecord(this.form).then(response => {
               this.$modal.msgSuccess("修改成功");
               this.open = false;
               this.getList();
             });
           } else {
-            addFinancialRecords(this.form).then(response => {
+            addDropshipRecord(this.form).then(response => {
               this.$modal.msgSuccess("新增成功");
               this.open = false;
               this.getList();
@@ -760,13 +795,14 @@ export default {
     },
     /** 删除按钮操作 */
     handleDelete(row) {
-      const FinancialRecordIds = row.id || this.ids;
-      this.$modal.confirm('是否确认删除财务编号为"' + FinancialRecordIds + '"的数据项？').then(function() {
-        return delFinancialRecords(FinancialRecordIds);
+      const DropshipRecordIds = row.id || this.ids;
+      this.$modal.confirm('是否确认删除财务编号为"' + DropshipRecordIds + '"的数据项？').then(function () {
+        return delDropshipRecord(DropshipRecordIds);
       }).then(() => {
         this.getList();
         this.$modal.msgSuccess("删除成功");
-      }).catch(() => {});
+      }).catch(() => {
+      });
     },
     /** 导出按钮操作 */
     handleExport() {
@@ -781,8 +817,7 @@ export default {
     },
     /** 下载模板操作 */
     importTemplate() {
-      this.download('system/user/importTemplate', {
-      }, `user_template_${new Date().getTime()}.xlsx`)
+      this.download('system/user/importTemplate', {}, `user_template_${new Date().getTime()}.xlsx`)
     },
     // 文件上传中处理
     handleFileUploadProgress(event, file, fileList) {
@@ -793,7 +828,7 @@ export default {
       this.upload.open = false;
       this.upload.isUploading = false;
       this.$refs.upload.clearFiles();
-      this.$alert("<div style='overflow: auto;overflow-x: hidden;max-height: 70vh;padding: 10px 20px 0;'>" + response.msg + "</div>", "导入结果", { dangerouslyUseHTMLString: true });
+      this.$alert("<div style='overflow: auto;overflow-x: hidden;max-height: 70vh;padding: 10px 20px 0;'>" + response.msg + "</div>", "导入结果", {dangerouslyUseHTMLString: true});
       this.getList();
     },
     // 提交上传文件
