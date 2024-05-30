@@ -4,47 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e46e3b0b-2b88-4f5d-b8c7-1ae0ef89e502" name="更改" comment="version1.0 完成前端所有表的显示内容">
+    <list default="true" id="e46e3b0b-2b88-4f5d-b8c7-1ae0ef89e502" name="更改" comment="version2.0 完成产品表所有内容">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/tool/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/tool/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/tool/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/tool/ProductController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-common/src/main/java/com/ruoyi/common/core/domain/newEntity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/src/main/java/com/ruoyi/common/core/domain/newEntity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/core/domain/newEntity/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/core/domain/newEntity/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/mapper/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/mapper/ProductMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/system/newService/impl/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/ProductMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/newSystem/ProductMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/com/ruoyi/system/mapper/ProductMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/com/ruoyi/system/mapper/ProductMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/com/ruoyi/system/newService/impl/ProductServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/com/ruoyi/system/newService/impl/ProductServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/newSystem/ProductMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/target/classes/mapper/newSystem/ProductMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/01b53145e827f8614478a34b28ecce26.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/01b53145e827f8614478a34b28ecce26.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/23ee9c5638f6c0c81fb81be5383c7a79.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/23ee9c5638f6c0c81fb81be5383c7a79.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/5cccfa50fd84018de35432ea9a8c8e2f.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/5cccfa50fd84018de35432ea9a8c8e2f.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/763b1b5c77b5cf7c7d81ea459c86b8f5.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/763b1b5c77b5cf7c7d81ea459c86b8f5.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/c10635ccac8c8891b6e1b793091cdfb8.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/babel-loader/c10635ccac8c8891b6e1b793091cdfb8.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/174f26830b59d0e7dd4ca37e7506f20e.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/174f26830b59d0e7dd4ca37e7506f20e.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/3346b7bcc9b0084ee5f87a8eda34b6e1.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/3346b7bcc9b0084ee5f87a8eda34b6e1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/371d25f340002d73082ef0b1f2cc4ebf.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/371d25f340002d73082ef0b1f2cc4ebf.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/5225d4761a9a2430df5bdf8dd9cad0fc.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/5225d4761a9a2430df5bdf8dd9cad0fc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/5a26dd0a4d2bd9c1677aad92c48e20d2.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/5a26dd0a4d2bd9c1677aad92c48e20d2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/661084ec9f32904a719928402210fab3.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/661084ec9f32904a719928402210fab3.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/744ffc203e5fbf08d5695e40a72a196f.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/744ffc203e5fbf08d5695e40a72a196f.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/74d4a6582500f5b257a01dd9d23806c4.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/74d4a6582500f5b257a01dd9d23806c4.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/a4d21179de2cd28190acb810c71ccca2.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/a4d21179de2cd28190acb810c71ccca2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/b2eba1c025caf2709ae827d138d00544.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/b2eba1c025caf2709ae827d138d00544.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/baf23d7a145fc03e3c7068e9ff695596.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/baf23d7a145fc03e3c7068e9ff695596.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/c60f3c31eb452b933dc54ced5ec6a064.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/c60f3c31eb452b933dc54ced5ec6a064.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/ca6cbadb762cb604c8a8a5aae3cf1878.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/ca6cbadb762cb604c8a8a5aae3cf1878.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/ce07950a3b4f02cbea8d1572ab3b2b27.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/ce07950a3b4f02cbea8d1572ab3b2b27.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/d5afc0a400abc033d32f2f4667e35f9d.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/d5afc0a400abc033d32f2f4667e35f9d.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/e3b3ef6578324fe8abd5ede13d86d0ff.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/e3b3ef6578324fe8abd5ede13d86d0ff.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/ea7db252688729124d10ff1231fcc8c8.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/ea7db252688729124d10ff1231fcc8c8.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/eda35a776c8d47bb4261dc4223b0c6e1.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/eda35a776c8d47bb4261dc4223b0c6e1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/f3ec1c609cec55135ae3cbbcb5dee11d.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/f3ec1c609cec55135ae3cbbcb5dee11d.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/fab53eec38d38d8010174e6e58b73e58.json" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/node_modules/.cache/vue-loader/fab53eec38d38d8010174e6e58b73e58.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/assets/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/assets/styles/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/components/RightToolbar/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/components/RightToolbar/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/views/manage/FinancialRecord/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/views/manage/FinancialRecord/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-ui/src/views/manage/Product/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-ui/src/views/manage/Product/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +198,7 @@
       <workItem from="1716898732172" duration="7918000" />
       <workItem from="1716957582884" duration="5029000" />
       <workItem from="1716986866276" duration="10571000" />
-      <workItem from="1717030471454" duration="36063000" />
+      <workItem from="1717030471454" duration="37466000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1715672587273</created>
@@ -332,7 +293,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717033767790</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="version2.0 完成产品表所有内容">
+      <option name="closed" value="true" />
+      <created>1717078077555</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1717078077556</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,6 +342,7 @@
     <MESSAGE value="完成前端快团表和售后批发表  增加了展开行的设置 修改了部分后端@param注解的问题" />
     <MESSAGE value="完成了产品信息表" />
     <MESSAGE value="version1.0 完成前端所有表的显示内容" />
-    <option name="LAST_COMMIT_MESSAGE" value="version1.0 完成前端所有表的显示内容" />
+    <MESSAGE value="version2.0 完成产品表所有内容" />
+    <option name="LAST_COMMIT_MESSAGE" value="version2.0 完成产品表所有内容" />
   </component>
 </project>
